@@ -221,8 +221,8 @@
                 });
 
                 map.on('click', function(e) {
-                    // Prevent map reset if clicking on a marker itself.
-                    if (e.originalEvent.target.classList.contains('ghibli-marker')) return;
+                    // Prevent map reset if clicking on a marker or its child elements.
+                    if (e.originalEvent.target.closest('.ghibli-marker')) return;
                     map.closePopup();
                     map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
                 });
