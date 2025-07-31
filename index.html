@@ -12,8 +12,9 @@
         to eliminate dependency on external CDNs. For this self-contained demonstration,
         the CDN links remain, but this represents the #1 architectural vulnerability.
     -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- VULN-H-001: Replaced CDN with local vendor files. -->
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <script src="vendor/leaflet/leaflet.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,6 +116,39 @@
         .leaflet-popup-content h3 { font-weight: 700; margin-bottom: 10px; font-size: 1.8rem; }
         .leaflet-popup-content p { font-weight: 400; margin: 0; font-size: 1rem; line-height: 1.5; }
         .leaflet-popup-tip-container { display: none; }
+
+        /* UX-L-001: Loading indicator styles */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* transform: translate(-50%, -50%); */
+            border: 8px solid var(--ghibli-sky-dark);
+            border-top: 8px solid var(--ghibli-green);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
+            z-index: 1001;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 <body>
@@ -125,10 +159,22 @@
         <button id="begin-button">Begin Exploring</button>
     </div>
 
-    <div id="map"></div>
+    <div id="map">
+        <div id="loader" class="loader" role="status" aria-live="polite">
+            <span class="sr-only">Loading map...</span>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+            // VULN-C-001: Simple HTML sanitizer to prevent XSS.
+            function sanitizeHTML(text) {
+                const temp = document.createElement('div');
+                temp.textContent = text;
+                return temp.innerHTML;
+            }
+
             const continents = [
                 { name: "North America", coords: [45, -100], zoom: 3.5, description: "A land of vast forests, towering cities, and grand canyons. 🌲🦅" },
                 { name: "South America", coords: [-15, -60], zoom: 3.5, description: "Home to the amazing Amazon rainforest and dancing mountains. 🦜⛰️" },
@@ -145,6 +191,8 @@
             let map;
 
             beginButton.addEventListener('click', function() {
+                // BUG-M-002: Disable button on click to prevent race conditions.
+                this.disabled = true;
                 welcomeScreen.classList.add('fade-out');
                 
                 // FIX: [BUG-003] Using 'transitionend' event for robust, decoupled animation handling.
@@ -157,6 +205,7 @@
             });
 
             function initializeMap() {
+                const loader = document.getElementById('loader');
                 map = L.map('map', {
                     zoomControl: false,
                     attributionControl: false,
@@ -167,10 +216,20 @@
                     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
                 });
 
-                L.tileLayer('https://tile.ghibli.xyz/ghibli/{z}/{x}/{y}.png', {
+                const tileLayer = L.tileLayer('https://tile.ghibli.xyz/ghibli/{z}/{x}/{y}.png', {
                     attribution: 'Map tiles by Studio Ghibli, Data by OpenStreetMap',
                     crossOrigin: true
-                }).addTo(map);
+                });
+
+                // UX-L-001: Show loader when tiles are loading, hide when done.
+                tileLayer.on('loading', function() {
+                    loader.style.display = 'block';
+                });
+                tileLayer.on('load', function() {
+                    loader.style.display = 'none';
+                });
+
+                tileLayer.addTo(map);
 
                 L.control.attribution({ position: 'bottomleft', prefix: '' }).addTo(map);
                 
@@ -186,7 +245,10 @@
 
                     const marker = L.marker(continent.coords, { icon: ghibliIcon }).addTo(map);
 
-                    const popupContent = `<h3>${continent.name}</h3><p>${continent.description}</p>`;
+                    // VULN-C-001: Sanitize dynamic content to prevent XSS.
+                    const sanitizedName = sanitizeHTML(continent.name);
+                    const sanitizedDesc = sanitizeHTML(continent.description);
+                    const popupContent = `<h3>${sanitizedName}</h3><p>${sanitizedDesc}</p>`;
 
                     // Bind popup and add event listener to handle propagation.
                     marker.bindPopup(popupContent, { offset: [0, -15], closeButton: false })
@@ -223,6 +285,12 @@
                 map.on('click', function(e) {
                     // Prevent map reset if clicking on a marker or its child elements.
                     if (e.originalEvent.target.closest('.ghibli-marker')) return;
+
+                    // BUG-M-001: Aggressively remove any pending 'moveend' listeners
+                    // to prevent a race condition where a popup opens after the map
+                    // has already started flying back to the center.
+                    map.off('moveend');
+
                     map.closePopup();
                     map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
                 });
