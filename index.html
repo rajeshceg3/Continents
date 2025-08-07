@@ -134,6 +134,17 @@
             80% { transform: scale(1.05); opacity: 1; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        @keyframes contentFadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
         .leaflet-popup {
             animation: popupBounceIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
@@ -141,32 +152,68 @@
             background: linear-gradient(135deg, var(--warm-sand), var(--cloud-white));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px;
+            border-radius: 30px; /* Increased for a softer look */
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Deeper, softer shadow */
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 20px; /* Increased padding */
         }
         .leaflet-popup-content {
-            margin: 0 !important; /* Override Leaflet's default margin */
-            width: auto !important; /* Override Leaflet's default width */
+            margin: 0 !important;
+            width: auto !important;
+            min-width: 320px; /* Set a min-width for a more substantial feel */
             font-family: 'Quicksand', sans-serif;
             text-align: center;
             color: var(--text-dark);
         }
         .continent-popup .popup-icon-container {
             background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 16px;
-            padding: 15px;
-            margin-bottom: 15px;
+            border-radius: 20px; /* Matched border-radius */
+            padding: 20px;
+            margin-bottom: 20px;
+            display: inline-block; /* To fit content */
         }
         .continent-popup svg {
-            width: 60px;
-            height: 60px;
+            width: 70px; /* Larger icon */
+            height: 70px;
             fill: var(--text-dark);
             fill-opacity: 0.7;
         }
-        .continent-popup h3 { font-weight: 700; margin-bottom: 10px; font-size: 2rem; }
-        .continent-popup p { font-weight: 500; margin: 0 15px 15px; font-size: 1.1rem; line-height: 1.6; }
+        .continent-popup h3 { font-weight: 700; margin-bottom: 15px; font-size: 2.8rem; } /* Larger title */
+        .continent-popup p { font-weight: 500; margin: 0 15px 25px; font-size: 1.2rem; line-height: 1.7; } /* Improved readability */
+
+        .explore-button {
+            background-color: var(--highlight-pink);
+            color: var(--cloud-white);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 25px -8px rgba(0,0,0,0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        .explore-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 30px -10px rgba(0,0,0,0.3);
+        }
+
+        /* Staggered content animation */
+        .content-visible .continent-popup > * {
+            animation: contentFadeInUp 0.6s both;
+        }
+        .content-visible .continent-popup h3 { animation-delay: 0.1s; }
+        .content-visible .continent-popup p { animation-delay: 0.2s; }
+        .content-visible .continent-popup .explore-button { animation-delay: 0.3s; }
+        .continent-popup > * {
+            opacity: 0; /* Initially hide content */
+        }
+        .content-visible .continent-popup .popup-icon-container {
+            animation-delay: 0s;
+        }
+
         .leaflet-popup-tip-container { display: none; }
 
         .sailing-boat {
@@ -312,6 +359,7 @@
                             <div class="popup-icon-container">${continent.icon}</div>
                             <h3>${sanitizedName}</h3>
                             <p>${sanitizedDesc}</p>
+                            <button class="explore-button">Explore ${sanitizedName}</button>
                         </div>
                     `;
 
@@ -321,6 +369,11 @@
                             // FIX: [BUG-002] Stop click events inside the popup from bubbling to the map.
                             const popupContainer = e.popup.getElement();
                             L.DomEvent.on(popupContainer, 'click', L.DomEvent.stopPropagation);
+
+                            // UX-A-001: Add class to trigger content animations
+                            setTimeout(() => {
+                                popupContainer.classList.add('content-visible');
+                            }, 50); // A small delay to ensure the popup is in the DOM
                         });
 
                     const handleMarkerInteraction = (e) => {
