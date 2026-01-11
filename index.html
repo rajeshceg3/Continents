@@ -2,17 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- FIX: [VULN-003] Re-enabled user scaling for accessibility and usability. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
-    <title>A World of Wonder - Hardened Edition</title>
+    <title>A World of Wonder - Premium Edition</title>
 
-    <!--
-        SOP for VULN-001:
-        In a production environment, these external files MUST be downloaded and served locally
-        to eliminate dependency on external CDNs. For this self-contained demonstration,
-        the CDN links remain, but this represents the #1 architectural vulnerability.
-    -->
-    <!-- VULN-H-001: Replaced CDN with local vendor files. -->
     <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
     <script src="vendor/leaflet/leaflet.js"></script>
     <script src="vendor/leaflet/L.Terminator.js"></script>
@@ -23,27 +15,29 @@
 
     <style>
         :root {
-            /* Palette - Stripe/Premium Tech Vibe */
+            /* Palette - Ultra-Premium Dark/Light Hybrid */
             --primary: #0A2540;     /* Deep Navy */
-            --accent: #635BFF;      /* Vibrant Violet */
-            --accent-hover: #5851E5;
-            --success: #00D4FF;     /* Teal/Cyan */
-            --text-main: #425466;   /* Slate */
-            --text-light: #697386;  /* Light Slate */
-            --bg-light: #F6F9FC;    /* Pale Gray */
-            --surface: #FFFFFF;     /* White */
-            --shadow-sm: 0 2px 5px -1px rgba(50,50,93,0.25), 0 1px 3px -1px rgba(0,0,0,0.3);
-            --shadow-md: 0 6px 12px -2px rgba(50,50,93,0.25), 0 3px 7px -3px rgba(0,0,0,0.3);
-            --shadow-lg: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(0,0,0,0.3);
+            --accent: #635BFF;      /* Stripe Violet */
+            --accent-glow: rgba(99, 91, 255, 0.4);
+            --success: #3ECF8E;     /* Vibrant Mint */
+            --text-main: #1A1F36;   /* Ink */
+            --text-light: #4F566B;  /* Slate */
+            --surface-glass: rgba(255, 255, 255, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.4);
 
-            --font-ui: 'Inter', sans-serif;
+            --shadow-sm: 0 2px 5px -1px rgba(50,50,93,0.25), 0 1px 3px -1px rgba(0,0,0,0.3);
+            --shadow-lg: 0 50px 100px -20px rgba(50,50,93,0.25), 0 30px 60px -30px rgba(0,0,0,0.3);
+            --shadow-glow: 0 0 20px var(--accent-glow);
+
+            --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-heading: 'Playfair Display', serif;
 
-            --animation-duration: 0.6s;
             --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
             --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         html, body {
             height: 100%;
             width: 100%;
@@ -54,241 +48,269 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        /* --- Layout Shells --- */
-        #app-shell {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
 
         /* --- Welcome Screen --- */
         #welcome-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: 10000;
-            background: linear-gradient(135deg, var(--primary) 0%, #1e3a8a 100%);
+            background: radial-gradient(circle at top left, #1a1f36, #0A2540);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 40px;
-            transition: transform 1s var(--ease-out-quart), opacity 0.8s ease;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            overflow: hidden;
         }
 
+        /* Animated Background Mesh */
         #welcome-screen::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.15) 0%, transparent 70%);
+            width: 150%; height: 150%;
+            background: radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1), transparent 40%);
+            animation: drift 20s infinite alternate ease-in-out;
             pointer-events: none;
         }
 
+        @keyframes drift {
+            0% { transform: translate(-10%, -10%) rotate(0deg); }
+            100% { transform: translate(0%, 0%) rotate(5deg); }
+        }
+
         #welcome-screen.fade-out {
-            transform: translateY(-100%);
-            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
         }
 
         #welcome-title {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 10vw, 6rem);
-            color: var(--surface);
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
             opacity: 0;
             transform: translateY(30px);
-            animation: heroFadeIn 1s var(--ease-out-quart) forwards 0.2s;
+            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.2s;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         #welcome-subtitle {
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 580px;
             line-height: 1.6;
-            margin-bottom: 4rem;
-            font-weight: 300;
+            margin-bottom: 3.5rem;
+            font-weight: 400;
             opacity: 0;
             transform: translateY(20px);
-            animation: heroFadeIn 1s var(--ease-out-quart) forwards 0.4s;
+            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.4s;
         }
 
         #begin-button {
-            padding: 16px 48px;
+            position: relative;
+            padding: 18px 42px;
             font-family: var(--font-ui);
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            color: var(--surface);
-            background-color: var(--accent);
-            border: none;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 100px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s var(--ease-out-quart);
+            transition: all 0.4s var(--ease-out-quart);
             opacity: 0;
             transform: translateY(20px);
-            animation: heroFadeIn 1s var(--ease-out-quart) forwards 0.6s;
+            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.6s;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #begin-button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
         }
 
         #begin-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-            background-color: var(--accent-hover);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
-        @keyframes heroFadeIn {
+        #begin-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        @keyframes slideUpFade {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- Map & Markers --- */
+        /* --- Map Base --- */
+        #app-shell {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
         #map {
-            width: 100vw;
-            height: 100vh;
+            width: 100vw; height: 100vh;
             background-color: #f0f0f0;
             z-index: 1;
         }
 
-        /* Filter to make Stamen Watercolor look like a technical blueprint */
         .leaflet-tile-pane {
-            filter: grayscale(100%) contrast(1.1) brightness(1.1);
+            filter: grayscale(100%) contrast(1.15) brightness(1.05);
         }
 
-        /* Overlay a blue tint */
+        /* Map Overlay for Tint */
         #map::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(10, 37, 64, 0.05); /* Slight navy tint */
+            background-color: rgba(10, 37, 64, 0.08);
             pointer-events: none;
-            z-index: 400; /* Above tiles, below markers */
+            z-index: 400;
         }
 
         .leaflet-control-container { display: none; }
 
-        /* Pulsing Beacon Marker */
+        /* --- Modern Markers --- */
         .continent-marker {
-            background: transparent;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .beacon {
-            position: relative;
-            width: 24px;
-            height: 24px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
             display: flex;
             justify-content: center;
             align-items: center;
             transition: transform 0.3s var(--ease-elastic);
+        }
+
+        .continent-marker:hover {
+            z-index: 1000 !important; /* Bring to front on hover */
+        }
+
+        .pin {
+            position: relative;
+            width: 48px; height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
         }
 
-        .beacon::before, .beacon::after {
-            content: '';
+        /* Inner Dot */
+        .pin-inner {
+            width: 12px; height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 0 3px #fff, 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.4s var(--ease-elastic);
+        }
+
+        /* Pulsing Ring */
+        .pin-ring {
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
+            width: 12px; height: 12px;
             border-radius: 50%;
-            border: 1px solid var(--accent);
-            width: 100%; height: 100%;
+            border: 2px solid var(--accent);
             opacity: 0;
-            animation: ripple 2s infinite cubic-bezier(0, 0.2, 0.8, 1);
+            animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
         }
 
-        .beacon::after {
-            animation-delay: 1s;
+        .continent-marker:hover .pin-inner {
+            transform: scale(1.5);
+            background-color: var(--success);
+            box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .beacon-icon {
-            width: 14px;
-            height: 14px;
-            fill: white;
-            z-index: 2;
-        }
-
-        .continent-marker:hover .beacon {
-            transform: scale(1.2);
-            background: var(--success);
-            box-shadow: 0 0 20px var(--success);
-        }
-
-        .continent-marker:hover .beacon::before,
-        .continent-marker:hover .beacon::after {
+        .continent-marker:hover .pin-ring {
             border-color: var(--success);
+            animation-duration: 1.5s;
         }
 
-        @keyframes ripple {
-            0% { width: 100%; height: 100%; opacity: 1; border-width: 2px; }
-            100% { width: 300%; height: 300%; opacity: 0; border-width: 0px; }
+        @keyframes pulse-ring {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
         }
 
-        /* --- Desktop Sidebar --- */
+        /* --- Glass Sidebar (Desktop) --- */
         #sidebar {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            bottom: 20px;
-            width: 420px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
+            top: 24px; left: 24px; bottom: 24px;
+            width: 440px;
+            background: var(--surface-glass);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid var(--border-glass);
+            border-radius: 20px;
             box-shadow: var(--shadow-lg);
             z-index: 1000;
-            transform: translateX(-120%);
-            transition: transform 0.6s var(--ease-out-quart);
+            transform: translateX(-130%);
+            transition: transform 0.7s var(--ease-out-quart);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        #sidebar.active {
-            transform: translateX(0);
-        }
+        #sidebar.active { transform: translateX(0); }
 
-        /* --- Mobile Bottom Sheet --- */
+        /* --- Glass Sheet (Mobile) --- */
         #bottom-sheet {
             position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            left: 0; right: 0; bottom: 0;
             height: 85vh;
-            background: var(--surface);
-            border-radius: 24px 24px 0 0;
+            background: var(--surface-glass);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-top: 1px solid var(--border-glass);
+            border-radius: 28px 28px 0 0;
             box-shadow: var(--shadow-lg);
             z-index: 1000;
             transform: translateY(110%);
-            transition: transform 0.5s var(--ease-out-quart);
+            transition: transform 0.6s var(--ease-out-quart);
             display: flex;
             flex-direction: column;
         }
 
-        #bottom-sheet.active {
-            transform: translateY(0);
+        #bottom-sheet.active { transform: translateY(0); }
+
+        /* Mobile Drag Handle */
+        .drag-handle {
+            width: 40px; height: 5px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 10px;
+            margin: 12px auto 4px;
         }
 
         @media (min-width: 769px) {
-            #bottom-sheet { display: none; }
+            #bottom-sheet { display: none !important; }
         }
         @media (max-width: 768px) {
-            #sidebar { display: none; }
+            #sidebar { display: none !important; }
         }
 
         /* --- Content Styling --- */
         .content-header {
             padding: 32px 32px 16px;
+            position: relative;
+            flex-shrink: 0;
         }
 
         .content-header h2 {
@@ -296,26 +318,58 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
         }
 
         .content-header p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-light);
             line-height: 1.5;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
         }
 
         .content-body {
             padding: 0 32px 32px;
             overflow-y: auto;
             flex: 1;
+            /* Custom Scrollbar */
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0,0,0,0.1) transparent;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
         }
 
+        .active .content-header h2,
+        .active .content-header p,
+        .active .content-body {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-body::-webkit-scrollbar { width: 6px; }
+        .content-body::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
+        .content-body::-webkit-scrollbar-track { background: transparent; }
+
         .fact-card {
-            background: var(--bg-light);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 16px;
-            border-left: 4px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         .fact-card p {
@@ -323,6 +377,8 @@
             color: var(--text-main);
             line-height: 1.6;
         }
+
+        .fact-card strong { color: var(--accent); }
 
         .gallery-grid {
             display: grid;
@@ -332,15 +388,16 @@
         }
 
         .gallery-grid img {
-            width: 100%;
-            height: 120px;
+            width: 100%; height: 120px;
             object-fit: cover;
             border-radius: 12px;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .gallery-grid img:hover {
-            transform: scale(1.03);
+            transform: scale(1.04);
+            z-index: 10;
         }
 
         .gallery-grid img:first-child {
@@ -350,50 +407,71 @@
 
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.05);
+            top: 24px; right: 24px;
+            background: rgba(0,0,0,0.04);
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 36px; height: 36px;
             border-radius: 50%;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
         }
 
-        .close-btn:hover { background: rgba(0,0,0,0.1); }
-        .close-btn svg { width: 16px; height: 16px; fill: var(--text-main); }
+        .close-btn:hover { background: rgba(0,0,0,0.08); transform: rotate(90deg); }
+        .close-btn svg { width: 20px; height: 20px; fill: var(--text-main); }
+
+        /* Read More Link */
+        .read-more-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 10px 24px;
+            background-color: rgba(99, 91, 255, 0.1);
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+        }
+
+        .read-more-link:hover {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 91, 255, 0.3);
+            transform: translateY(-1px);
+        }
 
         /* Loader */
         .loader {
-            position: absolute;
-            top: 50%; left: 50%;
+            position: absolute; top: 50%; left: 50%;
             width: 40px; height: 40px;
             border: 3px solid rgba(99, 91, 255, 0.2);
             border-radius: 50%;
             border-top-color: var(--accent);
             animation: spin 1s ease-in-out infinite;
             z-index: 500;
+            transform: translate(-50%, -50%);
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
+        @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+        /* Boat Animation */
+        .sailing-boat {
+            transition: transform 0.1s linear;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
     </style>
 </head>
 <body>
 
     <div id="welcome-screen">
-        <h1 id="welcome-title">A World of Wonder</h1>
-        <p id="welcome-subtitle">The world is full of magical places. Touch the button below and let's begin our journey to discover them together!</p>
+        <h1 id="welcome-title">World of Wonder</h1>
+        <p id="welcome-subtitle">Journey through the seven continents. Discover the beauty, culture, and stories that make our planet unique.</p>
         <button id="begin-button">
-            <span id="begin-button-text">Start Your Journey</span>
-            <svg id="begin-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            <span>Explore the Map</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </button>
     </div>
 
@@ -405,28 +483,29 @@
         </div>
 
         <aside id="sidebar" role="complementary" aria-hidden="true">
+            <button class="close-btn" aria-label="Close details">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
             <div class="content-header">
-                <button class="close-btn" aria-label="Close details">
-                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-                </button>
                 <h2 id="sidebar-title">Continent Name</h2>
-                <p id="sidebar-desc">A brief description goes here.</p>
+                <p id="sidebar-desc">Description placeholder.</p>
             </div>
             <div class="content-body" id="sidebar-content">
-                <!-- Dynamic Content Injected Here -->
+                <!-- Content -->
             </div>
         </aside>
 
         <section id="bottom-sheet" role="complementary" aria-hidden="true">
+            <div class="drag-handle"></div>
+            <button class="close-btn" aria-label="Close details" style="top: 20px; right: 20px;">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
             <div class="content-header">
-                <button class="close-btn" aria-label="Close details" style="top: 16px; right: 16px;">
-                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-                </button>
                 <h2 id="sheet-title">Continent Name</h2>
-                <p id="sheet-desc">A brief description goes here.</p>
+                <p id="sheet-desc">Description placeholder.</p>
             </div>
             <div class="content-body" id="sheet-content">
-                <!-- Dynamic Content Injected Here -->
+                <!-- Content -->
             </div>
         </section>
     </div>
@@ -434,30 +513,28 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
-            // VULN-C-001: Simple HTML sanitizer to prevent XSS.
             function sanitizeHTML(text) {
                 const temp = document.createElement('div');
                 temp.textContent = text;
                 return temp.innerHTML;
             }
 
+            // Data
             const continents = [
                 {
                     name: "North America",
                     coords: [45, -100],
                     zoom: 3.5,
-                    description: "A land of vast forests, towering cities, and grand canyons. 🌲🦅",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z" fill-opacity="0.8"></path></svg>',
+                    description: "Vast forests, towering cities, and grand canyons.",
                     facts: [
-                        "It's home to over 500 million people and covers 16.5% of the Earth's land area.",
-                        "Canada, part of North America, has the longest coastline in the world.",
-                        "The Grand Canyon is one of the Seven Natural Wonders of the World.",
-                        "Contains the world's largest freshwater lake, Lake Superior."
+                        "Home to over 500 million people.",
+                        "Has the longest coastline in the world (Canada).",
+                        "Contains the world's largest freshwater lake."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1533109721025-d1ae7de64f28?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1542224562-2380a0639d2a?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1533109721025-d1ae7de64f28?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1542224562-2380a0639d2a?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/North_America"
                 },
@@ -465,18 +542,16 @@
                     name: "South America",
                     coords: [-15, -60],
                     zoom: 3.5,
-                    description: "Home to the amazing Amazon rainforest and dancing mountains. 🦜⛰️",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M16.4,8.2C15.2,7.3,13.7,7,12,7c-3.2,0-6,1.8-7.4,4.3C3.9,12.4,3.4,14,4.1,15.4c0.7,1.4,2.2,2.3,3.8,2.5 c1.8,0.2,3.5-0.5,4.8-1.9c1-1.1,1.6-2.5,1.7-4C14.5,10.7,15.3,9.2,16.4,8.2z" fill-opacity="0.8"></path></svg>',
+                    description: "The Amazon rainforest and the Andes mountains.",
                     facts: [
-                        "Features the Amazon, the world's largest river by water volume.",
-                        "The Andes, the longest continental mountain range, runs along its western coast.",
-                        "The Atacama Desert in Chile is the driest non-polar desert on Earth.",
-                        "Angel Falls in Venezuela is the world's highest uninterrupted waterfall."
+                        "Home to the world's largest river by volume (Amazon).",
+                        "Longest continental mountain range (Andes).",
+                        "Driest non-polar desert on Earth (Atacama)."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1478198642299-20387a7c14aa?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1583204921933-31a57c748386?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1478198642299-20387a7c14aa?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1583204921933-31a57c748386?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/South_America"
                 },
@@ -484,18 +559,16 @@
                     name: "Europe",
                     coords: [50, 15],
                     zoom: 4.5,
-                    description: "A continent of ancient castles, cozy towns, and magical stories. 🏰✨",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M5 16L3 21h18l-2-5H5zm14-2V7l-5-4-5 4v7h10z" fill-opacity="0.8"></path></svg>',
+                    description: "Ancient history, diverse cultures, and modern art.",
                     facts: [
-                        "Despite being the second smallest continent, it has over 400 UNESCO World Heritage Sites.",
-                        "It is the birthplace of democracy and Western civilization.",
-                        "The world's smallest country, Vatican City, is located in Europe.",
-                        "Home to the world's largest country, Russia."
+                        "Second smallest continent, but high density.",
+                        "Birthplace of Western civilization.",
+                        "Home to the world's smallest country (Vatican City)."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1525850313469-2d9394047a09?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1542395983-2d1f59346231?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1519677100203-a0e668c97323?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1525850313469-2d9394047a09?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1542395983-2d1f59346231?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1519677100203-a0e668c97323?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Europe"
                 },
@@ -503,18 +576,16 @@
                     name: "Africa",
                     coords: [0, 20],
                     zoom: 3.5,
-                    description: "The sun-warmed heart of the world, with majestic lions and vast deserts. 🦁🦒",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M12 4c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z" fill-opacity="0.8"></path></svg>',
+                    description: "Majestic wildlife, vast deserts, and rich traditions.",
                     facts: [
-                        "The second-largest and second most-populous continent.",
-                        "It's the world's hottest continent and home to the Sahara, the largest hot desert.",
-                        "The Nile River is the longest river in the world.",
-                        "Over 2,000 different languages are spoken across the continent."
+                        "World's hottest continent.",
+                        "Home to the Sahara Desert.",
+                        "The Nile is the longest river in the world."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1547471080-7cc2d5d88e93?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1516026672322-7cabe1081a2e?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1547471080-7cc2d5d88e93?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1516026672322-7cabe1081a2e?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Africa"
                 },
@@ -522,18 +593,16 @@
                     name: "Asia",
                     coords: [40, 100],
                     zoom: 3.5,
-                    description: "A giant land of soaring dragons, peaceful temples, and snowy peaks. 🐉🌸",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M4 11.97h2.83L12 3l5.17 8.97H20v1.98H4zM12 15.16L9.83 18h4.34L12 15.16z" fill-opacity="0.8"></path></svg>',
+                    description: "The largest continent, full of contrasts and wonders.",
                     facts: [
-                        "The world's largest and most populous continent, with over 4.5 billion people.",
-                        "The birthplace of all the world's major religions.",
-                        "Home to the highest point on Earth, Mount Everest.",
-                        "The Great Wall of China is the longest wall in the world."
+                        "Most populous continent (4.5+ billion).",
+                        "Home to Mount Everest.",
+                        "The Great Wall of China is here."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1583342594633-f16f452455b8?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1529989333394-4726c04f21e2?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1583342594633-f16f452455b8?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1529989333394-4726c04f21e2?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Asia"
                 },
@@ -541,18 +610,16 @@
                     name: "Australia",
                     coords: [-25, 135],
                     zoom: 4,
-                    description: "An island of sunshine where kangaroos hop and koalas nap. 🐨🦘",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M3.5 6C2.2 7.8,2.2,9.6,3.5 11.4c1.3,1.8,3.2,2.7,5.5,2.7c2.3,0,4.2-0.9,5.5-2.7C15.8,9.6,15.8,7.8,14.5,6C13.2,4.2,11.3,3.3,9,3.3 C6.7,3.3,4.8,4.2,3.5,6z" fill-opacity="0.8"></path></svg>',
+                    description: "Unique wildlife, coral reefs, and the Outback.",
                     facts: [
-                        "The only continent that is also a single country.",
-                        "The Great Barrier Reef is the world's largest coral reef system.",
-                        "Over 90% of Australians live on the coast.",
-                        "It is the only continent without an active volcano."
+                        "The only continent that is also a country.",
+                        "Home to the Great Barrier Reef.",
+                        "No active volcanoes."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1524260855046-f743b1cd9045?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1506973035872-942126b49185?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1517672120436-3f71c4c2c62e?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1524260855046-f743b1cd9045?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1506973035872-942126b49185?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1517672120436-3f71c4c2c62e?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Australia"
                 },
@@ -560,18 +627,16 @@
                     name: "Antarctica",
                     coords: [-80, 0],
                     zoom: 3.5,
-                    description: "A quiet, frozen kingdom at the bottom of the world, for penguins only! 🐧❄️",
-                    icon: '<svg viewBox="0 0 24 24"><path d="M12 2l-2.1 6.3L3.6 6.2l4.3 4.3L2 12l6.3 2.1L6.2 20.4l4.3-4.3L12 22l2.1-6.3 6.3 6.3-4.3-4.3L22 12l-6.3-2.1 4.3-4.3-6.3 2.1z" fill-opacity="0.8"></path></svg>',
+                    description: "A frozen wilderness of ice and penguins.",
                     facts: [
-                        "The largest desert in the world, despite being covered in ice.",
-                        "It holds about 70% of the world's fresh water.",
-                        "It is the coldest, windiest, and highest continent on average.",
-                        "There are no permanent human residents, only visiting scientists."
+                        "Holds 70% of the world's fresh water.",
+                        "Coldest, windiest continent.",
+                        "No permanent residents."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1549547432-17e944b33501?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1588622146638-855b57d0ae66?q=80&w=2940&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1551415973-e9140415f76f?q=80&w=2940&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1549547432-17e944b33501?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1588622146638-855b57d0ae66?q=80&w=800&auto=format&fit=crop",
+                        "https://images.unsplash.com/photo-1551415973-e9140415f76f?q=80&w=800&auto=format&fit=crop"
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Antarctica"
                 }
@@ -579,22 +644,17 @@
 
             const welcomeScreen = document.getElementById('welcome-screen');
             const beginButton = document.getElementById('begin-button');
-            const mapElement = document.getElementById('map');
             const sidebar = document.getElementById('sidebar');
             const bottomSheet = document.getElementById('bottom-sheet');
             let map;
 
             beginButton.addEventListener('click', function() {
-                // BUG-M-002: Disable button on click to prevent race conditions.
                 this.disabled = true;
                 welcomeScreen.classList.add('fade-out');
                 
-                // FIX: [BUG-003] Using 'transitionend' event for robust, decoupled animation handling.
-                // The 'once: true' option ensures the listener is automatically removed after firing.
                 welcomeScreen.addEventListener('transitionend', () => {
                     welcomeScreen.style.display = 'none';
                     initializeMap();
-                    // mapElement.classList.add('visible'); // No longer needed as we don't hide the map div, just cover it
                 }, { once: true });
             });
 
@@ -611,44 +671,29 @@
                 });
 
                 const tileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=c8301630-e7df-4a9e-84d5-bf5e7453c864', {
-                    attribution: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>, &copy; <a href="https://stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
                     crossOrigin: true
                 });
 
-                // UX-L-001: Show loader when tiles are loading, hide when done.
-                tileLayer.on('loading', function() {
-                    loader.style.display = 'block';
-                });
-                tileLayer.on('load', function() {
-                    loader.style.display = 'none';
-                });
+                tileLayer.on('loading', function() { loader.style.display = 'block'; });
+                tileLayer.on('load', function() { loader.style.display = 'none'; });
 
                 tileLayer.addTo(map);
 
-                // Add a real-time day/night terminator
+                // Terminator
                 const terminator = L.terminator({
-                    fillColor: '#0A2540', // Matches --primary
-                    fillOpacity: 0.1,
+                    fillColor: '#0A2540',
+                    fillOpacity: 0.15,
                     color: 'transparent',
                     resolution: 10
                 }).addTo(map);
 
-                // Function to update the terminator's position
-                function updateTerminator() {
-                    terminator.setTime();
-                }
-
-                // Update the terminator every minute
-                setInterval(updateTerminator, 60000);
-                updateTerminator(); // Initial call
+                setInterval(() => { terminator.setTime(); }, 60000);
 
                 L.control.attribution({ position: 'bottomleft', prefix: '' }).addTo(map);
                 
-                // Helper to close all UI
                 const closeUI = () => {
                      sidebar.classList.remove('active');
                      bottomSheet.classList.remove('active');
-                     // Reset map view
                      map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
                 };
 
@@ -660,30 +705,46 @@
                     });
                 });
 
+                // Swipe down on bottom sheet
+                let touchStartY = 0;
+                bottomSheet.addEventListener('touchstart', e => {
+                    touchStartY = e.changedTouches[0].screenY;
+                }, {passive: true});
+
+                bottomSheet.addEventListener('touchend', e => {
+                    const touchEndY = e.changedTouches[0].screenY;
+                    if (touchEndY - touchStartY > 100) { // Swipe down
+                        closeUI();
+                    }
+                }, {passive: true});
+
+
                 continents.forEach(continent => {
                     const continentIcon = L.divIcon({
                         className: 'continent-marker',
-                        html: `<div class="beacon" role="button" aria-label="${continent.name}" tabindex="0"><div class="beacon-icon">${continent.icon}</div></div>`,
-                        iconSize: [40, 40],
-                        iconAnchor: [20, 20]
+                        html: `<div class="pin" role="button" aria-label="${continent.name}" tabindex="0">
+                                 <div class="pin-ring"></div>
+                                 <div class="pin-inner"></div>
+                               </div>`,
+                        iconSize: [48, 48],
+                        iconAnchor: [24, 24]
                     });
 
                     const marker = L.marker(continent.coords, { icon: continentIcon, title: continent.name }).addTo(map);
 
-                    // VULN-C-001: Sanitize dynamic content to prevent XSS.
                     const sanitizedName = sanitizeHTML(continent.name);
                     const sanitizedDesc = sanitizeHTML(continent.description);
-                    const galleryHTML = continent.gallery.map(url => `<img src="${url}" alt="Image of ${sanitizedName}" loading="lazy">`).join('');
+                    const galleryHTML = continent.gallery.map(url => `<img src="${url}" alt="${sanitizedName}" loading="lazy">`).join('');
                     const factsHTML = continent.facts.map(fact =>
                         `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(fact)}</p></div>`
                     ).join('');
 
                     const contentHTML = `
                         <div class="gallery-grid">${galleryHTML}</div>
-                        <h3>Quick Facts</h3>
+                        <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary);">Quick Facts</h3>
                         ${factsHTML}
                         <div style="margin-top: 24px; text-align: center;">
-                            <a href="${continent.wikiLink}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none; font-weight: 600;">Read more on Wikipedia &rarr;</a>
+                            <a href="${continent.wikiLink}" class="read-more-link" target="_blank" rel="noopener noreferrer">Read more on Wikipedia</a>
                         </div>
                     `;
 
@@ -694,53 +755,31 @@
                     };
 
                     const handleMarkerInteraction = (e) => {
-                        L.DomEvent.stopPropagation(e); // Stop map click
-
-                        // Populate Content
+                        L.DomEvent.stopPropagation(e);
                         populateContent('sidebar-title', 'sidebar-desc', 'sidebar-content');
                         populateContent('sheet-title', 'sheet-desc', 'sheet-content');
 
-                        // Determine Layout (Desktop vs Mobile)
                         const isDesktop = window.innerWidth > 768;
 
                         if (isDesktop) {
                             // Desktop: Fly to allow sidebar space on left
-                            // Target point needs to be shifted left in the view, so we fly to a point TO THE RIGHT of the actual coord
-                            // Approximate offset: shift longitude by ~40 degrees? Or use projection math.
-                            // Simpler: Just fly to the coord for now, but maybe Zoom in more.
-                            // Actually, to center the marker in the remaining space (right 2/3rds), we need to center on a point slightly West (left) of the target? No, if sidebar is on Left, the "center" of the view shifts Right.
-                            // So the target coordinate should appear to the Right of the screen center.
-                            // Meaning the Map Center should be to the Left of the Target.
-                            // So we fly to [lat, lng - offset].
-
-                            const offsetLng = -30; // Shift map center West, so target appears East
-                            map.flyTo([continent.coords[0], continent.coords[1] + offsetLng], continent.zoom, {
-                                animate: true,
-                                duration: 1.5,
-                                easeLinearity: 0.2
+                            // We shift center WEST so target is EAST
+                            map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
+                                animate: true, duration: 1.5, easeLinearity: 0.2
                             });
-
                             sidebar.classList.add('active');
                             bottomSheet.classList.remove('active');
                         } else {
-                            // Mobile: Fly to allow bottom sheet space
-                            // Sidebar is on bottom, so we need target to be in top half.
-                            // Map Center should be Below the target.
-                            // So fly to [lat - offset, lng].
-                            const offsetLat = -15;
-                            map.flyTo([continent.coords[0] + offsetLat, continent.coords[1]], continent.zoom - 0.5, { // Zoom out a bit for mobile
-                                animate: true,
-                                duration: 1.2
+                            // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
+                            map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
+                                animate: true, duration: 1.2
                             });
-
                             bottomSheet.classList.add('active');
                             sidebar.classList.remove('active');
                         }
                     };
 
                     marker.on('click', handleMarkerInteraction);
-                    
-                    // FIX: [VULN-002] Adding keyboard activation for the marker.
                     marker.on('keyup', (e) => {
                         if (e.originalEvent.key === 'Enter' || e.originalEvent.key === ' ') {
                             handleMarkerInteraction(e);
@@ -753,13 +792,13 @@
                     closeUI();
                 });
 
-                // Delightful Surprise: Add a little sailing boat
+                // Sailing Boat
                 function addSailingBoat() {
                     const boatIcon = L.divIcon({
                         className: 'sailing-boat',
-                        html: '<svg viewBox="0 0 24 24"><path d="M3.95 19H19.05L12 5.45z M12 3L2 21h20L12 3z" fill="#fefae0" stroke="#0A2540" stroke-width="1.5"></path></svg>',
-                        iconSize: [24, 24],
-                        iconAnchor: [12, 12]
+                        html: '<svg viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"><path d="M3.95 19H19.05L12 5.45z M12 3L2 21h20L12 3z" fill="#fefae0" stroke="#0A2540" stroke-width="1.5"></path></svg>',
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
                     });
 
                     const boatPath = [
@@ -780,7 +819,7 @@
 
                         function step(now) {
                             const elapsed = now - startTime;
-                            const duration = 8000; // 8 seconds per segment
+                            const duration = 12000; // Slower, more majestic
                             const progress = Math.min(elapsed / duration, 1);
 
                             const lat = start[0] + (end[0] - start[0]) * progress;
@@ -802,6 +841,5 @@
             }
         });
     </script>
-
 </body>
 </html>
