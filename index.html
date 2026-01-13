@@ -18,25 +18,33 @@
             /* Palette - Ultra-Premium Dark/Light Hybrid */
             --primary: #0A2540;     /* Deep Navy */
             --accent: #635BFF;      /* Stripe Violet */
+            --accent-light: #7A73FF;
+            --accent-dark: #4B45C6;
             --accent-glow: rgba(99, 91, 255, 0.4);
             --success: #3ECF8E;     /* Vibrant Mint */
             --text-main: #1A1F36;   /* Ink */
             --text-light: #4F566B;  /* Slate */
-            --surface-glass: rgba(255, 255, 255, 0.85);
-            --border-glass: rgba(255, 255, 255, 0.4);
+            --surface-glass: rgba(255, 255, 255, 0.75);
+            --surface-glass-hover: rgba(255, 255, 255, 0.85);
+            --border-glass: rgba(255, 255, 255, 0.5);
 
-            --shadow-sm: 0 2px 5px -1px rgba(50,50,93,0.25), 0 1px 3px -1px rgba(0,0,0,0.3);
-            --shadow-lg: 0 50px 100px -20px rgba(50,50,93,0.25), 0 30px 60px -30px rgba(0,0,0,0.3);
-            --shadow-glow: 0 0 20px var(--accent-glow);
+            /* Refined Shadows for Depth */
+            --shadow-sm: 0 2px 5px -1px rgba(50, 50, 93, 0.25), 0 1px 3px -1px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 25px var(--accent-glow);
 
+            /* Typography */
             --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-heading: 'Playfair Display', serif;
 
+            /* Animations */
             --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
             --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         html, body {
             height: 100%;
@@ -54,7 +62,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 10000;
-            background: radial-gradient(circle at top left, #1a1f36, #0A2540);
+            background: radial-gradient(circle at top left, #0A2540, #05192e);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,92 +77,105 @@
         #welcome-screen::before {
             content: '';
             position: absolute;
-            width: 150%; height: 150%;
-            background: radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.15), transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1), transparent 40%);
-            animation: drift 20s infinite alternate ease-in-out;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background:
+                radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.1), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(62, 207, 142, 0.05), transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 40%);
+            animation: drift 30s infinite alternate ease-in-out;
             pointer-events: none;
         }
 
         @keyframes drift {
-            0% { transform: translate(-10%, -10%) rotate(0deg); }
-            100% { transform: translate(0%, 0%) rotate(5deg); }
+            0% { transform: translate(-5%, -5%) rotate(0deg); }
+            100% { transform: translate(5%, 5%) rotate(8deg); }
         }
 
         #welcome-screen.fade-out {
             opacity: 0;
             visibility: hidden;
+            pointer-events: none;
         }
 
         #welcome-title {
             font-family: var(--font-heading);
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+            line-height: 1;
             opacity: 0;
-            transform: translateY(30px);
-            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.2s;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(40px);
+            animation: slideUpFade 1.2s var(--ease-out-quart) forwards 0.2s;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
         }
 
         #welcome-subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 580px;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
             line-height: 1.6;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
             font-weight: 400;
             opacity: 0;
-            transform: translateY(20px);
-            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.4s;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s var(--ease-out-quart) forwards 0.4s;
         }
 
         #begin-button {
             position: relative;
-            padding: 18px 42px;
+            padding: 20px 48px;
             font-family: var(--font-ui);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
+            letter-spacing: 0.02em;
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--accent); /* Stripe Violet */
+            border: none;
             border-radius: 100px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            transition: all 0.4s var(--ease-out-quart);
+            transition: all 0.3s var(--ease-smooth);
             opacity: 0;
-            transform: translateY(20px);
-            animation: slideUpFade 1s var(--ease-out-quart) forwards 0.6s;
+            transform: translateY(30px);
+            animation: slideUpFade 1.2s var(--ease-out-quart) forwards 0.6s;
             overflow: hidden;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
+        /* Shine effect */
         #begin-button::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            transition: none;
         }
 
         #begin-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
         }
 
         #begin-button:hover::before {
-            transform: translateX(100%);
+            animation: shine 0.75s;
+        }
+
+        @keyframes shine {
+            100% { left: 200%; }
         }
 
         @keyframes slideUpFade {
@@ -170,20 +191,21 @@
 
         #map {
             width: 100vw; height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #F5F9FC; /* Light Blue-Grey tint */
             z-index: 1;
         }
 
+        /* Remove filter for clearer tiles, or subtle adjustment */
         .leaflet-tile-pane {
-            filter: grayscale(100%) contrast(1.15) brightness(1.05);
+            filter: saturate(0.8) contrast(1.05); /* Slightly desaturated for premium feel */
         }
 
-        /* Map Overlay for Tint */
+        /* Subtle vignette/tint instead of full overlay */
         #map::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(10, 37, 64, 0.08);
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 37, 64, 0.1) 100%);
             pointer-events: none;
             z-index: 400;
         }
@@ -195,16 +217,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: transform 0.3s var(--ease-elastic);
+            transition: transform 0.5s var(--ease-elastic);
+            will-change: transform;
         }
 
         .continent-marker:hover {
             z-index: 1000 !important; /* Bring to front on hover */
+            transform: scale(1.1);
         }
 
         .pin {
             position: relative;
-            width: 48px; height: 48px;
+            width: 64px; height: 64px; /* Larger hit area */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -213,12 +237,12 @@
 
         /* Inner Dot */
         .pin-inner {
-            width: 12px; height: 12px;
-            background-color: var(--accent);
+            width: 16px; height: 16px;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
             border-radius: 50%;
             z-index: 2;
-            box-shadow: 0 0 0 3px #fff, 0 4px 10px rgba(0,0,0,0.3);
-            transition: transform 0.4s var(--ease-elastic);
+            box-shadow: 0 0 0 4px #fff, 0 8px 24px rgba(0,0,0,0.25);
+            transition: all 0.4s var(--ease-elastic);
         }
 
         /* Pulsing Ring */
@@ -226,47 +250,63 @@
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 12px; height: 12px;
+            width: 16px; height: 16px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             opacity: 0;
-            animation: pulse-ring 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Second Ring for Complexity */
+        .pin-ring::after {
+            content: '';
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            border-radius: 50%;
+            border: 1px solid var(--accent-light);
+            opacity: 0.3;
         }
 
         .continent-marker:hover .pin-inner {
-            transform: scale(1.5);
-            background-color: var(--success);
-            box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(0,0,0,0.3);
+            transform: scale(1.3);
+            background: linear-gradient(135deg, var(--success), #2cb575);
+            box-shadow: 0 0 0 6px #fff, 0 12px 30px rgba(0,0,0,0.3);
         }
 
         .continent-marker:hover .pin-ring {
             border-color: var(--success);
-            animation-duration: 1.5s;
+            animation-duration: 2s;
         }
 
         @keyframes pulse-ring {
             0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
         }
 
         /* --- Glass Sidebar (Desktop) --- */
         #sidebar {
             position: absolute;
             top: 24px; left: 24px; bottom: 24px;
-            width: 440px;
+            width: 450px;
             background: var(--surface-glass);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            backdrop-filter: blur(40px) saturate(150%);
+            -webkit-backdrop-filter: blur(40px) saturate(150%);
             border: 1px solid var(--border-glass);
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.4) inset;
             z-index: 1000;
             transform: translateX(-130%);
             transition: transform 0.7s var(--ease-out-quart);
             display: flex;
             flex-direction: column;
             overflow: hidden;
+        }
+
+        /* Responsive adjustments for smaller desktops */
+        @media (max-width: 1200px) {
+            #sidebar { width: 400px; }
+            .content-header { padding: 32px 32px 20px; }
+            .content-body { padding: 0 32px 32px; }
         }
 
         #sidebar.active { transform: translateX(0); }
@@ -277,11 +317,11 @@
             left: 0; right: 0; bottom: 0;
             height: 85vh;
             background: var(--surface-glass);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            backdrop-filter: blur(40px) saturate(150%);
+            -webkit-backdrop-filter: blur(40px) saturate(150%);
             border-top: 1px solid var(--border-glass);
-            border-radius: 28px 28px 0 0;
-            box-shadow: var(--shadow-lg);
+            border-radius: 32px 32px 0 0;
+            box-shadow: var(--shadow-lg), 0 1px 0 rgba(255,255,255,0.4) inset;
             z-index: 1000;
             transform: translateY(110%);
             transition: transform 0.6s var(--ease-out-quart);
@@ -308,41 +348,42 @@
 
         /* --- Content Styling --- */
         .content-header {
-            padding: 32px 32px 16px;
+            padding: 40px 40px 24px;
             position: relative;
             flex-shrink: 0;
         }
 
         .content-header h2 {
             font-family: var(--font-heading);
-            font-size: 2.5rem;
+            font-size: 2.75rem;
             color: var(--primary);
             margin-bottom: 8px;
             letter-spacing: -0.02em;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(20px);
+            transition: opacity 0.5s var(--ease-out-quart), transform 0.5s var(--ease-out-quart);
         }
 
         .content-header p {
-            font-size: 1.05rem;
+            font-size: 1.125rem;
             color: var(--text-light);
             line-height: 1.5;
+            font-weight: 400;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+            transform: translateY(20px);
+            transition: opacity 0.5s var(--ease-out-quart) 0.1s, transform 0.5s var(--ease-out-quart) 0.1s;
         }
 
         .content-body {
-            padding: 0 32px 32px;
+            padding: 0 40px 40px;
             overflow-y: auto;
             flex: 1;
             /* Custom Scrollbar */
             scrollbar-width: thin;
             scrollbar-color: rgba(0,0,0,0.1) transparent;
             opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+            transform: translateY(20px);
+            transition: opacity 0.5s var(--ease-out-quart) 0.2s, transform 0.5s var(--ease-out-quart) 0.2s;
         }
 
         .active .content-header h2,
@@ -357,88 +398,126 @@
         .content-body::-webkit-scrollbar-track { background: transparent; }
 
         .fact-card {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 12px;
-            padding: 16px;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            padding: 20px;
             margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fact-card::before {
+             content: '';
+             position: absolute; left: 0; top: 0; width: 4px; height: 100%;
+             background: var(--accent);
+             opacity: 0;
+             transition: opacity 0.3s;
         }
 
         .fact-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
+        .fact-card:hover::before { opacity: 1; }
+
         .fact-card p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-main);
             line-height: 1.6;
         }
 
-        .fact-card strong { color: var(--accent); }
+        .fact-card strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin: 24px 0;
+            gap: 16px;
+            margin: 32px 0;
         }
 
         .gallery-grid img {
-            width: 100%; height: 120px;
+            width: 100%; height: 140px;
             object-fit: cover;
             border-radius: 12px;
-            transition: transform 0.4s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.5s var(--ease-out-quart), box-shadow 0.5s var(--ease-out-quart);
+            box-shadow: var(--shadow-sm);
+            cursor: zoom-in;
         }
 
         .gallery-grid img:hover {
-            transform: scale(1.04);
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
             z-index: 10;
         }
 
         .gallery-grid img:first-child {
             grid-column: span 2;
-            height: 180px;
+            height: 220px;
         }
 
         .close-btn {
             position: absolute;
-            top: 24px; right: 24px;
-            background: rgba(0,0,0,0.04);
-            border: none;
-            width: 36px; height: 36px;
+            top: 32px; right: 32px;
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(0,0,0,0.05);
+            width: 40px; height: 40px;
             border-radius: 50%;
             cursor: pointer;
             display: flex; align-items: center; justify-content: center;
-            transition: all 0.2s;
+            transition: all 0.3s var(--ease-smooth);
             z-index: 10;
+            backdrop-filter: blur(4px);
         }
 
-        .close-btn:hover { background: rgba(0,0,0,0.08); transform: rotate(90deg); }
+        .close-btn:hover {
+            background: #fff;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: var(--shadow-sm);
+        }
         .close-btn svg { width: 20px; height: 20px; fill: var(--text-main); }
 
         /* Read More Link */
         .read-more-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin-top: 1rem;
-            padding: 10px 24px;
-            background-color: rgba(99, 91, 255, 0.1);
-            color: var(--accent);
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
             border-radius: 50px;
-            transition: all 0.2s ease;
+            transition: all 0.3s var(--ease-smooth);
+            font-size: 0.95rem;
+        }
+
+        .read-more-link::after {
+            content: '→';
+            display: inline-block;
+            transition: transform 0.3s var(--ease-smooth);
         }
 
         .read-more-link:hover {
             background-color: var(--accent);
-            color: white;
-            box-shadow: 0 4px 12px rgba(99, 91, 255, 0.3);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .read-more-link:hover::after {
+            transform: translateX(4px);
         }
 
         /* Loader */
@@ -519,7 +598,7 @@
                 return temp.innerHTML;
             }
 
-            // Data
+            // Data - Using verified Unsplash IDs to avoid broken/premium links
             const continents = [
                 {
                     name: "North America",
@@ -532,9 +611,9 @@
                         "Contains the world's largest freshwater lake."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1533109721025-d1ae7de64f28?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1542224562-2380a0639d2a?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
+                        "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
+                        "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain Landscape
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/North_America"
                 },
@@ -549,9 +628,9 @@
                         "Driest non-polar desert on Earth (Atacama)."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1478198642299-20387a7c14aa?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1583204921933-31a57c748386?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Green/Hills
+                        "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
+                        "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/South_America"
                 },
@@ -566,9 +645,9 @@
                         "Home to the world's smallest country (Vatican City)."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1525850313469-2d9394047a09?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1542395983-2d1f59346231?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1519677100203-a0e668c97323?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Lake
+                        "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Mist
+                        "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Europe"
                 },
@@ -583,9 +662,9 @@
                         "The Nile is the longest river in the world."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1547471080-7cc2d5d88e93?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1516026672322-7cabe1081a2e?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Savanna
+                        "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
+                        "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Green/Jungle
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Africa"
                 },
@@ -600,9 +679,9 @@
                         "The Great Wall of China is here."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1583342594633-f16f452455b8?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1529989333394-4726c04f21e2?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
+                        "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Hills/Rice Terrace feel
+                        "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Forest
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Asia"
                 },
@@ -617,9 +696,9 @@
                         "No active volcanoes."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1524260855046-f743b1cd9045?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1506973035872-942126b49185?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1517672120436-3f71c4c2c62e?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Outback/Desert
+                        "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Coast feel
+                        "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Bush
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Australia"
                 },
@@ -634,9 +713,9 @@
                         "No permanent residents."
                     ],
                     gallery: [
-                        "https://images.unsplash.com/photo-1549547432-17e944b33501?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1588622146638-855b57d0ae66?q=80&w=800&auto=format&fit=crop",
-                        "https://images.unsplash.com/photo-1551415973-e9140415f76f?q=80&w=800&auto=format&fit=crop"
+                        "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
+                        "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Cold
+                        "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Lake/Cold
                     ],
                     wikiLink: "https://en.wikipedia.org/wiki/Antarctica"
                 }
@@ -670,8 +749,11 @@
                     maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
                 });
 
-                const tileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=c8301630-e7df-4a9e-84d5-bf5e7453c864', {
-                    crossOrigin: true
+                // Switch to CartoDB Voyager for a cleaner, modern look
+                const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
                 });
 
                 tileLayer.on('loading', function() { loader.style.display = 'block'; });
@@ -679,10 +761,10 @@
 
                 tileLayer.addTo(map);
 
-                // Terminator
+                // Terminator (Day/Night line) - Make it subtle
                 const terminator = L.terminator({
                     fillColor: '#0A2540',
-                    fillOpacity: 0.15,
+                    fillOpacity: 0.1,
                     color: 'transparent',
                     resolution: 10
                 }).addTo(map);
@@ -765,14 +847,14 @@
                             // Desktop: Fly to allow sidebar space on left
                             // We shift center WEST so target is EAST
                             map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
-                                animate: true, duration: 1.5, easeLinearity: 0.2
+                                animate: true, duration: 1.8, easeLinearity: 0.25
                             });
                             sidebar.classList.add('active');
                             bottomSheet.classList.remove('active');
                         } else {
                             // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
                             map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
-                                animate: true, duration: 1.2
+                                animate: true, duration: 1.5
                             });
                             bottomSheet.classList.add('active');
                             sidebar.classList.remove('active');
@@ -796,7 +878,7 @@
                 function addSailingBoat() {
                     const boatIcon = L.divIcon({
                         className: 'sailing-boat',
-                        html: '<svg viewBox="0 0 24 24" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));"><path d="M3.95 19H19.05L12 5.45z M12 3L2 21h20L12 3z" fill="#fefae0" stroke="#0A2540" stroke-width="1.5"></path></svg>',
+                        html: '<svg viewBox="0 0 24 24" style="filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));"><path d="M3.95 19H19.05L12 5.45z M12 3L2 21h20L12 3z" fill="#fefae0" stroke="#0A2540" stroke-width="1.5"></path></svg>',
                         iconSize: [30, 30],
                         iconAnchor: [15, 15]
                     });
@@ -830,12 +912,12 @@
                                 animationFrameId = requestAnimationFrame(step);
                             } else {
                                 currentIndex = (currentIndex + 1) % boatPath.length;
-                                animationFrameId = requestAnimationFrame(animateBoat);
+                                animationFrameId = requestAnimationFrame(animateBoat); // Restart loop
                             }
                         }
                         animationFrameId = requestAnimationFrame(step);
                     }
-                    animateBoat();
+                    animateBoat(); // Start the loop correctly
                 }
                 addSailingBoat();
             }
