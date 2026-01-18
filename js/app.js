@@ -169,10 +169,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         tileLayer.addTo(map);
 
-        // Terminator (Day/Night line) - Make it subtle
+        // Terminator (Day/Night line) - Make it subtle but visible
         const terminator = L.terminator({
             fillColor: '#0A2540',
-            fillOpacity: 0.1,
+            fillOpacity: 0.12,
             color: 'transparent',
             resolution: 10
         }).addTo(map);
@@ -200,15 +200,21 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Swipe down on bottom sheet
+        // Swipe down on bottom sheet (Smart closing)
         let touchStartY = 0;
+        const contentBody = document.getElementById('sheet-content');
+
         bottomSheet.addEventListener('touchstart', e => {
             touchStartY = e.changedTouches[0].screenY;
         }, {passive: true});
 
         bottomSheet.addEventListener('touchend', e => {
             const touchEndY = e.changedTouches[0].screenY;
-            if (touchEndY - touchStartY > 100) { // Swipe down
+            const distance = touchEndY - touchStartY;
+            const isAtTop = contentBody.scrollTop === 0;
+
+            // Only close if we swiped down significantly AND we are at the top of the content
+            if (distance > 100 && isAtTop) {
                 closeUI();
             }
         }, {passive: true});
@@ -267,14 +273,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Desktop: Fly to allow sidebar space on left
                     // We shift center WEST so target is EAST
                     map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
-                        animate: true, duration: 1.8, easeLinearity: 0.25
+                        animate: true, duration: 1.6, easeLinearity: 0.2
                     });
                     sidebar.classList.add('active');
                     bottomSheet.classList.remove('active');
                 } else {
                     // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
                     map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
-                        animate: true, duration: 1.5
+                        animate: true, duration: 1.4, easeLinearity: 0.2
                     });
                     bottomSheet.classList.add('active');
                     sidebar.classList.remove('active');
