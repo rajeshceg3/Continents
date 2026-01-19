@@ -3,9 +3,9 @@
     --primary: #0A2540;     /* Deep Navy */
     --primary-dark: #05192E;
     --accent: #635BFF;      /* Stripe Violet */
-    --accent-light: #8075FF;
+    --accent-light: #7A73FF;
     --accent-dark: #4B45C6;
-    --accent-glow: rgba(99, 91, 255, 0.5);
+    --accent-glow: rgba(99, 91, 255, 0.4);
     --success: #3ECF8E;     /* Vibrant Mint */
     --warning: #F5A623;
     --danger: #FF5A5F;
@@ -16,22 +16,22 @@
     --text-white: #FFFFFF;
 
     /* Glassmorphism Variables */
-    --surface-glass: rgba(255, 255, 255, 0.72);
-    --surface-glass-hover: rgba(255, 255, 255, 0.85);
-    --border-glass: rgba(255, 255, 255, 0.5);
-    --glass-blur: blur(24px) saturate(180%);
+    --surface-glass: rgba(255, 255, 255, 0.82); /* Slightly more opaque for better contrast */
+    --surface-glass-hover: rgba(255, 255, 255, 0.92);
+    --border-glass: rgba(255, 255, 255, 0.6);
+    --glass-blur: blur(20px) saturate(180%);
 
     /* Refined Shadows for Depth */
     --shadow-xs: 0 2px 5px -1px rgba(50, 50, 93, 0.25), 0 1px 3px -1px rgba(0, 0, 0, 0.3);
-    --shadow-sm: 0 6px 15px -2px rgba(50, 50, 93, 0.25), 0 3px 8px -3px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 13px 35px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 6px 12px -2px rgba(50, 50, 93, 0.25), 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
     --shadow-xl: 0 50px 100px -20px rgba(50, 50, 93, 0.25), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
     --shadow-glow: 0 0 40px var(--accent-glow);
-    --shadow-inner: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    --shadow-inner: inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
 
     /* Typography */
-    --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-heading: 'Playfair Display', serif;
 
     /* Animations */
@@ -53,8 +53,8 @@ html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px;
-    line-height: 1.7; /* Increased for better readability */
-    letter-spacing: -0.01em; /* Tighter for premium feel */
+    line-height: 1.6;
+    letter-spacing: -0.01em;
 }
 
 ::selection {
@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary);
     line-height: 1.1;
     letter-spacing: -0.02em;
+    font-weight: 700;
 }
 
 /* --- Welcome Screen --- */
@@ -224,7 +225,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .leaflet-tile-pane {
-    filter: saturate(0.85) contrast(1.02);
+    filter: saturate(0.7) contrast(1.05) brightness(1.02);
 }
 
 #map::after {
@@ -327,10 +328,11 @@ h1, h2, h3, h4, h5, h6 {
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--border-glass);
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 24px;
-    box-shadow: var(--shadow-xl), var(--shadow-inner);
+    box-shadow:
+        var(--shadow-xl),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.7),
+        inset 1px 0 0 0 rgba(255, 255, 255, 0.4);
     z-index: 1000;
     transform: perspective(1000px) translateX(-120%) scale(0.96) rotateY(15deg);
     transform-origin: left center;
@@ -419,6 +421,7 @@ h1, h2, h3, h4, h5, h6 {
 .content-body {
     padding: 0 48px 64px;
     overflow-y: auto;
+    overscroll-behavior: contain;
     flex: 1;
     scrollbar-width: thin;
     scrollbar-color: rgba(10, 37, 64, 0.1) transparent;
@@ -434,10 +437,15 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
-/* Custom Scrollbar */
-.content-body::-webkit-scrollbar { width: 6px; }
-.content-body::-webkit-scrollbar-thumb { background: rgba(10, 37, 64, 0.15); border-radius: 100px; }
-.content-body::-webkit-scrollbar-track { background: transparent; }
+/* Custom Scrollbar - Ultra Minimal */
+.content-body::-webkit-scrollbar { width: 4px; }
+.content-body::-webkit-scrollbar-thumb {
+    background: rgba(10, 37, 64, 0.1);
+    border-radius: 100px;
+    transition: background 0.3s;
+}
+.content-body:hover::-webkit-scrollbar-thumb { background: rgba(10, 37, 64, 0.25); }
+.content-body::-webkit-scrollbar-track { background: transparent; margin: 20px 0; }
 
 /* Facts Cards */
 .fact-card {
