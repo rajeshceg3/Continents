@@ -16,10 +16,10 @@
     --text-white: #FFFFFF;
 
     /* Glassmorphism Variables */
-    --surface-glass: rgba(255, 255, 255, 0.82); /* Slightly more opaque for better contrast */
-    --surface-glass-hover: rgba(255, 255, 255, 0.92);
-    --border-glass: rgba(255, 255, 255, 0.6);
-    --glass-blur: blur(20px) saturate(180%);
+    --surface-glass: rgba(255, 255, 255, 0.75);
+    --surface-glass-hover: rgba(255, 255, 255, 0.88);
+    --border-glass: rgba(255, 255, 255, 0.5);
+    --glass-blur: blur(24px) saturate(180%);
 
     /* Refined Shadows for Depth */
     --shadow-xs: 0 2px 5px -1px rgba(50, 50, 93, 0.25), 0 1px 3px -1px rgba(0, 0, 0, 0.3);
@@ -98,9 +98,9 @@ h1, h2, h3, h4, h5, h6 {
     top: -50%; left: -50%;
     width: 200%; height: 200%;
     background:
-        radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.12), transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(62, 207, 142, 0.08), transparent 40%),
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03), transparent 40%);
+        radial-gradient(circle at 50% 50%, rgba(99, 91, 255, 0.15), transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(62, 207, 142, 0.1), transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 40%);
     animation: drift 40s infinite alternate cubic-bezier(0.37, 0, 0.63, 1);
     pointer-events: none;
 }
@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     opacity: 0.6;
     pointer-events: none;
 }
@@ -211,6 +211,11 @@ h1, h2, h3, h4, h5, h6 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* --- Map Base --- */
 #app-shell {
     position: relative;
@@ -225,7 +230,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .leaflet-tile-pane {
-    filter: saturate(0.7) contrast(1.05) brightness(1.02);
+    filter: saturate(0.6) contrast(1.05) brightness(1.02);
 }
 
 #map::after {
@@ -263,7 +268,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pin-inner {
-    width: 18px; height: 18px;
+    width: 20px; height: 20px;
     background: linear-gradient(135deg, var(--accent-light), var(--accent));
     border-radius: 50%;
     z-index: 2;
@@ -277,7 +282,7 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 18px; height: 18px;
+    width: 20px; height: 20px;
     border-radius: 50%;
     border: 2px solid var(--accent);
     opacity: 0;
@@ -354,8 +359,8 @@ h1, h2, h3, h4, h5, h6 {
 #bottom-sheet {
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 88vh;
-    background: rgba(255, 255, 255, 0.9);
+    height: 85vh;
+    background: rgba(255, 255, 255, 0.94); /* Slightly higher opacity for mobile */
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border-top: 1px solid var(--border-glass);
@@ -449,8 +454,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Facts Cards */
 .fact-card {
-    background: rgba(255,255,255,0.5);
-    border: 1px solid rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.8);
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 20px;
@@ -461,9 +466,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fact-card:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-4px) scale(1.01);
     box-shadow: var(--shadow-md);
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     border-color: #fff;
 }
 
@@ -517,9 +522,9 @@ h1, h2, h3, h4, h5, h6 {
 .close-btn {
     position: absolute;
     top: 24px; right: 24px;
-    background: rgba(255,255,255,0.4);
-    border: 1px solid rgba(255,255,255,0.2);
-    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.3);
+    width: 40px; height: 40px;
     border-radius: 50%;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
@@ -532,8 +537,9 @@ h1, h2, h3, h4, h5, h6 {
     background: #fff;
     transform: rotate(90deg);
     box-shadow: var(--shadow-sm);
+    color: var(--danger);
 }
-.close-btn svg { width: 18px; height: 18px; fill: var(--text-main); }
+.close-btn svg { width: 20px; height: 20px; fill: currentColor; }
 
 /* Read More */
 .read-more-link {
@@ -541,14 +547,14 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     gap: 8px;
     margin-top: 1.5rem;
-    padding: 10px 24px;
+    padding: 12px 28px;
     background-color: var(--primary);
     color: #fff;
     text-decoration: none;
     font-weight: 500;
     border-radius: 50px;
     transition: all 0.3s var(--ease-smooth);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     box-shadow: 0 4px 10px rgba(10, 37, 64, 0.2);
 }
 
