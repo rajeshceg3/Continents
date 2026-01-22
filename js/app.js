@@ -276,14 +276,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Desktop: Fly to allow sidebar space on left
                     // We shift center WEST so target is EAST
                     map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
-                        animate: true, duration: 1.6, easeLinearity: 0.2
+                        animate: true, duration: 1.2, easeLinearity: 0.2
                     });
                     sidebar.classList.add('active');
                     bottomSheet.classList.remove('active');
                 } else {
                     // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
                     map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
-                        animate: true, duration: 1.4, easeLinearity: 0.2
+                        animate: true, duration: 1.2, easeLinearity: 0.2
                     });
                     bottomSheet.classList.add('active');
                     sidebar.classList.remove('active');
