@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Has the longest coastline in the world (Canada).",
                 "Contains the world's largest freshwater lake."
             ],
+            climate: "Varied from tropical in the south to arctic in the north.",
+            landmarks: ["Grand Canyon", "Niagara Falls", "Chichen Itza"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
@@ -35,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Longest continental mountain range (Andes).",
                 "Driest non-polar desert on Earth (Atacama)."
             ],
+            climate: "Predominantly tropical, with arid deserts and alpine climates.",
+            landmarks: ["Machu Picchu", "Christ the Redeemer", "Angel Falls"],
             gallery: [
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Green/Hills
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
@@ -52,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Birthplace of Western civilization.",
                 "Home to the world's smallest country (Vatican City)."
             ],
+            climate: "Temperate and continental, influenced by the Gulf Stream.",
+            landmarks: ["Eiffel Tower", "Colosseum", "Acropolis"],
             gallery: [
                 "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Lake
                 "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Mist
@@ -69,6 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Home to the Sahara Desert.",
                 "The Nile is the longest river in the world."
             ],
+            climate: "Hot and dry in deserts, tropical in rainforests, mediterranean on coasts.",
+            landmarks: ["Pyramids of Giza", "Victoria Falls", "Table Mountain"],
             gallery: [
                 "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Savanna
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
@@ -86,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Home to Mount Everest.",
                 "The Great Wall of China is here."
             ],
+            climate: "Extremely diverse, ranging from subarctic to tropical.",
+            landmarks: ["Great Wall of China", "Taj Mahal", "Angkor Wat"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Hills/Rice Terrace feel
@@ -103,6 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Home to the Great Barrier Reef.",
                 "No active volcanoes."
             ],
+            climate: "Arid to semi-arid in the center, tropical in the north, temperate in the south.",
+            landmarks: ["Sydney Opera House", "Uluru", "Great Barrier Reef"],
             gallery: [
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Outback/Desert
                 "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Coast feel
@@ -120,6 +132,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Coldest, windiest continent.",
                 "No permanent residents."
             ],
+            climate: "The coldest, driest, and windiest continent on Earth.",
+            landmarks: ["Mount Vinson", "McMurdo Station", "South Pole"],
             gallery: [
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Cold
@@ -133,6 +147,107 @@ document.addEventListener('DOMContentLoaded', function () {
     const beginButton = document.getElementById('begin-button');
     const sidebar = document.getElementById('sidebar');
     const bottomSheet = document.getElementById('bottom-sheet');
+    const passportModal = document.getElementById('passport-modal');
+    const passportBtn = document.getElementById('passport-btn');
+    const closePassportBtn = document.querySelector('.close-passport');
+
+    // Passport State
+    let visitedContinents = new Set(JSON.parse(localStorage.getItem('visitedContinents')) || []);
+
+    function savePassport() {
+        localStorage.setItem('visitedContinents', JSON.stringify([...visitedContinents]));
+    }
+
+    function markVisited(continentName) {
+        if (!visitedContinents.has(continentName)) {
+            visitedContinents.add(continentName);
+            savePassport();
+            showToast(`Passport Stamped: ${continentName}!`);
+            updateMarkerStyle(continentName);
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        // Trigger reflow
+        toast.offsetHeight;
+
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    function updateMarkerStyle(continentName) {
+        // Find marker and add class - this is tricky with Leaflet markers not having direct IDs
+        // We will rely on re-rendering or direct DOM manipulation if possible,
+        // but easier is to add a class during creation if visited.
+        // For now, let's handle this by iterating markers if we stored them, or just rely on the passport view.
+        // Better: We iterate over the map layers to find the marker with the title.
+        map.eachLayer(layer => {
+            if (layer instanceof L.Marker && layer.options.title === continentName) {
+                const icon = layer.getElement();
+                if (icon) icon.classList.add('visited-marker');
+            }
+        });
+    }
+
+    function renderPassport() {
+        const grid = document.getElementById('passport-grid');
+        grid.innerHTML = '';
+
+        continents.forEach(continent => {
+            const isVisited = visitedContinents.has(continent.name);
+            const stamp = document.createElement('div');
+            stamp.className = `passport-stamp ${isVisited ? 'earned' : ''}`;
+
+            // Generate a deterministic rotation for a messy stamp look
+            const rotation = (continent.name.length * 7) % 30 - 15;
+
+            stamp.innerHTML = `
+                <div class="stamp-inner" style="transform: rotate(${rotation}deg)">
+                    <div class="stamp-icon">
+                        ${isVisited ?
+                            '<svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>' :
+                            '<svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>'}
+                    </div>
+                    <span class="stamp-name">${continent.name}</span>
+                    ${isVisited ? '<span class="stamp-date">VISITED</span>' : ''}
+                </div>
+            `;
+            grid.appendChild(stamp);
+        });
+
+        const progress = (visitedContinents.size / continents.length) * 100;
+        document.getElementById('passport-progress-fill').style.width = `${progress}%`;
+        document.getElementById('passport-status').textContent = `${visitedContinents.size} / ${continents.length} Collected`;
+    }
+
+    passportBtn.addEventListener('click', () => {
+        renderPassport();
+        passportModal.classList.add('active');
+        passportModal.setAttribute('aria-hidden', 'false');
+    });
+
+    closePassportBtn.addEventListener('click', () => {
+        passportModal.classList.remove('active');
+        passportModal.setAttribute('aria-hidden', 'true');
+    });
+
+    // Close on background click
+    passportModal.addEventListener('click', (e) => {
+        if (e.target === passportModal) {
+            passportModal.classList.remove('active');
+            passportModal.setAttribute('aria-hidden', 'true');
+        }
+    });
+
     let map;
 
     beginButton.addEventListener('click', function() {
@@ -221,8 +336,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         continents.forEach((continent, index) => {
+            const isVisited = visitedContinents.has(continent.name);
             const continentIcon = L.divIcon({
-                className: 'continent-marker',
+                className: `continent-marker ${isVisited ? 'visited-marker' : ''}`,
                 html: `<div class="pin" role="button" aria-label="${continent.name}" tabindex="0" style="animation: fadeInUp 0.5s ease-out forwards ${index * 100}ms; opacity: 0;">
                          <div class="pin-ring"></div>
                          <div class="pin-inner"></div>
@@ -246,11 +362,27 @@ document.addEventListener('DOMContentLoaded', function () {
             const factsHTML = continent.facts.map(fact =>
                 `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(fact)}</p></div>`
             ).join('');
+            const landmarksHTML = continent.landmarks.map(landmark =>
+                `<li class="landmark-item">${sanitizeHTML(landmark)}</li>`
+            ).join('');
 
             const contentHTML = `
                 <div class="gallery-grid">${galleryHTML}</div>
-                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary);">Quick Facts</h3>
+
+                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary);">Climate</h3>
+                <div class="climate-section">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <p>${sanitizeHTML(continent.climate)}</p>
+                </div>
+
+                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary); margin-top: 24px;">Must Visit</h3>
+                <ul class="landmark-list">
+                    ${landmarksHTML}
+                </ul>
+
+                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary); margin-top: 24px;">Quick Facts</h3>
                 ${factsHTML}
+
                 <div style="margin-top: 24px; text-align: center;">
                     <a href="${continent.wikiLink}" class="read-more-link" target="_blank" rel="noopener noreferrer">
                         <span>Read more on Wikipedia</span>
@@ -267,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const handleMarkerInteraction = (e) => {
                 L.DomEvent.stopPropagation(e);
+                markVisited(continent.name);
                 populateContent('sidebar-title', 'sidebar-desc', 'sidebar-content');
                 populateContent('sheet-title', 'sheet-desc', 'sheet-content');
 

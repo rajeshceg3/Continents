@@ -315,6 +315,20 @@ h1, h2, h3, h4, h5, h6 {
     animation-duration: 1.5s;
 }
 
+/* Visited Marker */
+.visited-marker .pin-inner {
+    background: linear-gradient(135deg, var(--success), #2cb575);
+    box-shadow: 0 0 0 3px #fff, 0 4px 12px rgba(62, 207, 142, 0.4);
+}
+.visited-marker .pin-ring {
+    border-color: var(--success);
+    opacity: 0.15;
+    animation: none;
+}
+.visited-marker:hover .pin-inner {
+    box-shadow: 0 0 0 4px #fff, 0 8px 20px rgba(62, 207, 142, 0.6);
+}
+
 @keyframes pulse-ring {
     0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
     40% { opacity: 0.35; }
@@ -698,3 +712,278 @@ h1, h2, h3, h4, h5, h6 {
 .leaflet-tooltip-top.custom-tooltip::before {
     border-top-color: var(--primary);
 }
+
+/* --- New Content Sections --- */
+.climate-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-xs);
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.climate-section:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-md);
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+.section-icon {
+    width: 32px; height: 32px;
+    stroke: var(--warning);
+    flex-shrink: 0;
+}
+
+.climate-section p {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.landmark-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.landmark-item {
+    position: relative;
+    padding: 16px 20px 16px 50px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: all 0.3s var(--ease-smooth);
+    cursor: default;
+}
+
+.landmark-item:hover {
+    background: #fff;
+    box-shadow: var(--shadow-sm);
+    transform: translateX(4px);
+    border-color: rgba(99, 91, 255, 0.3);
+    color: var(--primary);
+}
+
+.landmark-item::before {
+    content: '';
+    position: absolute;
+    left: 20px; top: 50%;
+    transform: translateY(-50%);
+    width: 18px; height: 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23635BFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'%3E%3C/path%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.8;
+}
+
+.landmark-item:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- Passport Feature --- */
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background: #fff;
+    color: var(--primary);
+    padding: 16px 32px;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    font-weight: 600;
+    z-index: 20000;
+    opacity: 0;
+    transition: all 0.5s var(--ease-elastic);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(99, 91, 255, 0.2);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast::before {
+    content: '🎉';
+    font-size: 1.2rem;
+}
+
+/* Passport Modal */
+#passport-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10001;
+    background: rgba(10, 37, 64, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s var(--ease-smooth);
+    padding: 20px;
+}
+
+#passport-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.passport-container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: var(--shadow-xl);
+    padding: 40px;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.5s var(--ease-elastic);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#passport-modal.active .passport-container {
+    transform: scale(1) translateY(0);
+}
+
+.close-passport {
+    position: absolute;
+    top: 24px; right: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+.close-passport:hover {
+    color: var(--danger);
+    transform: scale(1.1);
+}
+
+.passport-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.passport-header h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.passport-header p {
+    color: var(--text-light);
+}
+
+.passport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.passport-stamp {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba(0,0,0,0.1);
+    border-radius: 50%;
+    color: var(--text-lighter);
+    opacity: 0.5;
+    transition: all 0.3s var(--ease-spring);
+    position: relative;
+    padding: 10px;
+    text-align: center;
+}
+
+.passport-stamp.earned {
+    border: 3px solid var(--accent);
+    color: var(--primary);
+    opacity: 1;
+    background: radial-gradient(circle at center, rgba(99, 91, 255, 0.05), transparent);
+    box-shadow: 0 4px 12px rgba(99, 91, 255, 0.15);
+}
+
+.stamp-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.stamp-icon svg {
+    stroke-width: 1.5px;
+}
+
+.earned .stamp-icon svg {
+    stroke: var(--accent);
+    fill: rgba(99, 91, 255, 0.1);
+}
+
+.stamp-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.stamp-date {
+    font-size: 0.6rem;
+    color: var(--success);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+}
+
+.passport-progress {
+    background: #f0f4f8;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 100px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--success);
+    border-radius: 100px;
+    transition: width 1s var(--ease-out-quart);
+}
+
+#passport-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Confetti animation could be added here later */
