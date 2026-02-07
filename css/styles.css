@@ -987,3 +987,130 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Confetti animation could be added here later */
+
+/* --- Exploration UI --- */
+.step-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.progress-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.progress-dot {
+    width: 8px; height: 8px;
+    background: rgba(10, 37, 64, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+    background: var(--accent);
+    transform: scale(1.2);
+}
+
+.nav-buttons {
+    margin-top: auto;
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.nav-buttons.center {
+    justify-content: center;
+}
+
+.nav-btn {
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--ease-smooth);
+    font-family: var(--font-ui);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+.nav-btn:active {
+    transform: translateY(0);
+}
+
+.nav-btn.primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(99, 91, 255, 0.3);
+}
+
+.nav-btn.primary:hover {
+    background: var(--accent-light);
+    box-shadow: 0 8px 16px rgba(99, 91, 255, 0.4);
+}
+
+.nav-btn.secondary {
+    background: rgba(10, 37, 64, 0.05);
+    color: var(--text-light);
+}
+
+.nav-btn.secondary:hover {
+    background: rgba(10, 37, 64, 0.1);
+    color: var(--primary);
+}
+
+.nav-btn.success {
+    background: var(--success);
+    box-shadow: 0 4px 12px rgba(62, 207, 142, 0.3);
+}
+
+.nav-btn.success:hover {
+    background: #2cb575;
+    box-shadow: 0 8px 16px rgba(62, 207, 142, 0.4);
+}
+
+.completion-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+.success-icon-wrapper {
+    width: 120px; height: 120px;
+    background: rgba(62, 207, 142, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    animation: scaleIn 0.6s var(--ease-elastic);
+}
+
+.success-icon {
+    stroke: var(--success);
+    animation: drawCheck 0.8s ease-out forwards 0.4s;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+}
+
+@keyframes scaleIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes drawCheck {
+    to { stroke-dashoffset: 0; }
+}
