@@ -90,6 +90,22 @@
                 <div class="progress-bar"><div class="progress-fill" id="passport-progress-fill" style="width: 0%"></div></div>
                 <p id="passport-status">0 / 7 Collected</p>
             </div>
+
+            <!-- Journal View (Hidden by default) -->
+            <div id="passport-journal-view" style="display: none; animation: fadeInUp 0.4s ease-out;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+                    <button id="journal-back-btn" class="nav-btn secondary" style="padding: 8px 16px; font-size: 0.85rem;">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> Back
+                    </button>
+                    <h3 id="journal-title" style="margin: 0; font-size: 1.5rem;">Journal</h3>
+                    <div style="width: 60px;"></div> <!-- Spacer -->
+                </div>
+                <div class="journal-content">
+                    <p style="margin-bottom: 12px; color: var(--text-light);">Record your memories from this journey:</p>
+                    <textarea id="journal-textarea" class="journal-textarea" placeholder="What did you discover?"></textarea>
+                    <button id="journal-save-btn" class="nav-btn primary" style="width: 100%; margin-top: 24px; justify-content: center;">Save Entry</button>
+                </div>
+            </div>
         </div>
     </div>
 
