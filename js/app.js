@@ -250,6 +250,197 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let map;
 
+    const closeUI = () => {
+         sidebar.classList.remove('active');
+         bottomSheet.classList.remove('active');
+         document.body.classList.remove('ui-active');
+         if (map) map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
+    };
+
+    const ExplorationManager = {
+        currentStep: 0,
+        totalSteps: 5, // 0: Intro, 1: Climate, 2: Landmarks, 3: Facts, 4: Completion
+        currentContinent: null,
+
+        startExploration: function(continent) {
+            this.currentContinent = continent;
+            this.currentStep = 0;
+            this.renderStep(this.currentStep);
+            this.openUI(continent);
+        },
+
+        nextStep: function() {
+            if (this.currentStep < this.totalSteps - 1) {
+                this.currentStep++;
+                this.renderStep(this.currentStep);
+            }
+        },
+
+        prevStep: function() {
+            if (this.currentStep > 0) {
+                this.currentStep--;
+                this.renderStep(this.currentStep);
+            }
+        },
+
+        completeExploration: function() {
+            if (this.currentContinent) {
+                markVisited(this.currentContinent.name);
+            }
+            closeUI();
+        },
+
+        openUI: function(continent) {
+             const isDesktop = window.innerWidth > 768;
+
+             if (isDesktop) {
+                 // Desktop: Fly to allow sidebar space on left
+                 // We shift center WEST so target is EAST
+                 map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
+                     animate: true, duration: 1.2, easeLinearity: 0.2
+                 });
+                 sidebar.classList.add('active');
+                 bottomSheet.classList.remove('active');
+             } else {
+                 // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
+                 map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
+                     animate: true, duration: 1.2, easeLinearity: 0.2
+                 });
+                 bottomSheet.classList.add('active');
+                 sidebar.classList.remove('active');
+             }
+             document.body.classList.add('ui-active');
+        },
+
+        renderStep: function(stepIndex) {
+            const continent = this.currentContinent;
+            const isDesktop = window.innerWidth > 768;
+
+            // Helper to update UI
+            const updateUI = (containerId, titleId, descId) => {
+                const container = document.getElementById(containerId);
+                const titleEl = document.getElementById(titleId);
+                const descEl = document.getElementById(descId);
+
+                if (!container) return;
+
+                // Clear previous content
+                container.innerHTML = '';
+
+                let contentHTML = '';
+                let stepTitle = '';
+                let stepDesc = '';
+
+                // Progress Indicator
+                const progressHTML = `
+                    <div class="progress-indicator">
+                        ${Array.from({length: this.totalSteps}).map((_, i) =>
+                            `<div class="progress-dot ${i <= stepIndex ? 'active' : ''}"></div>`
+                        ).join('')}
+                    </div>
+                `;
+
+                if (stepIndex === 0) {
+                    stepTitle = continent.name;
+                    stepDesc = continent.description;
+                    contentHTML = `
+                        <div class="hero-image-container">
+                            <img src="${continent.gallery[0]}" class="hero-image" alt="${continent.name}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; margin-bottom:24px; box-shadow:var(--shadow-md);">
+                        </div>
+                        <div class="nav-buttons center" style="display:flex; justify-content:center;">
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">
+                                Begin Journey
+                            </button>
+                        </div>
+                    `;
+                } else if (stepIndex === 1) {
+                    stepTitle = "Climate & Environment";
+                    stepDesc = "Discover the natural forces that shape this land.";
+                    contentHTML = `
+                        <div class="climate-section">
+                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                             <p>${sanitizeHTML(continent.climate)}</p>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Discover Landmarks</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 2) {
+                    stepTitle = "Must Visit";
+                    stepDesc = "Iconic landmarks you cannot miss.";
+                    const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l)}</li>`).join('');
+                    const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy">`).join('');
+                    contentHTML = `
+                        <ul class="landmark-list">${landmarksHTML}</ul>
+                        <div class="gallery-grid" style="margin-top: 20px;">${remainingGallery}</div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Learn Secrets</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 3) {
+                    stepTitle = "Quick Facts";
+                    stepDesc = "Interesting tidbits to know.";
+                    const factsHTML = continent.facts.map(f => `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
+                    contentHTML = `
+                        ${factsHTML}
+                        <div style="text-align: center; margin: 20px 0;">
+                             <a href="${continent.wikiLink}" class="read-more-link" target="_blank" rel="noopener noreferrer">
+                                <span>Read more on Wikipedia</span>
+                             </a>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Claim Stamp</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 4) {
+                    stepTitle = "Journey Complete!";
+                    stepDesc = "You have fully explored " + continent.name + ".";
+                    contentHTML = `
+                        <div class="completion-view" style="text-align:center; padding: 40px 0;">
+                            <div class="success-icon-wrapper" style="margin-bottom:20px; color:var(--success);">
+                                <svg viewBox="0 0 24 24" width="80" height="80" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="success-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            </div>
+                            <h3 style="margin-bottom:10px;">Passport Stamp Collected!</h3>
+                            <p style="color:var(--text-light);">You are one step closer to exploring the whole world.</p>
+                        </div>
+                        <div class="nav-buttons center" style="display:flex; justify-content:center;">
+                            <button class="nav-btn primary success" onclick="ExplorationManager.completeExploration()">
+                                Return to Map
+                            </button>
+                        </div>
+                    `;
+                }
+
+                // Inject Content
+                titleEl.textContent = stepTitle;
+                descEl.textContent = stepDesc;
+                container.innerHTML = progressHTML + contentHTML;
+
+                // Trigger a slight fade-in for content
+                container.animate([
+                    { opacity: 0, transform: 'translateY(10px)' },
+                    { opacity: 1, transform: 'translateY(0)' }
+                ], {
+                    duration: 400,
+                    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
+                });
+            };
+
+            // Update visible UI based on mode
+            // We update both just in case user resizes, but prioritize based on logic if needed
+            // Actually, updating both is safer for resize handling without reload
+            updateUI('sidebar-content', 'sidebar-title', 'sidebar-desc');
+            updateUI('sheet-content', 'sheet-title', 'sheet-desc');
+        }
+    };
+
+    // Expose logic for inline HTML handlers if needed (though we will try to use addEventListener)
+    window.ExplorationManager = ExplorationManager;
+
+
     beginButton.addEventListener('click', function() {
         this.disabled = true;
         welcomeScreen.classList.add('fade-out');
@@ -300,13 +491,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('zoom-in').addEventListener('click', () => map.setZoom(map.getZoom() + 1));
         document.getElementById('zoom-out').addEventListener('click', () => map.setZoom(map.getZoom() - 1));
 
-        const closeUI = () => {
-             sidebar.classList.remove('active');
-             bottomSheet.classList.remove('active');
-             document.body.classList.remove('ui-active');
-             map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
-        };
-
         // Close buttons
         document.querySelectorAll('.close-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -356,72 +540,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 opacity: 1
             });
 
-            const sanitizedName = sanitizeHTML(continent.name);
-            const sanitizedDesc = sanitizeHTML(continent.description);
-            const galleryHTML = continent.gallery.map(url => `<img src="${url}" alt="${sanitizedName}" loading="lazy">`).join('');
-            const factsHTML = continent.facts.map(fact =>
-                `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(fact)}</p></div>`
-            ).join('');
-            const landmarksHTML = continent.landmarks.map(landmark =>
-                `<li class="landmark-item">${sanitizeHTML(landmark)}</li>`
-            ).join('');
-
-            const contentHTML = `
-                <div class="gallery-grid">${galleryHTML}</div>
-
-                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary);">Climate</h3>
-                <div class="climate-section">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-                    <p>${sanitizeHTML(continent.climate)}</p>
-                </div>
-
-                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary); margin-top: 24px;">Must Visit</h3>
-                <ul class="landmark-list">
-                    ${landmarksHTML}
-                </ul>
-
-                <h3 style="margin-bottom:12px; font-weight:600; color:var(--primary); margin-top: 24px;">Quick Facts</h3>
-                ${factsHTML}
-
-                <div style="margin-top: 24px; text-align: center;">
-                    <a href="${continent.wikiLink}" class="read-more-link" target="_blank" rel="noopener noreferrer">
-                        <span>Read more on Wikipedia</span>
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                    </a>
-                </div>
-            `;
-
-            const populateContent = (titleId, descId, contentId) => {
-                document.getElementById(titleId).textContent = sanitizedName;
-                document.getElementById(descId).textContent = sanitizedDesc;
-                document.getElementById(contentId).innerHTML = contentHTML;
-            };
-
             const handleMarkerInteraction = (e) => {
                 L.DomEvent.stopPropagation(e);
-                markVisited(continent.name);
-                populateContent('sidebar-title', 'sidebar-desc', 'sidebar-content');
-                populateContent('sheet-title', 'sheet-desc', 'sheet-content');
-
-                const isDesktop = window.innerWidth > 768;
-
-                if (isDesktop) {
-                    // Desktop: Fly to allow sidebar space on left
-                    // We shift center WEST so target is EAST
-                    map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
-                        animate: true, duration: 1.2, easeLinearity: 0.2
-                    });
-                    sidebar.classList.add('active');
-                    bottomSheet.classList.remove('active');
-                } else {
-                    // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
-                    map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
-                        animate: true, duration: 1.2, easeLinearity: 0.2
-                    });
-                    bottomSheet.classList.add('active');
-                    sidebar.classList.remove('active');
-                }
-                    document.body.classList.add('ui-active');
+                ExplorationManager.startExploration(continent);
             };
 
             marker.on('click', handleMarkerInteraction);
