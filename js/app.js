@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Contains the world's largest freshwater lake."
             ],
             climate: "Varied from tropical in the south to arctic in the north.",
+            wildlife: ["Grizzly Bear", "Bald Eagle", "Moose"],
+            culture: "A melting pot of indigenous heritage and modern innovation.",
             landmarks: ["Grand Canyon", "Niagara Falls", "Chichen Itza"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
@@ -38,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Driest non-polar desert on Earth (Atacama)."
             ],
             climate: "Predominantly tropical, with arid deserts and alpine climates.",
+            wildlife: ["Jaguar", "Llama", "Toucan"],
+            culture: "Vibrant festivals, ancient traditions, and passionate rhythms.",
             landmarks: ["Machu Picchu", "Christ the Redeemer", "Angel Falls"],
             gallery: [
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Green/Hills
@@ -57,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Home to the world's smallest country (Vatican City)."
             ],
             climate: "Temperate and continental, influenced by the Gulf Stream.",
+            wildlife: ["Red Fox", "Wolf", "Reindeer"],
+            culture: "A rich tapestry of art, history, and diverse culinary traditions.",
             landmarks: ["Eiffel Tower", "Colosseum", "Acropolis"],
             gallery: [
                 "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Lake
@@ -76,6 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "The Nile is the longest river in the world."
             ],
             climate: "Hot and dry in deserts, tropical in rainforests, mediterranean on coasts.",
+            wildlife: ["Lion", "Elephant", "Giraffe"],
+            culture: "The cradle of humanity, known for its storytelling and rhythmic music.",
             landmarks: ["Pyramids of Giza", "Victoria Falls", "Table Mountain"],
             gallery: [
                 "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Savanna
@@ -95,6 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "The Great Wall of China is here."
             ],
             climate: "Extremely diverse, ranging from subarctic to tropical.",
+            wildlife: ["Tiger", "Panda", "Snow Leopard"],
+            culture: "Ancient civilizations blending spirituality with rapid modernization.",
             landmarks: ["Great Wall of China", "Taj Mahal", "Angkor Wat"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
@@ -114,6 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "No active volcanoes."
             ],
             climate: "Arid to semi-arid in the center, tropical in the north, temperate in the south.",
+            wildlife: ["Kangaroo", "Koala", "Wombat"],
+            culture: "Laid-back coastal living with deep respect for Aboriginal roots.",
             landmarks: ["Sydney Opera House", "Uluru", "Great Barrier Reef"],
             gallery: [
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Outback/Desert
@@ -133,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "No permanent residents."
             ],
             climate: "The coldest, driest, and windiest continent on Earth.",
+            wildlife: ["Emperor Penguin", "Weddell Seal", "Orca"],
+            culture: "A continent dedicated to peace and scientific discovery.",
             landmarks: ["Mount Vinson", "McMurdo Station", "South Pole"],
             gallery: [
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
@@ -154,8 +168,43 @@ document.addEventListener('DOMContentLoaded', function () {
     // Passport State
     let visitedContinents = new Set(JSON.parse(localStorage.getItem('visitedContinents')) || []);
 
+    // Journal State
+    let currentJournalContinent = null;
+
     function savePassport() {
         localStorage.setItem('visitedContinents', JSON.stringify([...visitedContinents]));
+    }
+
+    function openJournal(continentName) {
+        currentJournalContinent = continentName;
+        document.getElementById('passport-grid').style.display = 'none';
+        document.querySelector('.passport-progress').style.display = 'none';
+
+        const journalView = document.getElementById('passport-journal-view');
+        journalView.style.display = 'block';
+
+        document.getElementById('journal-title').textContent = continentName;
+
+        // Load existing note
+        const savedNote = localStorage.getItem(`journal_${continentName}`) || '';
+        document.getElementById('journal-textarea').value = savedNote;
+    }
+
+    function closeJournal() {
+        document.getElementById('passport-journal-view').style.display = 'none';
+        document.getElementById('passport-grid').style.display = 'grid';
+        document.querySelector('.passport-progress').style.display = 'block';
+        currentJournalContinent = null;
+    }
+
+    function saveJournal() {
+        if (!currentJournalContinent) return;
+
+        const note = document.getElementById('journal-textarea').value;
+        localStorage.setItem(`journal_${currentJournalContinent}`, note);
+
+        showToast('Journal Entry Saved!');
+        closeJournal();
     }
 
     function markVisited(continentName) {
@@ -210,6 +259,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Generate a deterministic rotation for a messy stamp look
             const rotation = (continent.name.length * 7) % 30 - 15;
 
+            if (isVisited) {
+                stamp.style.cursor = 'pointer';
+                stamp.addEventListener('click', () => openJournal(continent.name));
+            }
+
             stamp.innerHTML = `
                 <div class="stamp-inner" style="transform: rotate(${rotation}deg)">
                     <div class="stamp-icon">
@@ -238,7 +292,11 @@ document.addEventListener('DOMContentLoaded', function () {
     closePassportBtn.addEventListener('click', () => {
         passportModal.classList.remove('active');
         passportModal.setAttribute('aria-hidden', 'true');
+        closeJournal(); // Reset view
     });
+
+    document.getElementById('journal-back-btn').addEventListener('click', closeJournal);
+    document.getElementById('journal-save-btn').addEventListener('click', saveJournal);
 
     // Close on background click
     passportModal.addEventListener('click', (e) => {
@@ -259,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ExplorationManager = {
         currentStep: 0,
-        totalSteps: 5, // 0: Intro, 1: Climate, 2: Landmarks, 3: Facts, 4: Completion
+        totalSteps: 6, // 0: Intro, 1: Climate, 2: Wildlife, 3: Landmarks, 4: Facts, 5: Completion
         currentContinent: null,
 
         startExploration: function(continent) {
@@ -363,10 +421,28 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Discover Landmarks</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Meet the Locals</button>
                         </div>
                     `;
                 } else if (stepIndex === 2) {
+                    stepTitle = "Wildlife & Culture";
+                    stepDesc = "The living soul of the continent.";
+                    const wildlifeHTML = continent.wildlife.map(w => `<span style="background:rgba(255,255,255,0.7); padding:6px 12px; border-radius:50px; font-size:0.9rem; font-weight:500;">${sanitizeHTML(w)}</span>`).join(' ');
+                    contentHTML = `
+                         <div style="margin-bottom: 24px;">
+                            <h4 style="margin-bottom:12px; color:var(--text-light); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Native Wildlife</h4>
+                            <div style="display:flex; flex-wrap:wrap; gap:8px;">${wildlifeHTML}</div>
+                         </div>
+                         <div style="margin-bottom: 24px; padding: 20px; background: rgba(99, 91, 255, 0.05); border-radius: 16px; border: 1px solid rgba(99, 91, 255, 0.1);">
+                            <h4 style="margin-bottom:8px; color:var(--accent); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Cultural Insight</h4>
+                            <p style="font-size:1.05rem; line-height:1.6;">${sanitizeHTML(continent.culture)}</p>
+                         </div>
+                         <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Must Visit</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 3) {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
                     const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l)}</li>`).join('');
@@ -379,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Learn Secrets</button>
                         </div>
                     `;
-                } else if (stepIndex === 3) {
+                } else if (stepIndex === 4) {
                     stepTitle = "Quick Facts";
                     stepDesc = "Interesting tidbits to know.";
                     const factsHTML = continent.facts.map(f => `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
@@ -395,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Claim Stamp</button>
                         </div>
                     `;
-                } else if (stepIndex === 4) {
+                } else if (stepIndex === 5) {
                     stepTitle = "Journey Complete!";
                     stepDesc = "You have fully explored " + continent.name + ".";
                     contentHTML = `
@@ -418,6 +494,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 titleEl.textContent = stepTitle;
                 descEl.textContent = stepDesc;
                 container.innerHTML = progressHTML + contentHTML;
+
+                // Tilt Effect for Hero Image
+                const heroImg = container.querySelector('.hero-image');
+                if (heroImg) {
+                    const heroContainer = heroImg.parentElement;
+                    heroContainer.style.perspective = '1000px';
+                    heroImg.style.transition = 'transform 0.1s ease-out';
+
+                    heroContainer.addEventListener('mousemove', (e) => {
+                        const rect = heroContainer.getBoundingClientRect();
+                        const x = (e.clientX - rect.left) / rect.width - 0.5;
+                        const y = (e.clientY - rect.top) / rect.height - 0.5;
+                        heroImg.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.02)`;
+                    });
+
+                    heroContainer.addEventListener('mouseleave', () => {
+                        heroImg.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+                    });
+                }
 
                 // Trigger a slight fade-in for content
                 container.animate([
