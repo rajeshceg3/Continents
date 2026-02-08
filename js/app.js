@@ -27,7 +27,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
                 "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain Landscape
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/North_America"
+            wikiLink: "https://en.wikipedia.org/wiki/North_America",
+            travelTips: {
+                bestTime: "Spring (Apr-Jun) or Fall (Sep-Oct)",
+                currency: "USD, CAD, MXN",
+                language: "English, Spanish, French"
+            },
+            quiz: {
+                question: "Which is the largest freshwater lake by surface area?",
+                options: ["Lake Superior", "Lake Michigan", "Lake Huron"],
+                answer: 0
+            }
         },
         {
             name: "South America",
@@ -48,7 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
                 "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/South_America"
+            wikiLink: "https://en.wikipedia.org/wiki/South_America",
+            travelTips: {
+                bestTime: "June to August (Dry Season)",
+                currency: "BRL, ARS, CLP",
+                language: "Spanish, Portuguese"
+            },
+            quiz: {
+                question: "What is the longest mountain range in the world?",
+                options: ["The Rockies", "The Andes", "The Alps"],
+                answer: 1
+            }
         },
         {
             name: "Europe",
@@ -69,7 +89,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Mist
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Mountain
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/Europe"
+            wikiLink: "https://en.wikipedia.org/wiki/Europe",
+            travelTips: {
+                bestTime: "May to September",
+                currency: "Euro (EUR), GBP, CHF",
+                language: "English, French, German"
+            },
+            quiz: {
+                question: "Which country is the smallest in the world?",
+                options: ["Monaco", "San Marino", "Vatican City"],
+                answer: 2
+            }
         },
         {
             name: "Africa",
@@ -90,7 +120,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Green/Jungle
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/Africa"
+            wikiLink: "https://en.wikipedia.org/wiki/Africa",
+            travelTips: {
+                bestTime: "June to October (Safari)",
+                currency: "ZAR, EGP, KES",
+                language: "Arabic, Swahili, English"
+            },
+            quiz: {
+                question: "What is the longest river in the world?",
+                options: ["The Nile", "The Amazon", "The Yangtze"],
+                answer: 0
+            }
         },
         {
             name: "Asia",
@@ -111,7 +151,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Hills/Rice Terrace feel
                 "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Forest
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/Asia"
+            wikiLink: "https://en.wikipedia.org/wiki/Asia",
+            travelTips: {
+                bestTime: "November to March (Cool)",
+                currency: "JPY, CNY, INR",
+                language: "Mandarin, Hindi, Japanese"
+            },
+            quiz: {
+                question: "Which structure is visible from space (myth)?",
+                options: ["Taj Mahal", "Great Wall of China", "Burj Khalifa"],
+                answer: 1
+            }
         },
         {
             name: "Australia",
@@ -132,7 +182,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Coast feel
                 "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Bush
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/Australia"
+            wikiLink: "https://en.wikipedia.org/wiki/Australia",
+            travelTips: {
+                bestTime: "September to November (Spring)",
+                currency: "Australian Dollar (AUD)",
+                language: "English"
+            },
+            quiz: {
+                question: "What is the world's largest coral reef system?",
+                options: ["Belize Barrier Reef", "Great Barrier Reef", "Red Sea"],
+                answer: 1
+            }
         },
         {
             name: "Antarctica",
@@ -153,7 +213,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Cold
                 "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop"  // Lake/Cold
             ],
-            wikiLink: "https://en.wikipedia.org/wiki/Antarctica"
+            wikiLink: "https://en.wikipedia.org/wiki/Antarctica",
+            travelTips: {
+                bestTime: "November to March (Summer)",
+                currency: "None (Scientific)",
+                language: "N/A"
+            },
+            quiz: {
+                question: "What percentage of the world's fresh water is here?",
+                options: ["50%", "70%", "90%"],
+                answer: 1
+            }
         }
     ];
 
@@ -317,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ExplorationManager = {
         currentStep: 0,
-        totalSteps: 6, // 0: Intro, 1: Climate, 2: Wildlife, 3: Landmarks, 4: Facts, 5: Completion
+        totalSteps: 8, // 0: Intro, 1: Climate, 2: Wildlife, 3: Landmarks, 4: Tips, 5: Facts, 6: Quiz, 7: Completion
         currentContinent: null,
 
         startExploration: function(continent) {
@@ -346,6 +416,54 @@ document.addEventListener('DOMContentLoaded', function () {
                 markVisited(this.currentContinent.name);
             }
             closeUI();
+        },
+
+        checkQuizAnswer: function(selectedIndex, btnElement) {
+            const correctAnswer = this.currentContinent.quiz.answer;
+            // Select all feedback elements and buttons to handle both Desktop/Mobile views simultaneously
+            const feedbackEls = document.querySelectorAll('.quiz-feedback-box');
+            const nextBtns = document.querySelectorAll('.quiz-continue-btn');
+            const options = document.querySelectorAll('.quiz-option');
+
+            // Reset styles
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.disabled = true; // Disable all after selection
+            });
+
+            const isCorrect = selectedIndex === correctAnswer;
+            const feedbackText = isCorrect ? "Correct! Well done." : "Not quite. The correct answer is highlighted.";
+            const feedbackClass = isCorrect ? "quiz-feedback-box success show" : "quiz-feedback-box error show";
+
+            // Update all feedback boxes
+            feedbackEls.forEach(el => {
+                el.textContent = feedbackText;
+                el.className = feedbackClass;
+            });
+
+            if (isCorrect) {
+                btnElement.classList.add('correct');
+            } else {
+                btnElement.classList.add('incorrect');
+                // Highlight correct answer(s)
+                const correctOptions = document.querySelectorAll(`.quiz-option[data-index="${correctAnswer}"]`);
+                correctOptions.forEach(opt => opt.classList.add('correct'));
+            }
+
+            // Enable Continue buttons
+            const enableBtns = () => {
+                nextBtns.forEach(btn => {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                });
+            };
+
+            if (isCorrect) {
+                enableBtns();
+            } else {
+                setTimeout(enableBtns, 1500);
+            }
         },
 
         openUI: function(continent) {
@@ -452,10 +570,42 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="gallery-grid" style="margin-top: 20px;">${remainingGallery}</div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Learn Secrets</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Travel Smart</button>
                         </div>
                     `;
                 } else if (stepIndex === 4) {
+                    stepTitle = "Travel Tips";
+                    stepDesc = "Essential advice for your journey.";
+                    contentHTML = `
+                        <div class="tips-grid" style="display: grid; gap: 16px;">
+                            <div class="tip-card">
+                                <div class="tip-icon">📅</div>
+                                <div class="tip-content">
+                                    <strong>Best Time to Visit</strong>
+                                    <p>${sanitizeHTML(continent.travelTips.bestTime)}</p>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">💰</div>
+                                <div class="tip-content">
+                                    <strong>Currency</strong>
+                                    <p>${sanitizeHTML(continent.travelTips.currency)}</p>
+                                </div>
+                            </div>
+                            <div class="tip-card">
+                                <div class="tip-icon">🗣️</div>
+                                <div class="tip-content">
+                                    <strong>Languages</strong>
+                                    <p>${sanitizeHTML(continent.travelTips.language)}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Quick Facts</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 5) {
                     stepTitle = "Quick Facts";
                     stepDesc = "Interesting tidbits to know.";
                     const factsHTML = continent.facts.map(f => `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
@@ -468,10 +618,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Claim Stamp</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Take Quiz</button>
                         </div>
                     `;
-                } else if (stepIndex === 5) {
+                } else if (stepIndex === 6) {
+                    stepTitle = "Knowledge Check";
+                    stepDesc = "Test what you've learned.";
+                    const quiz = continent.quiz;
+                    contentHTML = `
+                        <div class="quiz-container">
+                            <p class="quiz-question">${sanitizeHTML(quiz.question)}</p>
+                            <div class="quiz-options">
+                                ${quiz.options.map((opt, i) => `
+                                    <button class="quiz-option" data-index="${i}" onclick="ExplorationManager.checkQuizAnswer(${i}, this)">
+                                        ${sanitizeHTML(opt)}
+                                    </button>
+                                `).join('')}
+                            </div>
+                            <div class="quiz-feedback-box"></div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary quiz-continue-btn" disabled style="opacity: 0.5; pointer-events: none;" onclick="ExplorationManager.nextStep()">Finish</button>
+                        </div>
+                    `;
+                } else if (stepIndex === 7) {
                     stepTitle = "Journey Complete!";
                     stepDesc = "You have fully explored " + continent.name + ".";
                     contentHTML = `

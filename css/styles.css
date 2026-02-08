@@ -1137,3 +1137,168 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.1);
     background: #fff;
 }
+
+/* --- Travel Tips --- */
+.tips-grid {
+    margin-top: 10px;
+}
+
+.tip-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    border: 1px solid rgba(10, 37, 64, 0.08);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.tip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+}
+
+.tip-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    background: rgba(99, 91, 255, 0.1);
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tip-content strong {
+    display: block;
+    color: var(--primary);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
+}
+
+.tip-content p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* --- Knowledge Check --- */
+.quiz-container {
+    padding: 10px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 16px 20px;
+    text-align: left;
+    border: 1px solid rgba(10, 37, 64, 0.1);
+    border-radius: 12px;
+    background: white;
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.quiz-option:hover {
+    background: #f8faff;
+    border-color: var(--accent);
+    transform: translateX(4px);
+    box-shadow: var(--shadow-sm);
+}
+
+.quiz-option.correct {
+    background: rgba(62, 207, 142, 0.15);
+    border-color: var(--success);
+    color: #1a7f50;
+    pointer-events: none;
+}
+
+.quiz-option.correct::after {
+    content: '✓';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+
+.quiz-option.incorrect {
+    background: rgba(255, 90, 95, 0.1);
+    border-color: var(--danger);
+    color: #c53030;
+    pointer-events: none;
+}
+
+.quiz-feedback-box {
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.quiz-feedback-box.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: block;
+}
+
+.quiz-feedback-box.success {
+    background: rgba(62, 207, 142, 0.2);
+    color: #1a7f50;
+}
+
+.quiz-feedback-box.error {
+    background: rgba(255, 90, 95, 0.15);
+    color: #c53030;
+}
+
+/* Cloud Animation */
+.cloud-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><filter id="cloud-filter"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="4" seed="0" /></filter><rect width="100%" height="100%" filter="url(%23cloud-filter)" opacity="0.4" /></svg>');
+    opacity: 0.2;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    animation: driftClouds 120s linear infinite;
+    mix-blend-mode: soft-light;
+}
+
+@keyframes driftClouds {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 0; }
+}
