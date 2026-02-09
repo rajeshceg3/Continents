@@ -21,6 +21,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Varied from tropical in the south to arctic in the north.",
             wildlife: ["Grizzly Bear", "Bald Eagle", "Moose"],
             culture: "A melting pot of indigenous heritage and modern innovation.",
+            cuisine: [
+                { name: "Hamburger", description: "A quintessential American staple." },
+                { name: "Poutine", description: "Canadian comfort food with fries, cheese curds, and gravy." },
+                { name: "Tacos", description: "Traditional Mexican street food with endless varieties." }
+            ],
+            travelTips: [
+                "Get a National Parks Pass if visiting multiple parks in the US.",
+                "Tipping (15-20%) is customary in restaurants in the US and Canada.",
+                "Weather varies wildly; pack layers if traveling north to south."
+            ],
+            quiz: {
+                question: "Which country has the longest coastline in the world?",
+                options: ["United States", "Mexico", "Canada", "Greenland"],
+                answer: 2 // Canada
+            },
             landmarks: ["Grand Canyon", "Niagara Falls", "Chichen Itza"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
@@ -42,6 +57,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Predominantly tropical, with arid deserts and alpine climates.",
             wildlife: ["Jaguar", "Llama", "Toucan"],
             culture: "Vibrant festivals, ancient traditions, and passionate rhythms.",
+            cuisine: [
+                { name: "Ceviche", description: "Fresh raw fish cured in citrus juices, popular in Peru." },
+                { name: "Empanadas", description: "Savory pastries filled with meat, cheese, or corn." },
+                { name: "Feijoada", description: "A hearty black bean and pork stew from Brazil." }
+            ],
+            travelTips: [
+                "Learn basic Spanish (or Portuguese for Brazil) phrases.",
+                "Carry cash, as smaller vendors may not accept cards.",
+                "Be aware of altitude sickness when visiting the Andes."
+            ],
+            quiz: {
+                question: "Which country is home to the Galapagos Islands?",
+                options: ["Peru", "Brazil", "Ecuador", "Chile"],
+                answer: 2 // Ecuador
+            },
             landmarks: ["Machu Picchu", "Christ the Redeemer", "Angel Falls"],
             gallery: [
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Green/Hills
@@ -63,6 +93,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Temperate and continental, influenced by the Gulf Stream.",
             wildlife: ["Red Fox", "Wolf", "Reindeer"],
             culture: "A rich tapestry of art, history, and diverse culinary traditions.",
+            cuisine: [
+                { name: "Pizza", description: "The world-famous Italian dish born in Naples." },
+                { name: "Croissant", description: "Buttery, flaky pastry emblematic of French breakfast." },
+                { name: "Schnitzel", description: "Breaded and fried meat cutlet popular in Central Europe." }
+            ],
+            travelTips: [
+                "Use the extensive train network (Eurail) for easy travel.",
+                "Book major museums in advance to skip lines.",
+                "Many businesses close on Sundays in parts of Europe."
+            ],
+            quiz: {
+                question: "What is the smallest country in the world?",
+                options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+                answer: 1 // Vatican City
+            },
             landmarks: ["Eiffel Tower", "Colosseum", "Acropolis"],
             gallery: [
                 "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Lake
@@ -84,6 +129,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Hot and dry in deserts, tropical in rainforests, mediterranean on coasts.",
             wildlife: ["Lion", "Elephant", "Giraffe"],
             culture: "The cradle of humanity, known for its storytelling and rhythmic music.",
+            cuisine: [
+                { name: "Jollof Rice", description: "A spicy, one-pot rice dish popular in West Africa." },
+                { name: "Tagine", description: "Slow-cooked stew from North Africa, named after the pot." },
+                { name: "Bobotie", description: "South African dish of spiced minced meat with an egg topping." }
+            ],
+            travelTips: [
+                "Book safaris well in advance.",
+                "Consult a doctor for vaccinations and malaria prophylaxis.",
+                "Respect local customs and dress codes."
+            ],
+            quiz: {
+                question: "Which is the longest river in Africa?",
+                options: ["Congo River", "Niger River", "Nile River", "Zambezi River"],
+                answer: 2 // Nile
+            },
             landmarks: ["Pyramids of Giza", "Victoria Falls", "Table Mountain"],
             gallery: [
                 "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Savanna
@@ -105,6 +165,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Extremely diverse, ranging from subarctic to tropical.",
             wildlife: ["Tiger", "Panda", "Snow Leopard"],
             culture: "Ancient civilizations blending spirituality with rapid modernization.",
+            cuisine: [
+                { name: "Sushi", description: "Japanese dish of vinegared rice with seafood." },
+                { name: "Dim Sum", description: "Small bite-sized portions of food served in steamer baskets." },
+                { name: "Pad Thai", description: "Stir-fried rice noodle dish commonly served as street food." }
+            ],
+            travelTips: [
+                "Remove shoes before entering homes or temples in many countries.",
+                "Carry toilet paper and hand sanitizer.",
+                "Be prepared to haggle in markets."
+            ],
+            quiz: {
+                question: "Which is the highest mountain on Earth?",
+                options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
+                answer: 2 // Mount Everest
+            },
             landmarks: ["Great Wall of China", "Taj Mahal", "Angkor Wat"],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
@@ -126,6 +201,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "Arid to semi-arid in the center, tropical in the north, temperate in the south.",
             wildlife: ["Kangaroo", "Koala", "Wombat"],
             culture: "Laid-back coastal living with deep respect for Aboriginal roots.",
+            cuisine: [
+                { name: "Meat Pie", description: "Hand-sized pie containing diced or minced meat and gravy." },
+                { name: "Vegemite", description: "Dark brown food spread made from leftover brewers' yeast extract." },
+                { name: "Pavlova", description: "Meringue-based dessert with a crisp crust and soft, light inside." }
+            ],
+            travelTips: [
+                "Sun protection is essential due to high UV levels.",
+                "Swim between the red and yellow flags at beaches.",
+                "Distances are vast; plan accordingly if driving."
+            ],
+            quiz: {
+                question: "What is the capital of Australia?",
+                options: ["Sydney", "Melbourne", "Canberra", "Perth"],
+                answer: 2 // Canberra
+            },
             landmarks: ["Sydney Opera House", "Uluru", "Great Barrier Reef"],
             gallery: [
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Outback/Desert
@@ -147,6 +237,21 @@ document.addEventListener('DOMContentLoaded', function () {
             climate: "The coldest, driest, and windiest continent on Earth.",
             wildlife: ["Emperor Penguin", "Weddell Seal", "Orca"],
             culture: "A continent dedicated to peace and scientific discovery.",
+            cuisine: [
+                { name: "Sledging Biscuits", description: "Hard, high-energy biscuits for expeditions." },
+                { name: "Hoosh", description: "A porridge-like stew made from pemmican, biscuits, and water." },
+                { name: "Chocolate", description: "Essential high-calorie fuel for researchers." }
+            ],
+            travelTips: [
+                "Follow all IAATO guidelines to protect the environment.",
+                "Invest in high-quality thermal layers.",
+                "Be prepared for rough seas when crossing the Drake Passage."
+            ],
+            quiz: {
+                question: "Which animal is NOT found in Antarctica?",
+                options: ["Penguin", "Seal", "Polar Bear", "Whale"],
+                answer: 2 // Polar Bear
+            },
             landmarks: ["Mount Vinson", "McMurdo Station", "South Pole"],
             gallery: [
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
@@ -317,12 +422,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ExplorationManager = {
         currentStep: 0,
-        totalSteps: 6, // 0: Intro, 1: Climate, 2: Wildlife, 3: Landmarks, 4: Facts, 5: Completion
+        totalSteps: 9, // Updated: Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Quiz, Completion
         currentContinent: null,
+        quizAnswered: false,
 
         startExploration: function(continent) {
             this.currentContinent = continent;
             this.currentStep = 0;
+            this.quizAnswered = false;
             this.renderStep(this.currentStep);
             this.openUI(continent);
         },
@@ -370,9 +477,40 @@ document.addEventListener('DOMContentLoaded', function () {
              document.body.classList.add('ui-active');
         },
 
+        handleQuizOption: function(index, btnElement) {
+            if (this.quizAnswered) return;
+
+            const correctIndex = this.currentContinent.quiz.answer;
+            const feedbackEl = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+
+            if (index === correctIndex) {
+                // Correct
+                btnElement.classList.add('correct');
+                feedbackEl.innerHTML = '<span style="color:var(--success); font-weight:bold;">Correct!</span> Well done.';
+                nextBtn.disabled = false;
+                this.quizAnswered = true;
+
+                // Disable other buttons
+                document.querySelectorAll('.quiz-option').forEach(btn => {
+                   if (btn !== btnElement) btn.disabled = true;
+                });
+            } else {
+                // Incorrect
+                btnElement.classList.add('shake');
+                btnElement.classList.add('incorrect');
+                setTimeout(() => btnElement.classList.remove('shake'), 500);
+                feedbackEl.innerHTML = '<span style="color:var(--danger); font-weight:bold;">Not quite.</span> Try again!';
+            }
+        },
+
         renderStep: function(stepIndex) {
             const continent = this.currentContinent;
-            const isDesktop = window.innerWidth > 768;
+
+            // Reset quiz state if entering quiz step to allow interaction
+            if (stepIndex === 7) {
+                this.quizAnswered = false;
+            }
 
             // Helper to update UI
             const updateUI = (containerId, titleId, descId) => {
@@ -398,6 +536,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
 
+                // STEP 0: INTRO
                 if (stepIndex === 0) {
                     stepTitle = continent.name;
                     stepDesc = continent.description;
@@ -411,7 +550,9 @@ document.addEventListener('DOMContentLoaded', function () {
                             </button>
                         </div>
                     `;
-                } else if (stepIndex === 1) {
+                }
+                // STEP 1: CLIMATE
+                else if (stepIndex === 1) {
                     stepTitle = "Climate & Environment";
                     stepDesc = "Discover the natural forces that shape this land.";
                     contentHTML = `
@@ -421,28 +562,57 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Meet the Locals</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Native Wildlife</button>
                         </div>
                     `;
-                } else if (stepIndex === 2) {
-                    stepTitle = "Wildlife & Culture";
+                }
+                // STEP 2: WILDLIFE (Split from Culture)
+                else if (stepIndex === 2) {
+                    stepTitle = "Native Wildlife";
                     stepDesc = "The living soul of the continent.";
-                    const wildlifeHTML = continent.wildlife.map(w => `<span style="background:rgba(255,255,255,0.7); padding:6px 12px; border-radius:50px; font-size:0.9rem; font-weight:500;">${sanitizeHTML(w)}</span>`).join(' ');
+                    const wildlifeHTML = continent.wildlife.map(w => `<span style="background:rgba(255,255,255,0.7); padding:8px 16px; border-radius:50px; font-size:1rem; font-weight:500; border:1px solid rgba(0,0,0,0.05);">${sanitizeHTML(w)}</span>`).join(' ');
+
+                    // Use second image for wildlife background feeling
+                    const bgImage = continent.gallery[1] || continent.gallery[0];
+
                     contentHTML = `
                          <div style="margin-bottom: 24px;">
-                            <h4 style="margin-bottom:12px; color:var(--text-light); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Native Wildlife</h4>
-                            <div style="display:flex; flex-wrap:wrap; gap:8px;">${wildlifeHTML}</div>
+                            <img src="${bgImage}" style="width:100%; height:120px; object-fit:cover; border-radius:12px; margin-bottom:16px; opacity:0.9;">
+                            <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">${wildlifeHTML}</div>
                          </div>
+                         <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Culture & Cuisine</button>
+                        </div>
+                    `;
+                }
+                // STEP 3: CULTURE & CUISINE (New)
+                else if (stepIndex === 3) {
+                    stepTitle = "Culture & Cuisine";
+                    stepDesc = "Taste the flavors and feel the rhythm.";
+
+                    const cuisineHTML = continent.cuisine.map(dish => `
+                        <div class="cuisine-card">
+                            <strong>${sanitizeHTML(dish.name)}</strong>
+                            <p>${sanitizeHTML(dish.description)}</p>
+                        </div>
+                    `).join('');
+
+                    contentHTML = `
                          <div style="margin-bottom: 24px; padding: 20px; background: rgba(99, 91, 255, 0.05); border-radius: 16px; border: 1px solid rgba(99, 91, 255, 0.1);">
                             <h4 style="margin-bottom:8px; color:var(--accent); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Cultural Insight</h4>
                             <p style="font-size:1.05rem; line-height:1.6;">${sanitizeHTML(continent.culture)}</p>
                          </div>
+                         <h4 style="margin-bottom:12px; color:var(--text-light); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Culinary Delights</h4>
+                         <div class="cuisine-grid">${cuisineHTML}</div>
                          <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Must Visit</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Landmarks</button>
                         </div>
                     `;
-                } else if (stepIndex === 3) {
+                }
+                // STEP 4: LANDMARKS
+                else if (stepIndex === 4) {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
                     const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l)}</li>`).join('');
@@ -452,10 +622,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="gallery-grid" style="margin-top: 20px;">${remainingGallery}</div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Learn Secrets</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Travel Tips</button>
                         </div>
                     `;
-                } else if (stepIndex === 4) {
+                }
+                // STEP 5: TRAVEL TIPS (New)
+                else if (stepIndex === 5) {
+                    stepTitle = "Travel Essentials";
+                    stepDesc = "Smart tips for a smooth journey.";
+                    const tipsHTML = continent.travelTips.map(tip => `
+                        <li class="tip-item">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span>${sanitizeHTML(tip)}</span>
+                        </li>
+                    `).join('');
+
+                    contentHTML = `
+                        <ul class="tips-list">${tipsHTML}</ul>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Quick Facts</button>
+                        </div>
+                    `;
+                }
+                // STEP 6: FACTS
+                else if (stepIndex === 6) {
                     stepTitle = "Quick Facts";
                     stepDesc = "Interesting tidbits to know.";
                     const factsHTML = continent.facts.map(f => `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
@@ -468,10 +659,35 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Claim Stamp</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Knowledge Check</button>
                         </div>
                     `;
-                } else if (stepIndex === 5) {
+                }
+                // STEP 7: QUIZ (New)
+                else if (stepIndex === 7) {
+                    stepTitle = "Knowledge Check";
+                    stepDesc = "Test what you've learned.";
+
+                    const optionsHTML = continent.quiz.options.map((opt, i) => `
+                        <button class="quiz-option" onclick="ExplorationManager.handleQuizOption(${i}, this)">
+                            ${sanitizeHTML(opt)}
+                        </button>
+                    `).join('');
+
+                    contentHTML = `
+                        <div class="quiz-container">
+                            <h3 class="quiz-question">${sanitizeHTML(continent.quiz.question)}</h3>
+                            <div class="quiz-options">${optionsHTML}</div>
+                            <div id="quiz-feedback" class="quiz-feedback"></div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
+                            <button id="quiz-next-btn" class="nav-btn primary" disabled onclick="ExplorationManager.nextStep()">Claim Stamp</button>
+                        </div>
+                    `;
+                }
+                // STEP 8: COMPLETION
+                else if (stepIndex === 8) {
                     stepTitle = "Journey Complete!";
                     stepDesc = "You have fully explored " + continent.name + ".";
                     contentHTML = `
