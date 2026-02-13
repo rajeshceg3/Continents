@@ -36,7 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["United States", "Mexico", "Canada", "Greenland"],
                 answer: 2 // Canada
             },
-            landmarks: ["Grand Canyon", "Niagara Falls", "Chichen Itza"],
+            landmarks: [
+                { name: "Grand Canyon", coords: [36.0544, -112.1401] },
+                { name: "Niagara Falls", coords: [43.0962, -79.0377] },
+                { name: "Chichen Itza", coords: [20.6843, -88.5678] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
@@ -72,7 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["Peru", "Brazil", "Ecuador", "Chile"],
                 answer: 2 // Ecuador
             },
-            landmarks: ["Machu Picchu", "Christ the Redeemer", "Angel Falls"],
+            landmarks: [
+                { name: "Machu Picchu", coords: [-13.1631, -72.5450] },
+                { name: "Christ the Redeemer", coords: [-22.9519, -43.2105] },
+                { name: "Angel Falls", coords: [5.9701, -62.5362] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Green/Hills
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
@@ -108,7 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
                 answer: 1 // Vatican City
             },
-            landmarks: ["Eiffel Tower", "Colosseum", "Acropolis"],
+            landmarks: [
+                { name: "Eiffel Tower", coords: [48.8584, 2.2945] },
+                { name: "Colosseum", coords: [41.8902, 12.4922] },
+                { name: "Acropolis", coords: [37.9715, 23.7257] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Lake
                 "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Forest/Mist
@@ -144,7 +156,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["Congo River", "Niger River", "Nile River", "Zambezi River"],
                 answer: 2 // Nile
             },
-            landmarks: ["Pyramids of Giza", "Victoria Falls", "Table Mountain"],
+            landmarks: [
+                { name: "Pyramids of Giza", coords: [29.9792, 31.1342] },
+                { name: "Victoria Falls", coords: [-17.9243, 25.8572] },
+                { name: "Table Mountain", coords: [-33.9628, 18.4098] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1601692422905-989203a4e977?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Savanna
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Desert
@@ -180,7 +196,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
                 answer: 2 // Mount Everest
             },
-            landmarks: ["Great Wall of China", "Taj Mahal", "Angkor Wat"],
+            landmarks: [
+                { name: "Great Wall of China", coords: [40.4319, 116.5704] },
+                { name: "Taj Mahal", coords: [27.1751, 78.0421] },
+                { name: "Angkor Wat", coords: [13.4125, 103.8670] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain
                 "https://images.unsplash.com/photo-1594858737685-dd84d45f1b4c?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Hills/Rice Terrace feel
@@ -216,7 +236,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["Sydney", "Melbourne", "Canberra", "Perth"],
                 answer: 2 // Canberra
             },
-            landmarks: ["Sydney Opera House", "Uluru", "Great Barrier Reef"],
+            landmarks: [
+                { name: "Sydney Opera House", coords: [-33.8568, 151.2153] },
+                { name: "Uluru", coords: [-25.3444, 131.0369] },
+                { name: "Great Barrier Reef", coords: [-18.2871, 147.6992] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1516926133025-705ee504386d?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Outback/Desert
                 "https://images.unsplash.com/photo-1501693988750-8495148d47e6?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Coast feel
@@ -252,7 +276,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 options: ["Penguin", "Seal", "Polar Bear", "Whale"],
                 answer: 2 // Polar Bear
             },
-            landmarks: ["Mount Vinson", "McMurdo Station", "South Pole"],
+            landmarks: [
+                { name: "Mount Vinson", coords: [-78.5254, -85.6171] },
+                { name: "McMurdo Station", coords: [-77.8463, 166.6681] },
+                { name: "South Pole", coords: [-90.0000, 0.0000] }
+            ],
             gallery: [
                 "https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Ice/Glacier
                 "https://images.unsplash.com/photo-1465056836041-7f43ac27dcb5?ixlib=rb-4.1.0&q=80&w=800&auto=format&fit=crop", // Mountain/Cold
@@ -417,6 +445,7 @@ document.addEventListener('DOMContentLoaded', function () {
          sidebar.classList.remove('active');
          bottomSheet.classList.remove('active');
          document.body.classList.remove('ui-active');
+         ExplorationManager.resetMapState();
          if (map) map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
     };
 
@@ -425,6 +454,24 @@ document.addEventListener('DOMContentLoaded', function () {
         totalSteps: 9, // Updated: Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Quiz, Completion
         currentContinent: null,
         quizAnswered: false,
+        landmarkMarkers: [],
+
+        resetMapState: function() {
+            // Remove any landmark markers
+            if (this.landmarkMarkers.length > 0) {
+                this.landmarkMarkers.forEach(m => map.removeLayer(m));
+                this.landmarkMarkers = [];
+            }
+
+            // Restore continent marker opacity
+            if (this.currentContinent && map) {
+                map.eachLayer(layer => {
+                    if (layer instanceof L.Marker && layer.options.title === this.currentContinent.name) {
+                        layer.setOpacity(1);
+                    }
+                });
+            }
+        },
 
         startExploration: function(continent) {
             this.currentContinent = continent;
@@ -432,6 +479,78 @@ document.addEventListener('DOMContentLoaded', function () {
             this.quizAnswered = false;
             this.renderStep(this.currentStep);
             this.openUI(continent);
+        },
+
+        updateMapState: function(stepIndex) {
+            if (!map || !this.currentContinent) return;
+            const continent = this.currentContinent;
+
+            // Helper to toggle continent marker opacity
+            const setContinentMarkerOpacity = (opacity) => {
+                 map.eachLayer(layer => {
+                    if (layer instanceof L.Marker && layer.options.title === continent.name) {
+                        layer.setOpacity(opacity);
+                    }
+                });
+            };
+
+            // STEP 4: LANDMARKS
+            if (stepIndex === 4) {
+                 // 1. Hide main marker
+                 setContinentMarkerOpacity(0);
+
+                 // 2. Add landmark markers if not already there
+                 if (this.landmarkMarkers.length === 0) {
+                     const bounds = L.latLngBounds();
+                     continent.landmarks.forEach(lm => {
+                         const icon = L.divIcon({
+                             className: 'landmark-pin',
+                             html: `<div style="background:var(--accent); width:16px; height:16px; border-radius:50%; box-shadow:0 0 0 3px white, 0 4px 8px rgba(0,0,0,0.3); transform:translate(-50%, -50%);"></div>`,
+                             iconSize: [0, 0] // CSS handles size
+                         });
+                         const marker = L.marker(lm.coords, {icon: icon, title: lm.name}).addTo(map);
+                         marker.bindTooltip(lm.name, {
+                             direction: 'top',
+                             offset: [0, -12],
+                             className: 'custom-tooltip',
+                             permanent: true
+                         });
+                         this.landmarkMarkers.push(marker);
+                         bounds.extend(lm.coords);
+                     });
+
+                     // 3. Fly to bounds with padding to respect UI
+                     const isDesktop = window.innerWidth > 768;
+                     map.flyToBounds(bounds, {
+                         paddingTopLeft: isDesktop ? [600, 100] : [50, 50],
+                         paddingBottomRight: isDesktop ? [50, 50] : [50, 400],
+                         animate: true,
+                         duration: 1.5
+                     });
+                 }
+            }
+            // EXITING LANDMARKS (Cleanup and Restore)
+            else if (this.landmarkMarkers.length > 0) {
+                // 1. Remove landmark markers
+                this.landmarkMarkers.forEach(m => map.removeLayer(m));
+                this.landmarkMarkers = [];
+
+                // 2. Restore main marker
+                setContinentMarkerOpacity(1);
+
+                // 3. Fly back to main continent view
+                 const isDesktop = window.innerWidth > 768;
+                 let targetLatLng;
+                 if (isDesktop) {
+                     targetLatLng = [continent.coords[0], continent.coords[1] - 30];
+                 } else {
+                     targetLatLng = [continent.coords[0] - 15, continent.coords[1]];
+                 }
+
+                 map.flyTo(targetLatLng, continent.zoom, {
+                     animate: true, duration: 1.5
+                 });
+            }
         },
 
         nextStep: function() {
@@ -475,6 +594,60 @@ document.addEventListener('DOMContentLoaded', function () {
                  sidebar.classList.remove('active');
              }
              document.body.classList.add('ui-active');
+        },
+
+        triggerConfetti: function() {
+            const canvas = document.createElement('canvas');
+            canvas.className = 'confetti-canvas';
+            document.body.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#635BFF', '#3ECF8E', '#F5A623', '#FF5A5F', '#0A2540'];
+
+            // Create particles from center
+            for (let i = 0; i < 150; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 15,
+                    vy: (Math.random() - 0.5) * 15 - 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 8 + 4,
+                    life: 100 + Math.random() * 50
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = false;
+                particles.forEach(p => {
+                    if (p.life > 0) {
+                        active = true;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.vy += 0.3; // Gravity
+                        p.vx *= 0.99; // Drag
+                        p.life--;
+                        p.size *= 0.96; // Shrink
+
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+
+                if (active) {
+                    requestAnimationFrame(animate);
+                } else {
+                    canvas.remove();
+                }
+            }
+            animate();
         },
 
         handleQuizOption: function(index, btnElement) {
@@ -615,7 +788,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 4) {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
-                    const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l)}</li>`).join('');
+                    const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l.name)}</li>`).join('');
                     const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy">`).join('');
                     contentHTML = `
                         <ul class="landmark-list">${landmarksHTML}</ul>
@@ -690,6 +863,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 8) {
                     stepTitle = "Journey Complete!";
                     stepDesc = "You have fully explored " + continent.name + ".";
+                    this.triggerConfetti();
                     contentHTML = `
                         <div class="completion-view" style="text-align:center; padding: 40px 0;">
                             <div class="success-icon-wrapper" style="margin-bottom:20px; color:var(--success);">
@@ -738,6 +912,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     duration: 400,
                     easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
                 });
+
+                // Update Map State
+                this.updateMapState(stepIndex);
             };
 
             // Update visible UI based on mode
