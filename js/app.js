@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const continents = [
         {
             name: "North America",
+            greeting: "Welcome / Bonjour",
+            themeColor: "#FF5A5F",
+            themeColorLight: "#FF7E82",
             coords: [45, -100],
             zoom: 3.5,
             description: "Vast forests, towering cities, and grand canyons.",
@@ -50,6 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "South America",
+            greeting: "Hola / Olá",
+            themeColor: "#3ECF8E",
+            themeColorLight: "#62DBA2",
             coords: [-15, -60],
             zoom: 3.5,
             description: "The Amazon rainforest and the Andes mountains.",
@@ -90,6 +96,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "Europe",
+            greeting: "Bonjour / Ciao",
+            themeColor: "#635BFF",
+            themeColorLight: "#7A73FF",
             coords: [50, 15],
             zoom: 4.5,
             description: "Ancient history, diverse cultures, and modern art.",
@@ -130,6 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "Africa",
+            greeting: "Jambo / Sawubona",
+            themeColor: "#F5A623",
+            themeColorLight: "#F7B94B",
             coords: [0, 20],
             zoom: 3.5,
             description: "Majestic wildlife, vast deserts, and rich traditions.",
@@ -170,6 +182,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "Asia",
+            greeting: "Namaste / Nǐ hǎo",
+            themeColor: "#E31837",
+            themeColorLight: "#E8445E",
             coords: [40, 100],
             zoom: 3.5,
             description: "The largest continent, full of contrasts and wonders.",
@@ -210,6 +225,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "Australia",
+            greeting: "G\'day",
+            themeColor: "#00843D",
+            themeColorLight: "#1F9D55",
             coords: [-25, 135],
             zoom: 4,
             description: "Unique wildlife, coral reefs, and the Outback.",
@@ -250,6 +268,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         {
             name: "Antarctica",
+            greeting: "Welcome to the Ice",
+            themeColor: "#00B4E8",
+            themeColorLight: "#33C3ED",
             coords: [-80, 0],
             zoom: 3.5,
             description: "A frozen wilderness of ice and penguins.",
@@ -445,6 +466,12 @@ document.addEventListener('DOMContentLoaded', function () {
          sidebar.classList.remove('active');
          bottomSheet.classList.remove('active');
          document.body.classList.remove('ui-active');
+
+         // Restore default theme colors
+         document.documentElement.style.setProperty('--accent', '#635BFF');
+         document.documentElement.style.setProperty('--accent-light', '#7A73FF');
+         document.documentElement.style.setProperty('--accent-glow', 'rgba(99, 91, 255, 0.5)');
+
          ExplorationManager.resetMapState();
          if (map) map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
     };
@@ -575,6 +602,27 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         openUI: function(continent) {
+             // Set dynamic context theme
+             if (continent.themeColor) {
+                 document.documentElement.style.setProperty('--accent', continent.themeColor);
+                 document.documentElement.style.setProperty('--accent-light', continent.themeColorLight);
+                 // Convert hex to rgb for glow
+                 const hexToRgb = hex => {
+                     let r = 0, g = 0, b = 0;
+                     if (hex.length == 4) {
+                         r = parseInt(hex[1] + hex[1], 16);
+                         g = parseInt(hex[2] + hex[2], 16);
+                         b = parseInt(hex[3] + hex[3], 16);
+                     } else if (hex.length == 7) {
+                         r = parseInt(hex.substring(1, 3), 16);
+                         g = parseInt(hex.substring(3, 5), 16);
+                         b = parseInt(hex.substring(5, 7), 16);
+                     }
+                     return `${r}, ${g}, ${b}`;
+                 };
+                 document.documentElement.style.setProperty('--accent-glow', `rgba(${hexToRgb(continent.themeColor)}, 0.5)`);
+             }
+
              const isDesktop = window.innerWidth > 768;
 
              if (isDesktop) {
@@ -714,6 +762,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     stepTitle = continent.name;
                     stepDesc = continent.description;
                     contentHTML = `
+                        ${continent.greeting ? `<div style="text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:12px; opacity:0; animation: staggerFadeUp 0.6s var(--ease-out-quart) forwards;">${sanitizeHTML(continent.greeting)}</div>` : ''}
                         <div class="hero-image-container">
                             <img src="${continent.gallery[0]}" class="hero-image" alt="${continent.name}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; margin-bottom:24px; box-shadow:var(--shadow-md);">
                         </div>
@@ -764,8 +813,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     stepTitle = "Culture & Cuisine";
                     stepDesc = "Taste the flavors and feel the rhythm.";
 
-                    const cuisineHTML = continent.cuisine.map(dish => `
-                        <div class="cuisine-card">
+                    const cuisineHTML = continent.cuisine.map((dish, idx) => `
+                        <div class="cuisine-card stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s">
                             <strong>${sanitizeHTML(dish.name)}</strong>
                             <p>${sanitizeHTML(dish.description)}</p>
                         </div>
@@ -788,7 +837,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 4) {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
-                    const landmarksHTML = continent.landmarks.map(l => `<li class="landmark-item">${sanitizeHTML(l.name)}</li>`).join('');
+                    const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s">${sanitizeHTML(l.name)}</li>`).join('');
                     const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy">`).join('');
                     contentHTML = `
                         <ul class="landmark-list">${landmarksHTML}</ul>
@@ -803,8 +852,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 5) {
                     stepTitle = "Travel Essentials";
                     stepDesc = "Smart tips for a smooth journey.";
-                    const tipsHTML = continent.travelTips.map(tip => `
-                        <li class="tip-item">
+                    const tipsHTML = continent.travelTips.map((tip, idx) => `
+                        <li class="tip-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                             <span>${sanitizeHTML(tip)}</span>
                         </li>
@@ -822,7 +871,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 6) {
                     stepTitle = "Quick Facts";
                     stepDesc = "Interesting tidbits to know.";
-                    const factsHTML = continent.facts.map(f => `<div class="fact-card"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
+                    const factsHTML = continent.facts.map((f, idx) => `<div class="fact-card stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s"><p><strong>Did you know?</strong><br>${sanitizeHTML(f)}</p></div>`).join('');
                     contentHTML = `
                         ${factsHTML}
                         <div style="text-align: center; margin: 20px 0;">
@@ -1063,7 +1112,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 [22, -25], [25, -22], [28, -25], [30, -30]
             ];
 
-            const boatMarker = L.marker(boatPath[0], { icon: boatIcon }).addTo(map);
+            const boatMarker = L.marker(boatPath[0], { icon: boatIcon, interactive: true }).addTo(map);
+
+            boatMarker.on('click', function(e) {
+                L.DomEvent.stopPropagation(e);
+                const el = this.getElement();
+                if (el) {
+                    el.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    el.style.transform = el.style.transform + ' scale(1.5) rotate(360deg)';
+                    setTimeout(() => {
+                        el.style.transform = el.style.transform.replace(' scale(1.5) rotate(360deg)', '');
+                    }, 500);
+                }
+
+                L.popup({
+                    className: 'custom-tooltip',
+                    closeButton: false,
+                    offset: [0, -10]
+                })
+                .setLatLng(this.getLatLng())
+                .setContent('<div style="font-weight: bold; color: white;">Ahoy there! ⚓</div>')
+                .openOn(map);
+            });
             let currentIndex = 0;
             let animationFrameId;
 
