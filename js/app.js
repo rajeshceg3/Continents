@@ -311,6 +311,215 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     ];
 
+
+
+    // --- Particle System ---
+    const ParticleSystem = {
+        canvas: document.getElementById('particle-canvas'),
+        ctx: null,
+        particles: [],
+        animationId: null,
+        activeType: null,
+
+        init: function() {
+            if (!this.canvas) this.canvas = document.getElementById('particle-canvas');
+            if (!this.ctx && this.canvas) {
+                this.ctx = this.canvas.getContext('2d');
+                this.resize();
+                window.addEventListener('resize', () => this.resize());
+            }
+        },
+
+        resize: function() {
+            if (this.canvas) {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+        },
+
+        start: function(continentName) {
+            this.init();
+            if (!this.ctx) return;
+            this.stop();
+            this.activeType = this.getTypeForContinent(continentName);
+            if (!this.activeType) return;
+
+            this.createParticles();
+            this.animate();
+        },
+
+        stop: function() {
+            if (this.animationId) {
+                cancelAnimationFrame(this.animationId);
+                this.animationId = null;
+            }
+            if (this.ctx && this.canvas) {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+            this.particles = [];
+        },
+
+        getTypeForContinent: function(name) {
+            const map = {
+                'Antarctica': 'snow',
+                'Africa': 'dust',
+                'South America': 'leaves',
+                'Asia': 'petals',
+                'Australia': 'embers'
+            };
+            return map[name] || null;
+        },
+
+        createParticles: function() {
+            const count = this.activeType === 'snow' ? 100 :
+                          this.activeType === 'dust' ? 150 :
+                          this.activeType === 'leaves' ? 40 :
+                          this.activeType === 'petals' ? 50 : 30;
+
+            for (let i = 0; i < count; i++) {
+                this.particles.push(this.createParticle());
+            }
+        },
+
+        createParticle: function() {
+            const p = {
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                size: Math.random() * 3 + 1,
+                vx: (Math.random() - 0.5) * 1,
+                vy: (Math.random() - 0.5) * 1,
+                alpha: Math.random() * 0.5 + 0.1
+            };
+
+            if (this.activeType === 'snow') {
+                p.vy = Math.random() * 1 + 0.5;
+                p.vx = (Math.random() - 0.5) * 0.5;
+                p.size = Math.random() * 2 + 1;
+            } else if (this.activeType === 'dust') {
+                p.vy = (Math.random() - 0.5) * 0.5 - 0.2;
+                p.vx = (Math.random() - 0.5) * 1 + 0.5;
+                p.size = Math.random() * 1.5 + 0.5;
+            } else if (this.activeType === 'leaves' || this.activeType === 'petals') {
+                p.vy = Math.random() * 1 + 0.2;
+                p.vx = (Math.random() - 0.5) * 2;
+                p.size = Math.random() * 4 + 2;
+                p.angle = Math.random() * Math.PI * 2;
+                p.spin = (Math.random() - 0.5) * 0.1;
+            } else if (this.activeType === 'embers') {
+                p.vy = -Math.random() * 1 - 0.5;
+                p.vx = (Math.random() - 0.5) * 1;
+                p.size = Math.random() * 2 + 0.5;
+                p.life = Math.random() * 100;
+            }
+            return p;
+        },
+
+        animate: function() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            this.particles.forEach((p, i) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (this.activeType === 'snow') {
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    if (p.y > this.canvas.height) { p.y = 0; p.x = Math.random() * this.canvas.width; }
+                } else if (this.activeType === 'dust') {
+                    this.ctx.fillStyle = `rgba(245, 166, 35, ${p.alpha * 0.5})`;
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    if (p.x > this.canvas.width) { p.x = 0; p.y = Math.random() * this.canvas.height; }
+                    if (p.y < 0) { p.y = this.canvas.height; p.x = Math.random() * this.canvas.width; }
+                } else if (this.activeType === 'leaves' || this.activeType === 'petals') {
+                    p.angle += p.spin;
+                    this.ctx.save();
+                    this.ctx.translate(p.x, p.y);
+                    this.ctx.rotate(p.angle);
+                    this.ctx.fillStyle = this.activeType === 'leaves' ? `rgba(62, 207, 142, ${p.alpha})` : `rgba(227, 24, 55, ${p.alpha * 0.8})`;
+                    this.ctx.beginPath();
+                    this.ctx.ellipse(0, 0, p.size, p.size / 2, 0, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    this.ctx.restore();
+                    if (p.y > this.canvas.height) { p.y = -10; p.x = Math.random() * this.canvas.width; }
+                } else if (this.activeType === 'embers') {
+                    p.life--;
+                    if (p.life <= 0) {
+                        this.particles[i] = this.createParticle();
+                        this.particles[i].y = this.canvas.height + 10;
+                    }
+                    this.ctx.fillStyle = `rgba(255, 90, 95, ${p.alpha * (p.life / 100)})`;
+                    this.ctx.beginPath();
+                    this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    this.ctx.fill();
+                }
+            });
+
+            this.animationId = requestAnimationFrame(() => this.animate());
+        }
+    };
+
+    // --- Audio Engine ---
+    const AudioEngine = {
+        ctx: null,
+        muted: false,
+
+        init: function() {
+            if (!this.ctx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                this.ctx = new AudioContext();
+            }
+        },
+
+        playTone: function(freq, type, duration, vol) {
+            if (this.muted) return;
+            this.init();
+            if (this.ctx.state === 'suspended') this.ctx.resume();
+
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+
+            gain.gain.setValueAtTime(vol, this.ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + duration);
+
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+
+            osc.start();
+            osc.stop(this.ctx.currentTime + duration);
+        },
+
+        playClick: function() {
+            this.playTone(600, 'sine', 0.1, 0.1);
+        },
+
+        playSuccess: function() {
+            this.playTone(800, 'sine', 0.1, 0.1);
+            setTimeout(() => this.playTone(1200, 'sine', 0.2, 0.1), 100);
+        },
+
+        playError: function() {
+            this.playTone(300, 'sawtooth', 0.2, 0.1);
+            setTimeout(() => this.playTone(250, 'sawtooth', 0.2, 0.1), 100);
+        },
+
+        playStamp: function() {
+            this.playTone(150, 'square', 0.1, 0.2);
+            setTimeout(() => this.playTone(100, 'square', 0.2, 0.2), 50);
+        },
+
+        toggleMute: function() {
+            this.muted = !this.muted;
+            return this.muted;
+        }
+    };
+
     const welcomeScreen = document.getElementById('welcome-screen');
     const beginButton = document.getElementById('begin-button');
     const sidebar = document.getElementById('sidebar');
@@ -318,6 +527,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const passportModal = document.getElementById('passport-modal');
     const passportBtn = document.getElementById('passport-btn');
     const closePassportBtn = document.querySelector('.close-passport');
+
+    const muteBtn = document.getElementById('mute-btn');
+    if (muteBtn) {
+        muteBtn.addEventListener('click', () => {
+            const isMuted = AudioEngine.toggleMute();
+            document.getElementById('sound-on-icon').style.display = isMuted ? 'none' : 'block';
+            document.getElementById('sound-off-icon').style.display = isMuted ? 'block' : 'none';
+        });
+    }
+
 
     // Passport State
     let visitedContinents = new Set(JSON.parse(localStorage.getItem('visitedContinents')) || []);
@@ -342,6 +561,17 @@ document.addEventListener('DOMContentLoaded', function () {
         // Load existing note
         const savedNote = localStorage.getItem(`journal_${continentName}`) || '';
         document.getElementById('journal-textarea').value = savedNote;
+
+        const prompts = {
+            'North America': 'What was your favorite National Park?',
+            'South America': 'Describe the vibrant colors you saw.',
+            'Europe': 'Which historic landmark stood out the most?',
+            'Africa': 'What was your most memorable wildlife encounter?',
+            'Asia': 'What was your favorite cultural experience?',
+            'Australia': 'How did you enjoy the unique landscapes?',
+            'Antarctica': 'What was it like exploring the frozen wilderness?'
+        };
+        document.getElementById('journal-textarea').placeholder = prompts[continentName] || 'What did you discover?';
     }
 
     function closeJournal() {
@@ -362,6 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function markVisited(continentName) {
+        AudioEngine.playStamp();
         if (!visitedContinents.has(continentName)) {
             visitedContinents.add(continentName);
             savePassport();
@@ -463,6 +694,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let map;
 
     const closeUI = () => {
+         ParticleSystem.stop();
+         AudioEngine.playClick();
          sidebar.classList.remove('active');
          bottomSheet.classList.remove('active');
          document.body.classList.remove('ui-active');
@@ -581,6 +814,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         nextStep: function() {
+            AudioEngine.playClick();
             if (this.currentStep < this.totalSteps - 1) {
                 this.currentStep++;
                 this.renderStep(this.currentStep);
@@ -588,6 +822,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         prevStep: function() {
+            AudioEngine.playClick();
             if (this.currentStep > 0) {
                 this.currentStep--;
                 this.renderStep(this.currentStep);
@@ -602,6 +837,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         openUI: function(continent) {
+             AudioEngine.playClick();
+             ParticleSystem.start(continent.name);
              // Set dynamic context theme
              if (continent.themeColor) {
                  document.documentElement.style.setProperty('--accent', continent.themeColor);
@@ -706,6 +943,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const nextBtn = document.getElementById('quiz-next-btn');
 
             if (index === correctIndex) {
+                AudioEngine.playSuccess();
                 // Correct
                 btnElement.classList.add('correct');
                 feedbackEl.innerHTML = '<span style="color:var(--success); font-weight:bold;">Correct!</span> Well done.';
@@ -717,6 +955,7 @@ document.addEventListener('DOMContentLoaded', function () {
                    if (btn !== btnElement) btn.disabled = true;
                 });
             } else {
+                AudioEngine.playError();
                 // Incorrect
                 btnElement.classList.add('shake');
                 btnElement.classList.add('incorrect');
@@ -1061,8 +1300,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const continentIcon = L.divIcon({
                 className: `continent-marker ${isVisited ? 'visited-marker' : ''}`,
                 html: `<div class="pin" role="button" aria-label="${continent.name}" tabindex="0" style="animation: fadeInUp 0.5s ease-out forwards ${index * 100}ms; opacity: 0;">
-                         <div class="pin-ring"></div>
-                         <div class="pin-inner"></div>
+                         <div class="pin-ring" style="border-color: ${continent.themeColor};"></div>
+                         <div class="pin-inner" style="background: linear-gradient(135deg, ${continent.themeColorLight}, ${continent.themeColor}); box-shadow: 0 0 0 3px #fff, 0 4px 12px ${continent.themeColor}80;"></div>
                        </div>`,
                 iconSize: [48, 48],
                 iconAnchor: [24, 24]
