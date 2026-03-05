@@ -1354,3 +1354,121 @@ h1, h2, h3, h4, h5, h6 {
 .leaflet-popup.custom-tooltip .leaflet-popup-content {
     margin: 8px 12px;
 }
+
+/* Greeting Play Button */
+.play-greeting-btn {
+    background: rgba(99, 91, 255, 0.1);
+    border: none;
+    cursor: pointer;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transition: all 0.3s var(--ease-smooth);
+    box-shadow: var(--shadow-xs);
+}
+
+.play-greeting-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-sm);
+}
+
+.play-greeting-btn:active {
+    transform: scale(0.95);
+}
+
+/* Live Conditions Widget */
+.live-conditions-widget {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    border: 1px solid rgba(255,255,255,0.9);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.live-conditions-widget:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: #fff;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--success);
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--success);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: pulse-ring 2s infinite;
+}
+
+.widget-body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.widget-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.widget-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    font-family: var(--font-heading);
+}
+
+.widget-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.widget-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(10, 37, 64, 0.1);
+}
+
+/* Interactive Landmark Pin Highlights */
+.landmark-pin > div {
+    transition: all 0.4s var(--ease-elastic);
+}
+
+.landmark-pin.highlighted > div {
+    transform: translate(-50%, -50%) scale(1.6) !important;
+    box-shadow: 0 0 0 4px white, 0 8px 16px rgba(0,0,0,0.4) !important;
+    background: var(--success) !important;
+}
