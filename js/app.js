@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "North America",
             greeting: "Welcome / Bonjour",
+            spokenGreeting: "Welcome. Bonjour.",
+            spokenLang: "en-US",
             themeColor: "#FF5A5F",
             themeColorLight: "#FF7E82",
             coords: [45, -100],
@@ -54,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "South America",
             greeting: "Hola / Olá",
+            spokenGreeting: "Hola. Olá.",
+            spokenLang: "es-ES",
             themeColor: "#3ECF8E",
             themeColorLight: "#62DBA2",
             coords: [-15, -60],
@@ -97,6 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "Europe",
             greeting: "Bonjour / Ciao",
+            spokenGreeting: "Bonjour. Ciao.",
+            spokenLang: "fr-FR",
             themeColor: "#635BFF",
             themeColorLight: "#7A73FF",
             coords: [50, 15],
@@ -140,6 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "Africa",
             greeting: "Jambo / Sawubona",
+            spokenGreeting: "Jambo. Sawubona.",
+            spokenLang: "sw-KE",
             themeColor: "#F5A623",
             themeColorLight: "#F7B94B",
             coords: [0, 20],
@@ -183,6 +191,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "Asia",
             greeting: "Namaste / Nǐ hǎo",
+            spokenGreeting: "Namaste. Nǐ hǎo.",
+            spokenLang: "hi-IN",
             themeColor: "#E31837",
             themeColorLight: "#E8445E",
             coords: [40, 100],
@@ -226,6 +236,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "Australia",
             greeting: "G\'day",
+            spokenGreeting: "G\'day.",
+            spokenLang: "en-AU",
             themeColor: "#00843D",
             themeColorLight: "#1F9D55",
             coords: [-25, 135],
@@ -269,6 +281,8 @@ document.addEventListener('DOMContentLoaded', function () {
         {
             name: "Antarctica",
             greeting: "Welcome to the Ice",
+            spokenGreeting: "Welcome to the Ice.",
+            spokenLang: "en-GB",
             themeColor: "#00B4E8",
             themeColorLight: "#33C3ED",
             coords: [-80, 0],
@@ -474,6 +488,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
 
+        speak: function(text, lang) {
+            if (this.muted) return;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const msg = new SpeechSynthesisUtterance(text);
+                if (lang) msg.lang = lang;
+                msg.rate = 0.9;
+                window.speechSynthesis.speak(msg);
+            }
+        },
+
+        playHover: function() {
+            this.playTone(400, 'sine', 0.05, 0.05);
+        },
+
         playTone: function(freq, type, duration, vol) {
             if (this.muted) return;
             this.init();
@@ -519,6 +548,13 @@ document.addEventListener('DOMContentLoaded', function () {
             return this.muted;
         }
     };
+
+    // Global Tactile Hover Events
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('button, .landmark-item, .quiz-option, .cuisine-card, .continent-marker .pin')) {
+            AudioEngine.playHover();
+        }
+    });
 
     const welcomeScreen = document.getElementById('welcome-screen');
     const beginButton = document.getElementById('begin-button');
@@ -711,6 +747,64 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ExplorationManager = {
         currentStep: 0,
+        liveConditions: {},
+        fetchLiveConditions: async function(lat, lng) {
+            try {
+                // Use open-meteo for free weather/time
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code&timezone=auto`);
+                const data = await response.json();
+
+                // Weather codes map
+                const weatherIcons = {
+                    0: '☀️', // Clear sky
+                    1: '🌤️', 2: '⛅', 3: '☁️', // Partly cloudy/overcast
+                    45: '🌫️', 48: '🌫️', // Fog
+                    51: '🌧️', 53: '🌧️', 55: '🌧️', // Drizzle
+                    61: '🌧️', 63: '🌧️', 65: '🌧️', // Rain
+                    71: '❄️', 73: '❄️', 75: '❄️', // Snow
+                    80: '🌦️', 81: '🌦️', 82: '🌦️', // Showers
+                    95: '⛈️', 96: '⛈️', 99: '⛈️' // Thunderstorm
+                };
+
+                const code = data.current.weather_code;
+                const temp = Math.round(data.current.temperature_2m);
+                const icon = weatherIcons[code] || '🌡️';
+
+                // Format time based on timezone
+                const date = new Date();
+                const timeString = new Intl.DateTimeFormat('en-US', {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    timeZone: data.timezone,
+                    hour12: true
+                }).format(date);
+
+                this.liveConditions = {
+                    temp: `${temp}°C`,
+                    icon: icon,
+                    time: timeString
+                };
+
+                // Force update if we are on step 1 (Climate)
+                if (this.currentStep === 1) {
+                    this.updateLiveWidget();
+                }
+            } catch (error) {
+                console.error('Failed to fetch live conditions', error);
+                this.liveConditions = { temp: '--°C', icon: '🌡️', time: '--:--' };
+                if (this.currentStep === 1) this.updateLiveWidget();
+            }
+        },
+        updateLiveWidget: function() {
+            const tempEl = document.getElementById('live-temp');
+            const timeEl = document.getElementById('live-time');
+            if (tempEl && this.liveConditions.temp) {
+                tempEl.innerHTML = `${this.liveConditions.icon} ${this.liveConditions.temp}`;
+            }
+            if (timeEl && this.liveConditions.time) {
+                timeEl.innerHTML = `🕒 ${this.liveConditions.time}`;
+            }
+        },
         totalSteps: 9, // Updated: Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Quiz, Completion
         currentContinent: null,
         quizAnswered: false,
@@ -741,6 +835,25 @@ document.addEventListener('DOMContentLoaded', function () {
             this.openUI(continent);
         },
 
+        highlightLandmark: function(index) {
+            if (this.landmarkMarkers && this.landmarkMarkers[index]) {
+                const marker = this.landmarkMarkers[index];
+                const icon = marker.getElement();
+                if (icon) icon.classList.add('highlighted');
+
+                // Slight pan towards the landmark
+                const isDesktop = window.innerWidth > 768;
+                const offset = isDesktop ? [0, -5] : [0, 0];
+                map.panTo([marker.getLatLng().lat + offset[0], marker.getLatLng().lng + offset[1]], {animate: true, duration: 0.5});
+            }
+        },
+        resetLandmarkHighlight: function(index) {
+            if (this.landmarkMarkers && this.landmarkMarkers[index]) {
+                const marker = this.landmarkMarkers[index];
+                const icon = marker.getElement();
+                if (icon) icon.classList.remove('highlighted');
+            }
+        },
         updateMapState: function(stepIndex) {
             if (!map || !this.currentContinent) return;
             const continent = this.currentContinent;
@@ -838,6 +951,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openUI: function(continent) {
              AudioEngine.playClick();
+             // Reset and fetch new conditions
+             this.liveConditions = { temp: 'Loading...', icon: '⏳', time: 'Loading...' };
+             this.fetchLiveConditions(continent.coords[0], continent.coords[1]);
              ParticleSystem.start(continent.name);
              // Set dynamic context theme
              if (continent.themeColor) {
@@ -1001,7 +1117,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     stepTitle = continent.name;
                     stepDesc = continent.description;
                     contentHTML = `
-                        ${continent.greeting ? `<div style="text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--accent); font-weight:700; margin-bottom:12px; opacity:0; animation: staggerFadeUp 0.6s var(--ease-out-quart) forwards;">${sanitizeHTML(continent.greeting)}</div>` : ''}
+                        ${continent.greeting ? `
+                        <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; opacity:0; animation: staggerFadeUp 0.6s var(--ease-out-quart) forwards;">
+                            <div style="text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--accent); font-weight:700;">${sanitizeHTML(continent.greeting)}</div>
+                            <button class="play-greeting-btn" aria-label="Play greeting" onclick="AudioEngine.speak(ExplorationManager.currentContinent.spokenGreeting, ExplorationManager.currentContinent.spokenLang)" style="background:rgba(99, 91, 255, 0.1); border:none; cursor:pointer; color:var(--accent); display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; transition:all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 2px;"><path d="M8 5v14l11-7z"></path></svg>
+                            </button>
+                        </div>
+                        ` : ''}
                         <div class="hero-image-container">
                             <img src="${continent.gallery[0]}" class="hero-image" alt="${continent.name}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; margin-bottom:24px; box-shadow:var(--shadow-md);">
                         </div>
@@ -1017,7 +1140,23 @@ document.addEventListener('DOMContentLoaded', function () {
                     stepTitle = "Climate & Environment";
                     stepDesc = "Discover the natural forces that shape this land.";
                     contentHTML = `
-                        <div class="climate-section">
+                        <div class="live-conditions-widget stagger-in" style="margin-bottom: 24px; animation-delay: 0.1s;">
+                            <div class="widget-header">
+                                <span class="pulse-dot"></span> Live Local Conditions
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-item">
+                                    <span class="widget-value" id="live-temp">${ExplorationManager.liveConditions.icon || '⏳'} ${ExplorationManager.liveConditions.temp || 'Loading...'}</span>
+                                    <span class="widget-label">Temperature</span>
+                                </div>
+                                <div class="widget-divider"></div>
+                                <div class="widget-item">
+                                    <span class="widget-value" id="live-time">🕒 ${ExplorationManager.liveConditions.time || 'Loading...'}</span>
+                                    <span class="widget-label">Local Time</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="climate-section stagger-in" style="animation-delay: 0.2s;">
                              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                              <p>${sanitizeHTML(continent.climate)}</p>
                         </div>
@@ -1076,7 +1215,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (stepIndex === 4) {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
-                    const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s">${sanitizeHTML(l.name)}</li>`).join('');
+                    const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s" onmouseenter="ExplorationManager.highlightLandmark(${idx})" onmouseleave="ExplorationManager.resetLandmarkHighlight(${idx})">${sanitizeHTML(l.name)}</li>`).join('');
                     const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy">`).join('');
                     contentHTML = `
                         <ul class="landmark-list">${landmarksHTML}</ul>
@@ -1215,6 +1354,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Expose logic for inline HTML handlers if needed (though we will try to use addEventListener)
     window.ExplorationManager = ExplorationManager;
+    window.AudioEngine = AudioEngine;
 
 
     beginButton.addEventListener('click', function() {
