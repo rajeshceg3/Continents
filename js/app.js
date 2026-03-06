@@ -374,6 +374,10 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         getTypeForContinent: function(name) {
+            // Also supports direct type passing (e.g. 'rain' or 'snow')
+            if (['rain', 'snow', 'dust', 'leaves', 'petals', 'embers'].includes(name)) {
+                return name;
+            }
             const map = {
                 'Antarctica': 'snow',
                 'Africa': 'dust',
@@ -386,6 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         createParticles: function() {
             const count = this.activeType === 'snow' ? 100 :
+                          this.activeType === 'rain' ? 150 :
                           this.activeType === 'dust' ? 150 :
                           this.activeType === 'leaves' ? 40 :
                           this.activeType === 'petals' ? 50 : 30;
@@ -409,6 +414,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 p.vy = Math.random() * 1 + 0.5;
                 p.vx = (Math.random() - 0.5) * 0.5;
                 p.size = Math.random() * 2 + 1;
+            } else if (this.activeType === 'rain') {
+                p.vy = Math.random() * 5 + 5; // Fast falling
+                p.vx = Math.random() * 1 - 0.5;
+                p.size = Math.random() * 1.5 + 0.5;
+                p.length = Math.random() * 10 + 10;
+                p.alpha = Math.random() * 0.3 + 0.1;
             } else if (this.activeType === 'dust') {
                 p.vy = (Math.random() - 0.5) * 0.5 - 0.2;
                 p.vx = (Math.random() - 0.5) * 1 + 0.5;
@@ -440,6 +451,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.ctx.beginPath();
                     this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                     this.ctx.fill();
+                    if (p.y > this.canvas.height) { p.y = 0; p.x = Math.random() * this.canvas.width; }
+                } else if (this.activeType === 'rain') {
+                    this.ctx.strokeStyle = `rgba(150, 180, 255, ${p.alpha})`;
+                    this.ctx.lineWidth = p.size;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(p.x, p.y);
+                    this.ctx.lineTo(p.x + p.vx * 2, p.y + p.vy * 2);
+                    this.ctx.stroke();
                     if (p.y > this.canvas.height) { p.y = 0; p.x = Math.random() * this.canvas.width; }
                 } else if (this.activeType === 'dust') {
                     this.ctx.fillStyle = `rgba(245, 166, 35, ${p.alpha * 0.5})`;
@@ -480,6 +499,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const AudioEngine = {
         ctx: null,
         muted: false,
+        ambientNode: null,
+        ambientGain: null,
 
         init: function() {
             if (!this.ctx) {
@@ -545,7 +566,85 @@ document.addEventListener('DOMContentLoaded', function () {
 
         toggleMute: function() {
             this.muted = !this.muted;
+            if (this.muted && this.ambientGain) {
+                this.ambientGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.5);
+            } else if (!this.muted && this.ambientGain) {
+                this.ambientGain.gain.setTargetAtTime(0.05, this.ctx.currentTime, 0.5);
+            }
             return this.muted;
+        },
+
+        playAmbient: function(continentName) {
+            this.init();
+            this.stopAmbient();
+
+            if (this.muted) return;
+            if (this.ctx.state === 'suspended') this.ctx.resume();
+
+            const bufferSize = this.ctx.sampleRate * 2; // 2 seconds of noise
+            const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = Math.random() * 2 - 1; // White noise
+            }
+
+            const noiseSource = this.ctx.createBufferSource();
+            noiseSource.buffer = buffer;
+            noiseSource.loop = true;
+
+            const filter = this.ctx.createBiquadFilter();
+
+            // Customize ambient sound based on continent
+            if (['Antarctica', 'North America'].includes(continentName)) {
+                // Wind
+                filter.type = 'lowpass';
+                filter.frequency.value = 400;
+            } else if (['South America', 'Africa'].includes(continentName)) {
+                // Jungle/Savanna (Higher pitch rustle)
+                filter.type = 'bandpass';
+                filter.frequency.value = 2500;
+                filter.Q.value = 0.5;
+            } else {
+                // General gentle rumble
+                filter.type = 'lowpass';
+                filter.frequency.value = 150;
+            }
+
+            const gain = this.ctx.createGain();
+            gain.gain.setValueAtTime(0, this.ctx.currentTime);
+            // Fade in
+            gain.gain.linearRampToValueAtTime(0.05, this.ctx.currentTime + 2);
+
+            noiseSource.connect(filter);
+            filter.connect(gain);
+            gain.connect(this.ctx.destination);
+
+            noiseSource.start();
+
+            this.ambientNode = noiseSource;
+            this.ambientGain = gain;
+        },
+
+        stopAmbient: function() {
+            if (this.ambientGain && this.ambientNode) {
+                // Fade out
+                this.ambientGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.5);
+                const nodeToStop = this.ambientNode;
+                const gainToStop = this.ambientGain;
+                this.ambientNode = null;
+                this.ambientGain = null;
+
+                setTimeout(() => {
+                    if (nodeToStop) {
+                        nodeToStop.stop();
+                        nodeToStop.disconnect();
+                    }
+                    if (gainToStop) {
+                        gainToStop.disconnect();
+                    }
+                }, 1000);
+            }
         }
     };
 
@@ -727,11 +826,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    function openLightbox(src) {
+        lightboxImg.src = src;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        const currentSrc = lightboxImg.src;
+        setTimeout(() => {
+            if (lightboxImg.src === currentSrc) {
+                lightboxImg.src = '';
+            }
+        }, 400); // clear after animation only if it hasn't changed
+    }
+
+    lightbox.addEventListener('click', closeLightbox);
+    lightboxClose.addEventListener('click', closeLightbox);
+
     let map;
 
     const closeUI = () => {
          ParticleSystem.stop();
          AudioEngine.playClick();
+         AudioEngine.stopAmbient();
          sidebar.classList.remove('active');
          bottomSheet.classList.remove('active');
          document.body.classList.remove('ui-active');
@@ -784,6 +909,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     icon: icon,
                     time: timeString
                 };
+
+                // Apply Contextual Weather Particles
+                const isRain = [51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99].includes(code);
+                const isSnow = [71, 73, 75].includes(code);
+
+                if (isRain) {
+                    ParticleSystem.start('rain');
+                } else if (isSnow) {
+                    ParticleSystem.start('snow');
+                }
 
                 // Force update if we are on step 1 (Climate)
                 if (this.currentStep === 1) {
@@ -951,6 +1086,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         openUI: function(continent) {
              AudioEngine.playClick();
+             AudioEngine.playAmbient(continent.name);
              // Reset and fetch new conditions
              this.liveConditions = { temp: 'Loading...', icon: '⏳', time: 'Loading...' };
              this.fetchLiveConditions(continent.coords[0], continent.coords[1]);
@@ -1126,7 +1262,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         ` : ''}
                         <div class="hero-image-container">
-                            <img src="${continent.gallery[0]}" class="hero-image" alt="${continent.name}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; margin-bottom:24px; box-shadow:var(--shadow-md);">
+                            <img src="${continent.gallery[0]}" class="hero-image" alt="${continent.name}" style="width:100%; height:200px; object-fit:cover; border-radius:16px; margin-bottom:24px; box-shadow:var(--shadow-md); cursor: zoom-in;" onclick="openLightbox(this.src)">
                         </div>
                         <div class="nav-buttons center" style="display:flex; justify-content:center;">
                             <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">
@@ -1216,7 +1352,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     stepTitle = "Must Visit";
                     stepDesc = "Iconic landmarks you cannot miss.";
                     const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s" onmouseenter="ExplorationManager.highlightLandmark(${idx})" onmouseleave="ExplorationManager.resetLandmarkHighlight(${idx})">${sanitizeHTML(l.name)}</li>`).join('');
-                    const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy">`).join('');
+                    const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy" onclick="openLightbox(this.src)" style="cursor: zoom-in;">`).join('');
                     contentHTML = `
                         <ul class="landmark-list">${landmarksHTML}</ul>
                         <div class="gallery-grid" style="margin-top: 20px;">${remainingGallery}</div>
@@ -1355,6 +1491,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Expose logic for inline HTML handlers if needed (though we will try to use addEventListener)
     window.ExplorationManager = ExplorationManager;
     window.AudioEngine = AudioEngine;
+    window.openLightbox = openLightbox;
 
 
     beginButton.addEventListener('click', function() {
