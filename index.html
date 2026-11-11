@@ -27,7 +27,7 @@
     </div>
 
     <header id="guide-toolbar" hidden><div><h1>World of Wonder</h1><p>A seven-continent map guide</p></div><label>Explore a continent<select id="continent-picker"><option value="">Choose a continent</option></select></label><nav aria-label="Guide controls"><button id="reset-map">Reset map</button><button id="theme-toggle">Dark UI</button><button id="motion-toggle">Pause motion</button><button id="passport-btn" aria-label="Open Passport">Passport</button><button id="mute-btn" aria-label="Sound on">Sound on</button></nav></header>
-    <div id="app-shell">
+    <div id="app-shell" inert aria-hidden="true">
         <div id="map">
             <div id="loader" class="loader" role="status" aria-live="polite">
                 <span class="sr-only">Loading map...</span>

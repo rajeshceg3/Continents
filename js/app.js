@@ -1502,7 +1502,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     beginButton.addEventListener('click', function() {
-        welcomeScreen.style.display='none';document.getElementById('guide-toolbar').hidden=false;initializeMap();return;
+        welcomeScreen.style.display='none';document.getElementById('app-shell').inert=false;document.getElementById('app-shell').removeAttribute('aria-hidden');document.getElementById('guide-toolbar').hidden=false;initializeMap();return;
 
     });
 
