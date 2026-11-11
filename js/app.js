@@ -513,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- Audio Engine ---
     const AudioEngine = {
         ctx: null,
+        scape: null,
         muted: true,
         ambientNode: null,
         ambientGain: null,
@@ -580,68 +581,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
         toggleMute: function() {
             this.muted = !this.muted;
-            if(this.muted){this.stopAmbient();if(this.ctx){void this.ctx.close();this.ctx=null}if('speechSynthesis' in window)speechSynthesis.cancel()}
+            if(this.muted){this.stopAmbient();if('speechSynthesis' in window)speechSynthesis.cancel()}
             else this.playAmbient(ExplorationManager.currentContinent?.name || 'World map');
             return this.muted;
         },
 
         playAmbient: function(continentName) {
-            if(this.muted)return;
-            this.init();
-            this.stopAmbient();
-
             if (this.muted) return;
-            if (this.ctx.state === 'suspended') this.ctx.resume();
-
-            const bufferSize = this.ctx.sampleRate * 2; // 2 seconds of noise
-            const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-            const data = buffer.getChannelData(0);
-
-            for (let i = 0; i < bufferSize; i++) {
-                data[i] = Math.random() * 2 - 1; // White noise
+            if (!this.scape && window.ContinentSound) {
+                this.scape = window.ContinentSound.createSoundscape(window.ContinentSound.CONTINENT_PLACES);
             }
-
-            const noiseSource = this.ctx.createBufferSource();
-            noiseSource.buffer = buffer;
-            noiseSource.loop = true;
-
-            const filter = this.ctx.createBiquadFilter();
-
-            // Customize ambient sound based on continent
-            if (['Antarctica', 'North America'].includes(continentName)) {
-                // Wind
-                filter.type = 'lowpass';
-                filter.frequency.value = 400;
-            } else if (['South America', 'Africa'].includes(continentName)) {
-                // Jungle/Savanna (Higher pitch rustle)
-                filter.type = 'bandpass';
-                filter.frequency.value = 2500;
-                filter.Q.value = 0.5;
-            } else {
-                // General gentle rumble
-                filter.type = 'lowpass';
-                filter.frequency.value = 150;
-            }
-
-            const gain = this.ctx.createGain();
-            gain.gain.setValueAtTime(0, this.ctx.currentTime);
-            // Fade in
-            gain.gain.linearRampToValueAtTime(0.05, this.ctx.currentTime + 2);
-
-            noiseSource.connect(filter);
-            filter.connect(gain);
-            gain.connect(this.ctx.destination);
-
-            noiseSource.start();
-
-            this.ambientNode = noiseSource;
-            this.ambientGain = gain;
+            if (!this.scape) return;
+            const idx = Math.max(0, window.ContinentSound.CONTINENT_PLACES.findIndex(p => p.id === continentName));
+            if (!this.scape.state.on) this.scape.toggle(idx);
+            else this.scape.setPlace(idx);
+            this.ctx = this.scape.state.ctx;
         },
 
         stopAmbient: function() {
-            if(this.ambientNode){try{this.ambientNode.stop();this.ambientNode.disconnect()}catch{}}
-            if(this.ambientGain)this.ambientGain.disconnect();
-            this.ambientNode=null;this.ambientGain=null;
+            if (this.scape && this.scape.state.on) this.scape.toggle(0);
+            this.ctx = null;
+            this.ambientNode = null;
+            this.ambientGain = null;
         }
 
     };
