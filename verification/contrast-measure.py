@@ -1,6 +1,6 @@
 from PIL import Image
-import json,re,numpy as np
-root='/downloads/worlds-rank/continents-contrast';out=[]
+import json,re,numpy as np,os,pathlib
+root=os.environ.get('CONTRAST_DIR','/tmp/continents-contrast');out=[]
 def lum(a):
  a=np.array(a)/255.;v=np.where(a<=.04045,a/12.92,((a+.055)/1.055)**2.4);return v@np.array([.2126,.7152,.0722])
 for row in json.load(open(root+'/records-390.json'))+json.load(open(root+'/records-1440.json')):
@@ -9,5 +9,5 @@ for row in json.load(open(root+'/records-390.json'))+json.load(open(root+'/recor
   r=e['rect'];x=max(0,int(r['x']*scale));y=max(0,int(r['y']*scale));xx=min(w,int((r['x']+r['width'])*scale));yy=min(h,int((r['y']+r['height'])*scale));m=mask[y:yy,x:xx];bg=back[y:yy,x:xx][m]
   if not len(bg):continue
   ink=list(map(float,re.findall(r'[\d.]+',e['ink'])))[:3];a=lum(ink);b=lum(bg);rat=(np.maximum(a,b)+.05)/(np.minimum(a,b)+.05);out.append(dict(width=row['width'],state=row['state'],element=e['i'],text=e.get('text',''),ink=e['ink'],minimum=float(rat.min()),font=e['font'],glyphPixels=len(bg)))
-json.dump(out,open('/home/sandbox/continents/verification/contrast.json','w'),indent=2)
+json.dump(out,open(str(pathlib.Path(__file__).with_name('contrast.json')),'w'),indent=2)
 print('samples',len(out),'min',min(x['minimum'] for x in out));print([x for x in out if x['minimum']<4.5])

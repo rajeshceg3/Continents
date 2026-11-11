@@ -12,3 +12,5 @@ Pre-deployment verification.
 - Cloudflare Pages GitHub-backed hosting is the required route while Vercel is capped. No spend.
 
 Background sources linked in each guide include Britannica continent pages and British Antarctic Survey. OpenStreetMap attribution and copyright link remain visible. Map projection clips Antarctica at the poles, and landmark coordinates are approximate.
+
+A 320px safety-width matrix also passed all 126 states. Contrast capture can be run with `WIDTH=390 node verification/contrast-capture.cjs` and `WIDTH=1440 node verification/contrast-capture.cjs`, followed by `python verification/contrast-measure.py` (Pillow/numpy required). The external map-label raster is excluded from the UI text claim.
