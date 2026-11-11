@@ -453,7 +453,7 @@ const CONTINENT_PLACES = [
     voices: [{ kind: 'kite', weight: 1, gain: 0.14 }, { kind: 'dove', weight: 0.6, gain: 0.12 }], voiceGap: [12, 30] },
   { id: 'Asia',
     beds: [{ type: 'wind', params: { baseCutoff: 480 }, gain: 0.4 }],
-    voices: [{ kind: 'koel', weight: 1, gain: 0.14 }, { kind: 'coppersmith', weight: 0.8, gain: 0.12 }, { kind: 'bell', weight: 0.4, gain: 0.13, params: { base: 520 } }], voiceGap: [12, 30] },
+    voices: [{ kind: 'koel', weight: 1, gain: 0.14 }, { kind: 'bell', weight: 0.4, gain: 0.13, params: { base: 520 } }], voiceGap: [12, 30] },
   { id: 'Australia',
     beds: [{ type: 'wind', params: { baseCutoff: 560, gustRate: 0.09 }, gain: 0.45 }],
     voices: [{ kind: 'gull', weight: 0.8, gain: 0.11 }, { kind: 'kite', weight: 0.6, gain: 0.12 }], voiceGap: [14, 34] },
