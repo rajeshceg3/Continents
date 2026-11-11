@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             facts: [
                 "Home to over 500 million people.",
                 "Has the longest coastline in the world (Canada).",
-                "Contains the world's largest freshwater lake."
+                "Lake Superior is a major North American freshwater lake."
             ],
             climate: "Varied from tropical in the south to arctic in the north.",
             wildlife: ["Grizzly Bear", "Bald Eagle", "Moose"],
@@ -37,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Weather varies wildly; pack layers if traveling north to south."
             ],
             quiz: {
-                question: "Which country has the longest coastline in the world?",
-                options: ["United States", "Mexico", "Canada", "Greenland"],
+                question: "What is North America's rank by land area?",
+                options: ["First", "Second", "Third", "Seventh"],
                 answer: 2 // Canada
             },
             landmarks: [
@@ -327,6 +327,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    const sourceNotes={
+      'North America':{url:'https://kids.britannica.com/kids/article/North-America/353542',facts:['North America is the third-largest continent.','Canada, the United States and Mexico cover much of its land area.','Central America and the Caribbean are part of this regional guide.'],detail:'Explore the continent from Arctic landscapes to Central America and the Caribbean.'},
+      'South America':{url:'https://kids.britannica.com/students/article/South-America/277149',facts:['The Andes run along the western side of South America.','The Amazon carries more water than any other river.','Northern Chile includes the extremely dry Atacama Desert.'],detail:'The Andes rise beside the Pacific; the Amazon basin stretches far to their east.'},
+      'Europe':{url:'https://kids.britannica.com/kids/article/Europe/353110',facts:['Europe is the second-smallest continent in the seven-continent model.','Europe and Asia form the continuous Eurasian landmass.','The Alps rise in south-central Europe.'],detail:'Look for the Mediterranean peninsulas, broad northern plains and the arc of the Alps.'},
+      'Africa':{url:'https://kids.britannica.com/students/article/Africa/272745',facts:['Africa is the second-largest continent.','The Atlantic Ocean lies to its west and the Indian Ocean to its east.','The continent stretches across the Equator.'],detail:'The Equator crosses Africa between the Sahara to the north and southern Africa.'},
+      'Asia':{url:'https://kids.britannica.com/kids/article/Asia/346086',facts:['Asia is the largest continent in the seven-continent model.','It stretches from the Arctic Ocean toward the Equator.',"Mount Everest is Earth's highest summit above sea level."],detail:'The Himalayas divide the Tibetan Plateau from the northern edge of the Indian subcontinent.'},
+      'Australia':{url:'https://kids.britannica.com/kids/article/Australia/345639',facts:['Australia is the smallest continent in the seven-continent model.','It lies between the Indian and Pacific oceans.','Canberra is the capital of the country of Australia.'],detail:'Australia is the continent used here. Oceania is a broader region including Pacific islands.'},
+      'Antarctica':{url:'https://www.bas.ac.uk/about/education-and-schools/antarctic-factsheet/',facts:['Antarctica is the coldest, highest, driest and windiest continent.','It is a rocky continent covered by a thick ice sheet.','The Southern Ocean surrounds Antarctica.'],detail:'Antarctica has no native human population. The polar plateau rises well above sea level.'}
+    };
+    continents.forEach(c=>{const n=sourceNotes[c.name];c.facts=n.facts;c.detail=n.detail;c.source=n.url;c.travelTips=['Check destination-specific entry rules and official travel advice before booking.','Check local weather, opening times and transport for the exact places you plan to visit.','Ask local hosts about customs rather than assuming one rule fits a whole continent.'];c.culture=c.name==='Antarctica'?'There is no single national culture here. Research stations and expeditions bring people from many countries.':'These are selected food examples, not a summary of everyone who lives here. Explore individual places and communities for their own histories and traditions.';});
+    // This guide uses the seven-continent model. Other geographic conventions exist.
+
     // --- Particle System ---
     const ParticleSystem = {
         canvas: document.getElementById('particle-canvas'),
@@ -352,6 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         start: function(continentName) {
+            if(!motion)return;
             this.init();
             if (!this.ctx) return;
             this.stop();
@@ -495,10 +508,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    let motion = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.body.classList.toggle('motion-paused', !motion);
     // --- Audio Engine ---
     const AudioEngine = {
         ctx: null,
-        muted: false,
+        muted: true,
         ambientNode: null,
         ambientGain: null,
 
@@ -510,7 +525,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         speak: function(text, lang) {
-            if (this.muted) return;
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
                 const msg = new SpeechSynthesisUtterance(text);
@@ -566,15 +580,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         toggleMute: function() {
             this.muted = !this.muted;
-            if (this.muted && this.ambientGain) {
-                this.ambientGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.5);
-            } else if (!this.muted && this.ambientGain) {
-                this.ambientGain.gain.setTargetAtTime(0.05, this.ctx.currentTime, 0.5);
-            }
+            if(this.muted){this.stopAmbient();if(this.ctx){void this.ctx.close();this.ctx=null}if('speechSynthesis' in window)speechSynthesis.cancel()}
+            else this.playAmbient(ExplorationManager.currentContinent?.name || 'World map');
             return this.muted;
         },
 
         playAmbient: function(continentName) {
+            if(this.muted)return;
             this.init();
             this.stopAmbient();
 
@@ -627,25 +639,11 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         stopAmbient: function() {
-            if (this.ambientGain && this.ambientNode) {
-                // Fade out
-                this.ambientGain.gain.setTargetAtTime(0, this.ctx.currentTime, 0.5);
-                const nodeToStop = this.ambientNode;
-                const gainToStop = this.ambientGain;
-                this.ambientNode = null;
-                this.ambientGain = null;
-
-                setTimeout(() => {
-                    if (nodeToStop) {
-                        nodeToStop.stop();
-                        nodeToStop.disconnect();
-                    }
-                    if (gainToStop) {
-                        gainToStop.disconnect();
-                    }
-                }, 1000);
-            }
+            if(this.ambientNode){try{this.ambientNode.stop();this.ambientNode.disconnect()}catch{}}
+            if(this.ambientGain)this.ambientGain.disconnect();
+            this.ambientNode=null;this.ambientGain=null;
         }
+
     };
 
     // Global Tactile Hover Events
@@ -664,17 +662,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const closePassportBtn = document.querySelector('.close-passport');
 
     const muteBtn = document.getElementById('mute-btn');
+    muteBtn.textContent='Sound on';muteBtn.setAttribute('aria-label','Sound on');muteBtn.setAttribute('aria-pressed','false');
     if (muteBtn) {
         muteBtn.addEventListener('click', () => {
             const isMuted = AudioEngine.toggleMute();
-            document.getElementById('sound-on-icon').style.display = isMuted ? 'none' : 'block';
-            document.getElementById('sound-off-icon').style.display = isMuted ? 'block' : 'none';
+            muteBtn.textContent=isMuted?'Sound on':'Sound off';muteBtn.setAttribute('aria-label',muteBtn.textContent);muteBtn.setAttribute('aria-pressed',''+!isMuted);
         });
     }
 
 
     // Passport State
-    let visitedContinents = new Set(JSON.parse(localStorage.getItem('visitedContinents')) || []);
+    let visitedContinents = new Set();try{visitedContinents=new Set(JSON.parse(localStorage.getItem('visitedContinents'))||[])}catch{};
 
     // Journal State
     let currentJournalContinent = null;
@@ -773,7 +771,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         continents.forEach(continent => {
             const isVisited = visitedContinents.has(continent.name);
-            const stamp = document.createElement('div');
+            const stamp = document.createElement('button');stamp.type='button';stamp.disabled=!isVisited;stamp.setAttribute('aria-label',isVisited?'Open '+continent.name+' journal':continent.name+' stamp not yet collected');
             stamp.className = `passport-stamp ${isVisited ? 'earned' : ''}`;
 
             // Generate a deterministic rotation for a messy stamp look
@@ -806,12 +804,12 @@ document.addEventListener('DOMContentLoaded', function () {
     passportBtn.addEventListener('click', () => {
         renderPassport();
         passportModal.classList.add('active');
-        passportModal.setAttribute('aria-hidden', 'false');
+        passportModal.setAttribute('aria-hidden', 'false');passportModal.setAttribute('role','dialog');passportModal.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;closePassportBtn.focus();
     });
 
     closePassportBtn.addEventListener('click', () => {
         passportModal.classList.remove('active');
-        passportModal.setAttribute('aria-hidden', 'true');
+        passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;passportBtn.focus();
         closeJournal(); // Reset view
     });
 
@@ -822,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function () {
     passportModal.addEventListener('click', (e) => {
         if (e.target === passportModal) {
             passportModal.classList.remove('active');
-            passportModal.setAttribute('aria-hidden', 'true');
+            passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;passportBtn.focus();
         }
     });
 
@@ -834,12 +832,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function openLightbox(src) {
         lightboxImg.src = src;
         lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
+        lightbox.setAttribute('aria-hidden', 'false');lightbox.setAttribute('role','dialog');lightbox.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;lightboxClose.focus();
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
+        lightbox.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;document.getElementById('continent-picker').focus();
         const currentSrc = lightboxImg.src;
         setTimeout(() => {
             if (lightboxImg.src === currentSrc) {
@@ -848,10 +846,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 400); // clear after animation only if it hasn't changed
     }
 
+    document.addEventListener('keydown',e=>{const modal=passportModal.classList.contains('active')?passportModal:lightbox.classList.contains('active')?lightbox:null;if(!modal)return;if(e.key==='Escape'){if(modal===passportModal)closePassportBtn.click();else closeLightbox()}if(e.key==='Tab'){const nodes=[...modal.querySelectorAll('button:not(:disabled),[tabindex="0"],textarea')].filter(e=>e.getBoundingClientRect().height>0);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});lightboxClose.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')closeLightbox()});
     lightbox.addEventListener('click', closeLightbox);
     lightboxClose.addEventListener('click', closeLightbox);
 
     let map;
+    let resizeTimer;
+    window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(!map)return;map.invalidateSize({pan:false});if(document.body.classList.contains('ui-active')){const desktop=innerWidth>768;sidebar.classList.toggle('active',desktop);bottomSheet.classList.toggle('active',!desktop);sidebar.inert=!desktop;bottomSheet.inert=desktop;sidebar.setAttribute('aria-hidden',''+!desktop);bottomSheet.setAttribute('aria-hidden',''+desktop);map.invalidateSize({pan:false});const c=ExplorationManager.currentContinent;if(c)map.setView(c.coords,c.zoom-.5,{animate:false});if(ExplorationManager.currentStep===4){ExplorationManager.resetMapState();ExplorationManager.updateMapState(4)}}},150)});
+
 
     const closeUI = () => {
          ParticleSystem.stop();
@@ -859,6 +861,7 @@ document.addEventListener('DOMContentLoaded', function () {
          AudioEngine.stopAmbient();
          sidebar.classList.remove('active');
          bottomSheet.classList.remove('active');
+         sidebar.inert=bottomSheet.inert=true;sidebar.setAttribute('aria-hidden','true');bottomSheet.setAttribute('aria-hidden','true');
          document.body.classList.remove('ui-active');
 
          // Restore default theme colors
@@ -867,7 +870,8 @@ document.addEventListener('DOMContentLoaded', function () {
          document.documentElement.style.setProperty('--accent-glow', 'rgba(99, 91, 255, 0.5)');
 
          ExplorationManager.resetMapState();
-         if (map) map.flyTo([20, 0], 2.5, { animate: true, duration: 1.5 });
+         document.getElementById('continent-picker').value='';
+         if(map){map.invalidateSize();map.setView([20,0],2,{animate:false})}
     };
 
     const ExplorationManager = {
@@ -876,8 +880,10 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchLiveConditions: async function(lat, lng) {
             try {
                 // Use open-meteo for free weather/time
-                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code&timezone=auto`);
+                const activeName=this.currentContinent?.name;
+                const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,weather_code&timezone=auto`,{signal:AbortSignal.timeout(6000)});
                 const data = await response.json();
+                if(this.currentContinent?.name!==activeName)return;
 
                 // Weather codes map
                 const weatherIcons = {
@@ -925,20 +931,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.updateLiveWidget();
                 }
             } catch (error) {
-                console.error('Failed to fetch live conditions', error);
-                this.liveConditions = { temp: '--°C', icon: '🌡️', time: '--:--' };
+                console.info('Sample weather unavailable');
+                this.liveConditions = { temp: 'Unavailable', icon: '', time: 'Unavailable' };
                 if (this.currentStep === 1) this.updateLiveWidget();
             }
         },
         updateLiveWidget: function() {
-            const tempEl = document.getElementById('live-temp');
-            const timeEl = document.getElementById('live-time');
-            if (tempEl && this.liveConditions.temp) {
-                tempEl.innerHTML = `${this.liveConditions.icon} ${this.liveConditions.temp}`;
-            }
-            if (timeEl && this.liveConditions.time) {
-                timeEl.innerHTML = `🕒 ${this.liveConditions.time}`;
-            }
+            document.querySelectorAll('[id=live-temp]').forEach(e=>e.textContent=`${this.liveConditions.icon||''} ${this.liveConditions.temp||'Unavailable'}`);
+            document.querySelectorAll('[id=live-time]').forEach(e=>e.textContent=this.liveConditions.time||'Unavailable');
         },
         totalSteps: 9, // Updated: Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Quiz, Completion
         currentContinent: null,
@@ -948,7 +948,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetMapState: function() {
             // Remove any landmark markers
             if (this.landmarkMarkers.length > 0) {
-                this.landmarkMarkers.forEach(m => map.removeLayer(m));
+                this.landmarkMarkers.forEach(m => {m.closeTooltip();m.unbindTooltip();map.removeLayer(m)});
                 this.landmarkMarkers = [];
             }
 
@@ -979,7 +979,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Slight pan towards the landmark
                 const isDesktop = window.innerWidth > 768;
                 const offset = isDesktop ? [0, -5] : [0, 0];
-                map.panTo([marker.getLatLng().lat + offset[0], marker.getLatLng().lng + offset[1]], {animate: true, duration: 0.5});
+                map.panTo([marker.getLatLng().lat + offset[0], marker.getLatLng().lng + offset[1]], {animate: false, duration: 0.5});
             }
         },
         resetLandmarkHighlight: function(index) {
@@ -1029,10 +1029,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                      // 3. Fly to bounds with padding to respect UI
                      const isDesktop = window.innerWidth > 768;
-                     map.flyToBounds(bounds, {
-                         paddingTopLeft: isDesktop ? [600, 100] : [50, 50],
-                         paddingBottomRight: isDesktop ? [50, 50] : [50, 400],
-                         animate: true,
+                     map.fitBounds(bounds, {
+                         paddingTopLeft: [40, 40],
+                         paddingBottomRight: [40, 40],
+                         animate: false,
                          duration: 1.5
                      });
                  }
@@ -1040,7 +1040,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // EXITING LANDMARKS (Cleanup and Restore)
             else if (this.landmarkMarkers.length > 0) {
                 // 1. Remove landmark markers
-                this.landmarkMarkers.forEach(m => map.removeLayer(m));
+                this.landmarkMarkers.forEach(m => {m.closeTooltip();m.unbindTooltip();map.removeLayer(m)});
                 this.landmarkMarkers = [];
 
                 // 2. Restore main marker
@@ -1050,13 +1050,13 @@ document.addEventListener('DOMContentLoaded', function () {
                  const isDesktop = window.innerWidth > 768;
                  let targetLatLng;
                  if (isDesktop) {
-                     targetLatLng = [continent.coords[0], continent.coords[1] - 30];
+                     targetLatLng = continent.coords;
                  } else {
-                     targetLatLng = [continent.coords[0] - 15, continent.coords[1]];
+                     targetLatLng = continent.coords;
                  }
 
-                 map.flyTo(targetLatLng, continent.zoom, {
-                     animate: true, duration: 1.5
+                 map.setView(targetLatLng, continent.zoom, {
+                     animate: false, duration: 1.5
                  });
             }
         },
@@ -1087,6 +1087,7 @@ document.addEventListener('DOMContentLoaded', function () {
         openUI: function(continent) {
              AudioEngine.playClick();
              AudioEngine.playAmbient(continent.name);
+             document.getElementById('continent-picker').value=continent.name;
              // Reset and fetch new conditions
              this.liveConditions = { temp: 'Loading...', icon: '⏳', time: 'Loading...' };
              this.fetchLiveConditions(continent.coords[0], continent.coords[1]);
@@ -1117,23 +1118,27 @@ document.addEventListener('DOMContentLoaded', function () {
              if (isDesktop) {
                  // Desktop: Fly to allow sidebar space on left
                  // We shift center WEST so target is EAST
-                 map.flyTo([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
-                     animate: true, duration: 1.2, easeLinearity: 0.2
+                 map.setView([continent.coords[0], continent.coords[1] - 30], continent.zoom, {
+                     animate: false, duration: 1.2, easeLinearity: 0.2
                  });
                  sidebar.classList.add('active');
                  bottomSheet.classList.remove('active');
+         sidebar.inert=bottomSheet.inert=true;sidebar.setAttribute('aria-hidden','true');bottomSheet.setAttribute('aria-hidden','true');
              } else {
                  // Mobile: Sidebar is bottom, so we shift map SOUTH so target is NORTH (top)
-                 map.flyTo([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
-                     animate: true, duration: 1.2, easeLinearity: 0.2
+                 map.setView([continent.coords[0] - 15, continent.coords[1]], continent.zoom - 0.5, {
+                     animate: false, duration: 1.2, easeLinearity: 0.2
                  });
                  bottomSheet.classList.add('active');
                  sidebar.classList.remove('active');
              }
              document.body.classList.add('ui-active');
+             sidebar.inert=!isDesktop;bottomSheet.inert=isDesktop;sidebar.setAttribute('aria-hidden',''+!isDesktop);bottomSheet.setAttribute('aria-hidden',''+isDesktop);
+             map.stop();map.invalidateSize({pan:false});map.setView(continent.coords,continent.zoom-.5,{animate:false});
         },
 
         triggerConfetti: function() {
+            if(!motion)return;
             const canvas = document.createElement('canvas');
             canvas.className = 'confetti-canvas';
             document.body.appendChild(canvas);
@@ -1191,8 +1196,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (this.quizAnswered) return;
 
             const correctIndex = this.currentContinent.quiz.answer;
-            const feedbackEl = document.getElementById('quiz-feedback');
-            const nextBtn = document.getElementById('quiz-next-btn');
+            const quizPanel=btnElement.closest('.content-body');
+            const feedbackEl = quizPanel.querySelector('#quiz-feedback');
+            const nextBtn = quizPanel.querySelector('#quiz-next-btn');
 
             if (index === correctIndex) {
                 AudioEngine.playSuccess();
@@ -1255,7 +1261,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     contentHTML = `
                         ${continent.greeting ? `
                         <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px; opacity:0; animation: staggerFadeUp 0.6s var(--ease-out-quart) forwards;">
-                            <div style="text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em; color:var(--accent); font-weight:700;">${sanitizeHTML(continent.greeting)}</div>
+                            <div style="font-size:14px; color:var(--accent); font-weight:700;">${sanitizeHTML(continent.greeting)}</div>
                             <button class="play-greeting-btn" aria-label="Play greeting" onclick="AudioEngine.speak(ExplorationManager.currentContinent.spokenGreeting, ExplorationManager.currentContinent.spokenLang)" style="background:rgba(99, 91, 255, 0.1); border:none; cursor:pointer; color:var(--accent); display:flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:50%; transition:all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
                                 <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-left: 2px;"><path d="M8 5v14l11-7z"></path></svg>
                             </button>
@@ -1278,21 +1284,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     contentHTML = `
                         <div class="live-conditions-widget stagger-in" style="margin-bottom: 24px; animation-delay: 0.1s;">
                             <div class="widget-header">
-                                <span class="pulse-dot"></span> Live Local Conditions
+                                <span class="pulse-dot"></span> Sample point conditions
                             </div>
                             <div class="widget-body">
                                 <div class="widget-item">
                                     <span class="widget-value" id="live-temp">${ExplorationManager.liveConditions.icon || '⏳'} ${ExplorationManager.liveConditions.temp || 'Loading...'}</span>
-                                    <span class="widget-label">Temperature</span>
+                                    <span class="widget-label">Sample temperature</span>
                                 </div>
                                 <div class="widget-divider"></div>
                                 <div class="widget-item">
                                     <span class="widget-value" id="live-time">🕒 ${ExplorationManager.liveConditions.time || 'Loading...'}</span>
-                                    <span class="widget-label">Local Time</span>
+                                    <span class="widget-label">Sample local time</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="climate-section stagger-in" style="animation-delay: 0.2s;">
+                        <p>Weather is for a single sample point at ${continent.coords.join(', ')}, not the whole continent. Source: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>.</p><div class="climate-section stagger-in" style="animation-delay: 0.2s;">
                              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                              <p>${sanitizeHTML(continent.climate)}</p>
                         </div>
@@ -1336,10 +1342,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     contentHTML = `
                          <div style="margin-bottom: 24px; padding: 20px; background: rgba(99, 91, 255, 0.05); border-radius: 16px; border: 1px solid rgba(99, 91, 255, 0.1);">
-                            <h4 style="margin-bottom:8px; color:var(--accent); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Cultural Insight</h4>
+                            <h4 style="margin-bottom:8px; color:var(--accent); font-size:16px;">Cultural Insight</h4>
                             <p style="font-size:1.05rem; line-height:1.6;">${sanitizeHTML(continent.culture)}</p>
                          </div>
-                         <h4 style="margin-bottom:12px; color:var(--text-light); text-transform:uppercase; font-size:0.8rem; letter-spacing:0.05em;">Culinary Delights</h4>
+                         <h4 style="margin-bottom:12px; color:var(--text-light); font-size:16px;">Culinary Delights</h4>
                          <div class="cuisine-grid">${cuisineHTML}</div>
                          <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
@@ -1349,12 +1355,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 // STEP 4: LANDMARKS
                 else if (stepIndex === 4) {
-                    stepTitle = "Must Visit";
-                    stepDesc = "Iconic landmarks you cannot miss.";
-                    const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s" onmouseenter="ExplorationManager.highlightLandmark(${idx})" onmouseleave="ExplorationManager.resetLandmarkHighlight(${idx})">${sanitizeHTML(l.name)}</li>`).join('');
+                    stepTitle = 'Landmarks';
+                    stepDesc = "A small starting point for further exploration.";
+                    const landmarksHTML = continent.landmarks.map((l, idx) => `<li class="landmark-item stagger-in" style="animation-delay: ${0.2 + idx * 0.1}s" onmouseenter="ExplorationManager.highlightLandmark(${idx})" onmouseleave="ExplorationManager.resetLandmarkHighlight(${idx})"><button class="landmark-link" onclick="ExplorationManager.highlightLandmark(${idx})">${sanitizeHTML(l.name)}</button><span class="landmark-coords">${l.coords.join(', ')} (approx.)</span></li>`).join('');
                     const remainingGallery = continent.gallery.slice(1).map(url => `<img src="${url}" loading="lazy" onclick="openLightbox(this.src)" style="cursor: zoom-in;">`).join('');
                     contentHTML = `
-                        <ul class="landmark-list">${landmarksHTML}</ul>
+                        <p>${sanitizeHTML(continent.detail)}</p><p>Map points are approximate. Antarctica is clipped at the poles by this map projection.</p><ul class="landmark-list">${landmarksHTML}</ul><p>Gallery photos are generic landscape illustrations, not verified views of these landmarks.</p>
                         <div class="gallery-grid" style="margin-top: 20px;">${remainingGallery}</div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
@@ -1374,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     `).join('');
 
                     contentHTML = `
-                        <ul class="tips-list">${tipsHTML}</ul>
+                        <p>General background only. Check current local advice, entry rules and costs before travel.</p><ul class="tips-list">${tipsHTML}</ul>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
                             <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Quick Facts</button>
@@ -1425,8 +1431,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // STEP 8: COMPLETION
                 else if (stepIndex === 8) {
                     stepTitle = "Journey Complete!";
-                    stepDesc = "You have fully explored " + continent.name + ".";
-                    this.triggerConfetti();
+                    stepDesc = "You have completed the guide to " + continent.name + ".";
+                    if(containerId==='sheet-content')this.triggerConfetti();
                     contentHTML = `
                         <div class="completion-view" style="text-align:center; padding: 40px 0;">
                             <div class="success-icon-wrapper" style="margin-bottom:20px; color:var(--success);">
@@ -1446,8 +1452,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Inject Content
                 titleEl.textContent = stepTitle;
                 descEl.textContent = stepDesc;
-                container.innerHTML = progressHTML + contentHTML;
+                container.innerHTML = progressHTML + contentHTML + `<p class="source-note">Background: <a href="${continent.source}" target="_blank" rel="noopener">${continent.name==='Antarctica'?'British Antarctic Survey':'Britannica'}</a>. Seven-continent model; regional examples are not exhaustive.</p>`;
 
+                container.scrollTop=0;
                 // Tilt Effect for Hero Image
                 const heroImg = container.querySelector('.hero-image');
                 if (heroImg) {
@@ -1468,7 +1475,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 // Trigger a slight fade-in for content
-                container.animate([
+                if(motion)container.animate([
                     { opacity: 0, transform: 'translateY(10px)' },
                     { opacity: 1, transform: 'translateY(0)' }
                 ], {
@@ -1477,7 +1484,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 // Update Map State
-                this.updateMapState(stepIndex);
+
             };
 
             // Update visible UI based on mode
@@ -1485,23 +1492,21 @@ document.addEventListener('DOMContentLoaded', function () {
             // Actually, updating both is safer for resize handling without reload
             updateUI('sidebar-content', 'sidebar-title', 'sidebar-desc');
             updateUI('sheet-content', 'sheet-title', 'sheet-desc');
+            this.updateMapState(stepIndex);
         }
     };
 
     // Expose logic for inline HTML handlers if needed (though we will try to use addEventListener)
     window.ExplorationManager = ExplorationManager;
     window.AudioEngine = AudioEngine;
+    window.guideContinents=continents;
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(passportModal.classList.contains('active'))closePassportBtn.click();else if(lightbox.classList.contains('active'))closeLightbox();else closeUI()}});
     window.openLightbox = openLightbox;
 
 
     beginButton.addEventListener('click', function() {
-        this.disabled = true;
-        welcomeScreen.classList.add('fade-out');
+        welcomeScreen.style.display='none';document.getElementById('app-shell').inert=false;document.getElementById('app-shell').removeAttribute('aria-hidden');document.getElementById('guide-toolbar').hidden=false;initializeMap();return;
 
-        welcomeScreen.addEventListener('transitionend', () => {
-            welcomeScreen.style.display = 'none';
-            initializeMap();
-        }, { once: true });
     });
 
     function initializeMap() {
@@ -1510,23 +1515,25 @@ document.addEventListener('DOMContentLoaded', function () {
             zoomControl: false,
             attributionControl: false,
             center: [20, 0],
-            zoom: 2.5,
-            minZoom: 2.5,
+            zoom: 2,
+            minZoom: 1,
             maxZoom: 7,
-            maxBounds: L.latLngBounds(L.latLng(-90, -180), L.latLng(90, 180)),
+            worldCopyJump: true,
         });
 
-        // Switch to CartoDB Voyager for a cleaner, modern look
-        const tileLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
+        // Key-free OpenStreetMap. Attribution must remain visible.
+        const tileLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 7, updateWhenIdle: true, keepBuffer: 1
         });
 
         tileLayer.on('loading', function() { loader.style.display = 'block'; });
         tileLayer.on('load', function() { loader.style.display = 'none'; });
 
+        tileLayer.on('tileerror',()=>{loader.style.display='none'});
         tileLayer.addTo(map);
+        loader.style.display='none';
+        window.guideMap=map;
 
         // Terminator (Day/Night line) - Make it subtle but visible
         const terminator = L.terminator({
@@ -1572,11 +1579,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }, {passive: true});
 
 
+        const picker=document.getElementById('continent-picker');
+        continents.forEach(c=>{const o=document.createElement('option');o.value=c.name;o.textContent=c.name;picker.appendChild(o)});
+        picker.addEventListener('change',()=>{const c=continents.find(c=>c.name===picker.value);if(c)ExplorationManager.startExploration(c);else closeUI()});
+        document.getElementById('reset-map').onclick=()=>{map.stop();closeUI()};
+        document.getElementById('theme-toggle').onclick=e=>{document.body.classList.toggle('dark');e.target.textContent=document.body.classList.contains('dark')?'Light UI':'Dark UI'};
+        document.getElementById('motion-toggle').textContent=motion?'Pause motion':'Play motion';
+        document.getElementById('motion-toggle').onclick=e=>{motion=!motion;document.body.classList.toggle('motion-paused',!motion);if(!motion){map.stop();ParticleSystem.stop()}else if(ExplorationManager.currentContinent)ParticleSystem.start(ExplorationManager.currentContinent.name);e.target.textContent=motion?'Pause motion':'Play motion'};
         continents.forEach((continent, index) => {
             const isVisited = visitedContinents.has(continent.name);
             const continentIcon = L.divIcon({
                 className: `continent-marker ${isVisited ? 'visited-marker' : ''}`,
-                html: `<div class="pin" role="button" aria-label="${continent.name}" tabindex="0" style="animation: fadeInUp 0.5s ease-out forwards ${index * 100}ms; opacity: 0;">
+                html: `<div class="pin" aria-hidden="true" style="animation: fadeInUp 0.5s ease-out forwards ${index * 100}ms; opacity: 0;">
                          <div class="pin-ring" style="border-color: ${continent.themeColor};"></div>
                          <div class="pin-inner" style="background: linear-gradient(135deg, ${continent.themeColorLight}, ${continent.themeColor}); box-shadow: 0 0 0 3px #fff, 0 4px 12px ${continent.themeColor}80;"></div>
                        </div>`,
@@ -1599,6 +1613,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             marker.on('click', handleMarkerInteraction);
+            marker.getElement()?.setAttribute('aria-label',continent.name);
             marker.on('keyup', (e) => {
                 if (e.originalEvent.key === 'Enter' || e.originalEvent.key === ' ') {
                     handleMarkerInteraction(e);

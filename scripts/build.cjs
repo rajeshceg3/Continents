@@ -1,0 +1,1 @@
+const fs=require('node:fs');fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist');for(const p of ['index.html','css','js','vendor'])fs.cpSync(p,'dist/'+p,{recursive:true});console.log('Static guide built');

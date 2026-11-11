@@ -1,0 +1,762 @@
+{
+  "states": [
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "North America",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "South America",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Europe",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Africa",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Asia",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Australia",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 0,
+      "name": "Antarctica",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "North America",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "South America",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Europe",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Africa",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Asia",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Australia",
+      "step": 8
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 0
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 1
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 2
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 3
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 4
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 5
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 6
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 7
+    },
+    {
+      "width": 1440,
+      "theme": 1,
+      "name": "Antarctica",
+      "step": 8
+    }
+  ],
+  "errors": [],
+  "network": "OSM tiles and illustrative photos mocked to avoid automated tile browsing; sample weather fixture"
+}
