@@ -851,6 +851,9 @@ document.addEventListener('DOMContentLoaded', function () {
     lightboxClose.addEventListener('click', closeLightbox);
 
     let map;
+    let resizeTimer;
+    window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(!map)return;map.invalidateSize({pan:false});if(document.body.classList.contains('ui-active')){const desktop=innerWidth>768;sidebar.classList.toggle('active',desktop);bottomSheet.classList.toggle('active',!desktop);sidebar.inert=!desktop;bottomSheet.inert=desktop;sidebar.setAttribute('aria-hidden',''+!desktop);bottomSheet.setAttribute('aria-hidden',''+desktop);map.invalidateSize({pan:false});const c=ExplorationManager.currentContinent;if(c)map.setView(c.coords,c.zoom-.5,{animate:false});if(ExplorationManager.currentStep===4){ExplorationManager.resetMapState();ExplorationManager.updateMapState(4)}}},150)});
+
 
     const closeUI = () => {
          ParticleSystem.stop();
