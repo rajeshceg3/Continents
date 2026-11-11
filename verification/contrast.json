@@ -1,0 +1,6882 @@
+[
+  {
+    "width": 390,
+    "state": "welcome",
+    "element": 0,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 246, 228)",
+    "minimum": 13.11472421706935,
+    "font": "45px",
+    "glyphPixels": 3830
+  },
+  {
+    "width": 390,
+    "state": "welcome",
+    "element": 1,
+    "text": "Journey through the seven continents. Discover the beauty, c",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 12.909890371836447,
+    "font": "18px",
+    "glyphPixels": 1434
+  },
+  {
+    "width": 390,
+    "state": "welcome",
+    "element": 2,
+    "text": "Explore the Map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 8.223071411993914,
+    "font": "16.8px",
+    "glyphPixels": 461
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 20,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 115
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 21,
+    "text": "The largest continent, full of contrasts and wonders.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 619
+  },
+  {
+    "width": 390,
+    "state": "intro",
+    "element": 22,
+    "text": "Namaste / N\u01d0 h\u01ceo",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 362
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 28,
+    "text": "Climate & Environment",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 615
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 29,
+    "text": "Discover the natural forces that shape this land.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 545
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 30,
+    "text": "Sample point conditions",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 574
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 31,
+    "text": "\u2600\ufe0f 0\u00b0C",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 32,
+    "text": "Sample temperature",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 274
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 33,
+    "text": "\ud83d\udd52 9:35 AM",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 166
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 34,
+    "text": "Sample local time",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 222
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 35,
+    "text": "Weather is for a single sample point at 40, 100, not the who",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 1185
+  },
+  {
+    "width": 390,
+    "state": "climate",
+    "element": 36,
+    "text": "Open-Meteo",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "15px",
+    "glyphPixels": 267
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 23,
+    "text": "Native Wildlife",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 425
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 24,
+    "text": "The living soul of the continent.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 374
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 25,
+    "text": "Tiger",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "15px",
+    "glyphPixels": 84
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 26,
+    "text": "Panda",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "15px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "wildlife",
+    "element": 27,
+    "text": "Snow Leopard",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "15px",
+    "glyphPixels": 218
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 29,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 417
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 30,
+    "text": "Taste the flavors and feel the rhythm.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 441
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 31,
+    "text": "Cultural Insight",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276507298762763,
+    "font": "18px",
+    "glyphPixels": 499
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 32,
+    "text": "These are selected food examples, not a summary of everyone ",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276507298762763,
+    "font": "15px",
+    "glyphPixels": 1870
+  },
+  {
+    "width": 390,
+    "state": "culture",
+    "element": 33,
+    "text": "Culinary Delights",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "18px",
+    "glyphPixels": 512
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 12,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 9.184203505684208,
+    "font": "14px",
+    "glyphPixels": 266
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 13,
+    "text": "Taj Mahal",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 187
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 14,
+    "text": "Angkor Wat",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 232
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 15,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 16,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 32,
+    "text": "Landmarks",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 320
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 33,
+    "text": "A small starting point for further exploration.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 557
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 34,
+    "text": "The Himalayas divide the Tibetan Plateau from the northern e",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 1110
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 35,
+    "text": "Map points are approximate. Antarctica is clipped at the pol",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 1034
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 36,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 418
+  },
+  {
+    "width": 390,
+    "state": "landmarks",
+    "element": 37,
+    "text": "40.4319, 116.5704 (approx.)",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 435
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 24,
+    "text": "Travel Essentials",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 448
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 25,
+    "text": "Smart tips for a smooth journey.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 366
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 26,
+    "text": "General background only. Check current local advice, entry r",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 1003
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 27,
+    "text": "Check destination-specific entry rules and official travel a",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 952
+  },
+  {
+    "width": 390,
+    "state": "tips",
+    "element": 28,
+    "text": "Check local weather, opening times and transport for the exa",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 1050
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 27,
+    "text": "Quick Facts",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 317
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 28,
+    "text": "Interesting tidbits to know.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 338
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 29,
+    "text": "Did you know?Asia is the largest continent in the seven-cont",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 1031
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 30,
+    "text": "Did you know?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 31,
+    "text": "Did you know?It stretches from the Arctic Ocean toward the E",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 390,
+    "state": "facts",
+    "element": 32,
+    "text": "Did you know?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 25,
+    "text": "Knowledge Check",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 515
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 26,
+    "text": "Test what you've learned.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 312
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 27,
+    "text": "Which is the highest mountain on Earth?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "20px",
+    "glyphPixels": 1418
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 28,
+    "text": "K2",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 30
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 29,
+    "text": "Kangchenjunga",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 207
+  },
+  {
+    "width": 390,
+    "state": "quiz",
+    "element": 30,
+    "text": "Mount Everest",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 188
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "23px",
+    "glyphPixels": 419
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 310
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 75
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 138
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 92
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 21,
+    "text": "Journey Complete!",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 458
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 22,
+    "text": "You have completed the guide to Asia.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "15px",
+    "glyphPixels": 471
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 23,
+    "text": "Passport Stamp Collected!",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "18.72px",
+    "glyphPixels": 758
+  },
+  {
+    "width": 390,
+    "state": "complete",
+    "element": 24,
+    "text": "You are one step closer to exploring the whole world.",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "15px",
+    "glyphPixels": 540
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 378
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 330
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 392
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 124
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 28,
+    "text": "Explorer Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "25px",
+    "glyphPixels": 963
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 29,
+    "text": "Collect stamps from all 7 continents to complete your journe",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "15px",
+    "glyphPixels": 714
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 30,
+    "text": "North America",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 230
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 31,
+    "text": "South America",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 244
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 32,
+    "text": "Europe",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 113
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 33,
+    "text": "Africa",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 34,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.270080028266152,
+    "font": "14px",
+    "glyphPixels": 82
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 35,
+    "text": "VISITED",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.440934629829764,
+    "font": "14px",
+    "glyphPixels": 157
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 36,
+    "text": "Australia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 158
+  },
+  {
+    "width": 390,
+    "state": "passport",
+    "element": 37,
+    "text": "Antarctica",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 171
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 28,
+    "text": "Explorer Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "25px",
+    "glyphPixels": 963
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 29,
+    "text": "Collect stamps from all 7 continents to complete your journe",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "15px",
+    "glyphPixels": 714
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 39,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 40,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 214
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 41,
+    "text": "Your notes stay in this browser only:",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "16px",
+    "glyphPixels": 480
+  },
+  {
+    "width": 390,
+    "state": "journal",
+    "element": 42,
+    "text": "Save Entry",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15.2px",
+    "glyphPixels": 243
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 20,
+    "text": "Asia",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 121
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 21,
+    "text": "The largest continent, full of contrasts and wonders.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 671
+  },
+  {
+    "width": 390,
+    "state": "dark-intro",
+    "element": 22,
+    "text": "Namaste / N\u01d0 h\u01ceo",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 380
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 28,
+    "text": "Climate & Environment",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 660
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 29,
+    "text": "Discover the natural forces that shape this land.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 595
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 30,
+    "text": "Sample point conditions",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 602
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 31,
+    "text": "\u2600\ufe0f 0\u00b0C",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 78
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 32,
+    "text": "Sample temperature",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 33,
+    "text": "\ud83d\udd52 9:36 AM",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 187
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 34,
+    "text": "Sample local time",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 236
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 35,
+    "text": "Weather is for a single sample point at 40, 100, not the who",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 1260
+  },
+  {
+    "width": 390,
+    "state": "dark-climate",
+    "element": 36,
+    "text": "Open-Meteo",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "15px",
+    "glyphPixels": 278
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 23,
+    "text": "Native Wildlife",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 466
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 24,
+    "text": "The living soul of the continent.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 391
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 25,
+    "text": "Tiger",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 87
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 26,
+    "text": "Panda",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 113
+  },
+  {
+    "width": 390,
+    "state": "dark-wildlife",
+    "element": 27,
+    "text": "Snow Leopard",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 242
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 29,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 456
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 30,
+    "text": "Taste the flavors and feel the rhythm.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 477
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 31,
+    "text": "Cultural Insight",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "18px",
+    "glyphPixels": 515
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 32,
+    "text": "These are selected food examples, not a summary of everyone ",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 2018
+  },
+  {
+    "width": 390,
+    "state": "dark-culture",
+    "element": 33,
+    "text": "Culinary Delights",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "18px",
+    "glyphPixels": 535
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 12,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 9.184203505684208,
+    "font": "14px",
+    "glyphPixels": 266
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 13,
+    "text": "Taj Mahal",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 187
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 14,
+    "text": "Angkor Wat",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 232
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 15,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 16,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 32,
+    "text": "Landmarks",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 352
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 33,
+    "text": "A small starting point for further exploration.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 601
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 34,
+    "text": "The Himalayas divide the Tibetan Plateau from the northern e",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 1174
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 35,
+    "text": "Map points are approximate. Antarctica is clipped at the pol",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 1122
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 36,
+    "text": "Great Wall of China",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 451
+  },
+  {
+    "width": 390,
+    "state": "dark-landmarks",
+    "element": 37,
+    "text": "40.4319, 116.5704 (approx.)",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 470
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 24,
+    "text": "Travel Essentials",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 474
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 25,
+    "text": "Smart tips for a smooth journey.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 390
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 26,
+    "text": "General background only. Check current local advice, entry r",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 1105
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 27,
+    "text": "Check destination-specific entry rules and official travel a",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 1033
+  },
+  {
+    "width": 390,
+    "state": "dark-tips",
+    "element": 28,
+    "text": "Check local weather, opening times and transport for the exa",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 1100
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 27,
+    "text": "Quick Facts",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 28,
+    "text": "Interesting tidbits to know.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 361
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 29,
+    "text": "Did you know?Asia is the largest continent in the seven-cont",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 1082
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 30,
+    "text": "Did you know?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 31,
+    "text": "Did you know?It stretches from the Arctic Ocean toward the E",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 390,
+    "state": "dark-facts",
+    "element": 32,
+    "text": "Did you know?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 25,
+    "text": "Knowledge Check",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 549
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 26,
+    "text": "Test what you've learned.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 335
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 27,
+    "text": "Which is the highest mountain on Earth?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "20px",
+    "glyphPixels": 1521
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 28,
+    "text": "K2",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 34
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 29,
+    "text": "Kangchenjunga",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 218
+  },
+  {
+    "width": 390,
+    "state": "dark-quiz",
+    "element": 30,
+    "text": "Mount Everest",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 196
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "23px",
+    "glyphPixels": 439
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 347
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 293
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 136
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 86
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 144
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 106
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.36157003691432,
+    "font": "14px",
+    "glyphPixels": 298
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.54237376097552,
+    "font": "14px",
+    "glyphPixels": 180
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 21,
+    "text": "Journey Complete!",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "24px",
+    "glyphPixels": 513
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 22,
+    "text": "You have completed the guide to Asia.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "15px",
+    "glyphPixels": 520
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 23,
+    "text": "Passport Stamp Collected!",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "18.72px",
+    "glyphPixels": 815
+  },
+  {
+    "width": 390,
+    "state": "dark-complete",
+    "element": 24,
+    "text": "You are one step closer to exploring the whole world.",
+    "ink": "rgb(237, 223, 199)",
+    "minimum": 8.805107373256732,
+    "font": "15px",
+    "glyphPixels": 583
+  },
+  {
+    "width": 1440,
+    "state": "welcome",
+    "element": 0,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 246, 228)",
+    "minimum": 13.11472421706935,
+    "font": "78px",
+    "glyphPixels": 11887
+  },
+  {
+    "width": 1440,
+    "state": "welcome",
+    "element": 1,
+    "text": "Journey through the seven continents. Discover the beauty, c",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 12.78200917650074,
+    "font": "18px",
+    "glyphPixels": 1404
+  },
+  {
+    "width": 1440,
+    "state": "welcome",
+    "element": 2,
+    "text": "Explore the Map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 8.223071411993914,
+    "font": "16.8px",
+    "glyphPixels": 461
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 14,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 188
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 15,
+    "text": "The largest continent, full of contrasts and wonders.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 731
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 16,
+    "text": "Namaste / N\u01d0 h\u01ceo",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 362
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 17,
+    "text": "Begin Journey",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 18,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "intro",
+    "element": 19,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 14,
+    "text": "Climate & Environment",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 927
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 15,
+    "text": "Discover the natural forces that shape this land.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 693
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 16,
+    "text": "Sample point conditions",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 574
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 17,
+    "text": "\u2600\ufe0f -1\u00b0C",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 80
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 18,
+    "text": "Sample temperature",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 19,
+    "text": "\ud83d\udd52 9:36 AM",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 213
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 20,
+    "text": "Sample local time",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 240
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 21,
+    "text": "Weather is for a single sample point at 40, 100, not the who",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1401
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 22,
+    "text": "Open-Meteo",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "16px",
+    "glyphPixels": 294
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 23,
+    "text": "Extremely diverse, ranging from subarctic to tropical.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 799
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 24,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 25,
+    "text": "Native Wildlife",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15px",
+    "glyphPixels": 331
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 26,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "climate",
+    "element": 27,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 14,
+    "text": "Native Wildlife",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 637
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 15,
+    "text": "The living soul of the continent.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 436
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 16,
+    "text": "Tiger",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "16px",
+    "glyphPixels": 117
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 17,
+    "text": "Panda",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "16px",
+    "glyphPixels": 133
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 18,
+    "text": "Snow Leopard",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.3946179458692,
+    "font": "16px",
+    "glyphPixels": 269
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 19,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 20,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 21,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "wildlife",
+    "element": 22,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 14,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 670
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 15,
+    "text": "Taste the flavors and feel the rhythm.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 528
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 16,
+    "text": "Cultural Insight",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276507298762763,
+    "font": "18px",
+    "glyphPixels": 499
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 17,
+    "text": "These are selected food examples, not a summary of everyone ",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276507298762763,
+    "font": "16px",
+    "glyphPixels": 2210
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 18,
+    "text": "Culinary Delights",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "18px",
+    "glyphPixels": 512
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 19,
+    "text": "Sushi",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 107
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 20,
+    "text": "Japanese dish of vinegared rice with seafood.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 687
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 21,
+    "text": "Dim Sum",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 170
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 22,
+    "text": "Small bite-sized portions of food served in steamer baskets.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 843
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 23,
+    "text": "Pad Thai",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 176
+  },
+  {
+    "width": 1440,
+    "state": "culture",
+    "element": 24,
+    "text": "Stir-fried rice noodle dish commonly served as street food.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 854
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 12,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 327
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 13,
+    "text": "Taj Mahal",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 187
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 14,
+    "text": "Angkor Wat",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 232
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 15,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 16,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 17,
+    "text": "Landmarks",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 465
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 18,
+    "text": "A small starting point for further exploration.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 644
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 19,
+    "text": "The Himalayas divide the Tibetan Plateau from the northern e",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1314
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 20,
+    "text": "Map points are approximate. Antarctica is clipped at the pol",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1174
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 21,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 418
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 22,
+    "text": "40.4319, 116.5704 (approx.)",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 570
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 23,
+    "text": "Taj Mahal",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 24,
+    "text": "27.1751, 78.0421 (approx.)",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 497
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 25,
+    "text": "Angkor Wat",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 249
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 26,
+    "text": "13.4125, 103.867 (approx.)",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 515
+  },
+  {
+    "width": 1440,
+    "state": "landmarks",
+    "element": 27,
+    "text": "Gallery photos are generic landscape illustrations, not veri",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1260
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 14,
+    "text": "Travel Essentials",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 623
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 15,
+    "text": "Smart tips for a smooth journey.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 421
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 16,
+    "text": "General background only. Check current local advice, entry r",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1259
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 17,
+    "text": "Check destination-specific entry rules and official travel a",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1111
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 18,
+    "text": "Check local weather, opening times and transport for the exa",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1192
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 19,
+    "text": "Ask local hosts about customs rather than assuming one rule ",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1187
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 20,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 21,
+    "text": "Quick Facts",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15px",
+    "glyphPixels": 226
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 22,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "tips",
+    "element": 23,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 14,
+    "text": "Quick Facts",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 456
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 15,
+    "text": "Interesting tidbits to know.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 412
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 16,
+    "text": "Did you know?Asia is the largest continent in the seven-cont",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1159
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 17,
+    "text": "Did you know?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 18,
+    "text": "Did you know?It stretches from the Arctic Ocean toward the E",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1150
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 19,
+    "text": "Did you know?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 20,
+    "text": "Did you know?Mount Everest is Earth's highest summit above s",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "16px",
+    "glyphPixels": 1194
+  },
+  {
+    "width": 1440,
+    "state": "facts",
+    "element": 21,
+    "text": "Did you know?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 14,
+    "text": "Knowledge Check",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 751
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 15,
+    "text": "Test what you've learned.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 366
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 16,
+    "text": "Which is the highest mountain on Earth?",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.178414803980667,
+    "font": "20px",
+    "glyphPixels": 1418
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 17,
+    "text": "K2",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 30
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 18,
+    "text": "Kangchenjunga",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 207
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 19,
+    "text": "Mount Everest",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 188
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 20,
+    "text": "Lhotse",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 84
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 21,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "15px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 22,
+    "text": "Claim Stamp",
+    "ink": "rgb(83, 99, 106)",
+    "minimum": 4.753967438447031,
+    "font": "15px",
+    "glyphPixels": 238
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 23,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "quiz",
+    "element": 24,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "29px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 308
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "14px",
+    "glyphPixels": 259
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 111
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 7,
+    "text": "Dark UI",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 81
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 132
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.133537089520125,
+    "font": "14px",
+    "glyphPixels": 88
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 14,
+    "text": "Journey Complete!",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "28px",
+    "glyphPixels": 692
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 15,
+    "text": "You have completed the guide to Asia.",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 555
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 16,
+    "text": "Passport Stamp Collected!",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "18.72px",
+    "glyphPixels": 758
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 17,
+    "text": "You are one step closer to exploring the whole world.",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "16px",
+    "glyphPixels": 754
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 18,
+    "text": "Return to Map",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15px",
+    "glyphPixels": 320
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 19,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "16px",
+    "glyphPixels": 1290
+  },
+  {
+    "width": 1440,
+    "state": "complete",
+    "element": 20,
+    "text": "Britannica",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.918989168896586,
+    "font": "14px",
+    "glyphPixels": 181
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 28,
+    "text": "Explorer Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "32px",
+    "glyphPixels": 1758
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 29,
+    "text": "Collect stamps from all 7 continents to complete your journe",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "16px",
+    "glyphPixels": 864
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 30,
+    "text": "North America",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 230
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 31,
+    "text": "South America",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 244
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 32,
+    "text": "Europe",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 113
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 33,
+    "text": "Africa",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 34,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.270080028266152,
+    "font": "14px",
+    "glyphPixels": 82
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 35,
+    "text": "VISITED",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.440934629829764,
+    "font": "14px",
+    "glyphPixels": 157
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 36,
+    "text": "Australia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 158
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 37,
+    "text": "Antarctica",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.03912782776077,
+    "font": "14px",
+    "glyphPixels": 171
+  },
+  {
+    "width": 1440,
+    "state": "passport",
+    "element": 38,
+    "text": "1 / 7 Collected",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.063461142220568,
+    "font": "14.4px",
+    "glyphPixels": 213
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 28,
+    "text": "Explorer Passport",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "32px",
+    "glyphPixels": 1749
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 29,
+    "text": "Collect stamps from all 7 continents to complete your journe",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "16px",
+    "glyphPixels": 864
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 39,
+    "text": "Back",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 40,
+    "text": "Asia",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.964723195310746,
+    "font": "24px",
+    "glyphPixels": 214
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 41,
+    "text": "Your notes stay in this browser only:",
+    "ink": "rgb(64, 85, 97)",
+    "minimum": 7.394090939090249,
+    "font": "16px",
+    "glyphPixels": 480
+  },
+  {
+    "width": 1440,
+    "state": "journal",
+    "element": 42,
+    "text": "Save Entry",
+    "ink": "rgb(255, 247, 229)",
+    "minimum": 7.309863297024155,
+    "font": "15.2px",
+    "glyphPixels": 243
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 14,
+    "text": "Asia",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 200
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 15,
+    "text": "The largest continent, full of contrasts and wonders.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 821
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 16,
+    "text": "Namaste / N\u01d0 h\u01ceo",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 380
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 17,
+    "text": "Begin Journey",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 296
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 18,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-intro",
+    "element": 19,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 14,
+    "text": "Climate & Environment",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 980
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 15,
+    "text": "Discover the natural forces that shape this land.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 763
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 16,
+    "text": "Sample point conditions",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 602
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 17,
+    "text": "\u2600\ufe0f -1\u00b0C",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 99
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 18,
+    "text": "Sample temperature",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 19,
+    "text": "\ud83d\udd52 9:36 AM",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 220
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 20,
+    "text": "Sample local time",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 267
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 21,
+    "text": "Weather is for a single sample point at 40, 100, not the who",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1616
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 22,
+    "text": "Open-Meteo",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "16px",
+    "glyphPixels": 326
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 23,
+    "text": "Extremely diverse, ranging from subarctic to tropical.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 857
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 24,
+    "text": "Back",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 114
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 25,
+    "text": "Native Wildlife",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 318
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 26,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-climate",
+    "element": 27,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 14,
+    "text": "Native Wildlife",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 683
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 15,
+    "text": "The living soul of the continent.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 507
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 16,
+    "text": "Tiger",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 131
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 17,
+    "text": "Panda",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 148
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 18,
+    "text": "Snow Leopard",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 289
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 19,
+    "text": "Back",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 114
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 20,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 353
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 21,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-wildlife",
+    "element": 22,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 14,
+    "text": "Culture & Cuisine",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 708
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 15,
+    "text": "Taste the flavors and feel the rhythm.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 596
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 16,
+    "text": "Cultural Insight",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "18px",
+    "glyphPixels": 515
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 17,
+    "text": "These are selected food examples, not a summary of everyone ",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 2487
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 18,
+    "text": "Culinary Delights",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "18px",
+    "glyphPixels": 535
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 19,
+    "text": "Sushi",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 108
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 20,
+    "text": "Japanese dish of vinegared rice with seafood.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 743
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 21,
+    "text": "Dim Sum",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 175
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 22,
+    "text": "Small bite-sized portions of food served in steamer baskets.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 988
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 23,
+    "text": "Pad Thai",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 185
+  },
+  {
+    "width": 1440,
+    "state": "dark-culture",
+    "element": 24,
+    "text": "Stir-fried rice noodle dish commonly served as street food.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 944
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 12,
+    "text": "Great Wall of China",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 327
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 13,
+    "text": "Taj Mahal",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 187
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 14,
+    "text": "Angkor Wat",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 11.126965692623672,
+    "font": "14px",
+    "glyphPixels": 232
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 15,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 16,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 17,
+    "text": "Landmarks",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 522
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 18,
+    "text": "A small starting point for further exploration.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 733
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 19,
+    "text": "The Himalayas divide the Tibetan Plateau from the northern e",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1518
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 20,
+    "text": "Map points are approximate. Antarctica is clipped at the pol",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1431
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 21,
+    "text": "Great Wall of China",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 451
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 22,
+    "text": "40.4319, 116.5704 (approx.)",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 591
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 23,
+    "text": "Taj Mahal",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 230
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 24,
+    "text": "27.1751, 78.0421 (approx.)",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 521
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 25,
+    "text": "Angkor Wat",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 271
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 26,
+    "text": "13.4125, 103.867 (approx.)",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 539
+  },
+  {
+    "width": 1440,
+    "state": "dark-landmarks",
+    "element": 27,
+    "text": "Gallery photos are generic landscape illustrations, not veri",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 14,
+    "text": "Travel Essentials",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 681
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 15,
+    "text": "Smart tips for a smooth journey.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 489
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 16,
+    "text": "General background only. Check current local advice, entry r",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1408
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 17,
+    "text": "Check destination-specific entry rules and official travel a",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1299
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 18,
+    "text": "Check local weather, opening times and transport for the exa",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1365
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 19,
+    "text": "Ask local hosts about customs rather than assuming one rule ",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1285
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 20,
+    "text": "Back",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 114
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 21,
+    "text": "Quick Facts",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 219
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 22,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-tips",
+    "element": 23,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 14,
+    "text": "Quick Facts",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 478
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 15,
+    "text": "Interesting tidbits to know.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 455
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 16,
+    "text": "Did you know?Asia is the largest continent in the seven-cont",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1277
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 17,
+    "text": "Did you know?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 18,
+    "text": "Did you know?It stretches from the Arctic Ocean toward the E",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1225
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 19,
+    "text": "Did you know?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 20,
+    "text": "Did you know?Mount Everest is Earth's highest summit above s",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "16px",
+    "glyphPixels": 1296
+  },
+  {
+    "width": 1440,
+    "state": "dark-facts",
+    "element": 21,
+    "text": "Did you know?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "15px",
+    "glyphPixels": 360
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 14,
+    "text": "Knowledge Check",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 799
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 15,
+    "text": "Test what you've learned.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 407
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 16,
+    "text": "Which is the highest mountain on Earth?",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.98183434411751,
+    "font": "20px",
+    "glyphPixels": 1521
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 17,
+    "text": "K2",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 34
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 18,
+    "text": "Kangchenjunga",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 218
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 19,
+    "text": "Mount Everest",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 196
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 20,
+    "text": "Lhotse",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 93
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 21,
+    "text": "Back",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "15px",
+    "glyphPixels": 114
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 22,
+    "text": "Claim Stamp",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 244
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 23,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-quiz",
+    "element": 24,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 3,
+    "text": "World of Wonder",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "29px",
+    "glyphPixels": 791
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 4,
+    "text": "A seven-continent map guide",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "14px",
+    "glyphPixels": 348
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 5,
+    "text": "Explore a continentChoose a continentNorth AmericaSouth Amer",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 276
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 6,
+    "text": "Reset map",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 125
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 7,
+    "text": "Light UI",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 105
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 8,
+    "text": "Play motion",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 141
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 9,
+    "text": "Passport",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 109
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 10,
+    "text": "Sound on",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 7.8533936845651295,
+    "font": "14px",
+    "glyphPixels": 104
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 12,
+    "text": "\u00a9 OpenStreetMap contributors",
+    "ink": "rgb(35, 60, 73)",
+    "minimum": 10.276232270171704,
+    "font": "14px",
+    "glyphPixels": 306
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 13,
+    "text": "OpenStreetMap",
+    "ink": "rgb(36, 93, 112)",
+    "minimum": 6.789785715933262,
+    "font": "14px",
+    "glyphPixels": 184
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 14,
+    "text": "Journey Complete!",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "28px",
+    "glyphPixels": 772
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 15,
+    "text": "You have completed the guide to Asia.",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 620
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 16,
+    "text": "Passport Stamp Collected!",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "18.72px",
+    "glyphPixels": 815
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 17,
+    "text": "You are one step closer to exploring the whole world.",
+    "ink": "rgb(237, 223, 199)",
+    "minimum": 8.805107373256732,
+    "font": "16px",
+    "glyphPixels": 855
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 18,
+    "text": "Return to Map",
+    "ink": "rgb(36, 60, 72)",
+    "minimum": 8.218918084331294,
+    "font": "15px",
+    "glyphPixels": 314
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 19,
+    "text": "Background: Britannica. Seven-continent model; regional exam",
+    "ink": "rgb(255, 242, 221)",
+    "minimum": 10.467022278368917,
+    "font": "16px",
+    "glyphPixels": 1456
+  },
+  {
+    "width": 1440,
+    "state": "dark-complete",
+    "element": 20,
+    "text": "Britannica",
+    "ink": "rgb(189, 233, 246)",
+    "minimum": 8.898451439857865,
+    "font": "14px",
+    "glyphPixels": 208
+  }
+]
