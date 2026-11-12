@@ -1551,6 +1551,7 @@ body:not(.chrome-on) #guide-toolbar:not([hidden]){transform:translateY(-105%);vi
 body:not(.chrome-on) #app-shell{top:0}
 body:not(.chrome-on) .map-controls{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
 .map-controls{transition:opacity .25s ease,visibility .25s ease}
+#chrome-hint[hidden]{display:none}
 #chrome-hint{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:1200;display:grid;place-items:center;width:56px;height:30px;border:1px solid #8c9d9e;border-top:0;border-radius:0 0 12px 12px;background:#fff8ec;color:#233c49;box-shadow:0 2px 8px #18344433;cursor:pointer;animation:hint-bob 3.2s ease-in-out infinite}
 #chrome-hint:hover{background:#f1d6a7}
 .dark #chrome-hint{background:#243c48;color:#fff2dd;border-color:#93a8ad}
