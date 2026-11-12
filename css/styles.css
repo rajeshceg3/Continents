@@ -1543,3 +1543,18 @@ html,body{width:100%;height:100%;margin:0;overflow:hidden}#app-shell{position:fi
 .toast,.toast-container,#toast,#toast-container{pointer-events:none!important}.content-body .quiz-option{color:#233c49!important}.dark .content-body .quiz-option{color:#fff2dd!important}.content-body .quiz-option:disabled{opacity:1}.content-body .quiz-option.correct{background:#345764!important;color:#fff7e5!important}.dark .content-body .quiz-option.correct{background:#f1d6a7!important;color:#233c49!important}
 #welcome-title{color:#fff6e4}.content-body strong,.fact-card strong{font-size:15px!important;color:inherit!important;text-transform:none!important;letter-spacing:0!important}.landmark-item{background:#f0f1e9!important;border-color:#a4b3b3!important}.dark .landmark-item{background:#344e59!important;color:#fff2dd!important}.toast{background:#fff8ec!important;color:#233c49!important;top:auto;bottom:20px;border-radius:10px;max-width:calc(100vw - 24px);font-size:15px;padding:12px 18px}.map-controls{opacity:1!important;transform:none!important;pointer-events:auto!important}
 .content-header h2{background:none!important;-webkit-background-clip:border-box;-webkit-text-fill-color:currentColor;filter:none!important}
+
+/* Quiet chrome: map leads, controls visit when called */
+#guide-toolbar{transition:transform .25s ease,visibility .25s ease}
+#app-shell{transition:top .25s ease}
+body:not(.chrome-on) #guide-toolbar:not([hidden]){transform:translateY(-105%);visibility:hidden;pointer-events:none}
+body:not(.chrome-on) #app-shell{top:0}
+body:not(.chrome-on) .map-controls{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+.map-controls{transition:opacity .25s ease,visibility .25s ease}
+#chrome-hint{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:1200;display:grid;place-items:center;width:56px;height:30px;border:1px solid #8c9d9e;border-top:0;border-radius:0 0 12px 12px;background:#fff8ec;color:#233c49;box-shadow:0 2px 8px #18344433;cursor:pointer;animation:hint-bob 3.2s ease-in-out infinite}
+#chrome-hint:hover{background:#f1d6a7}
+.dark #chrome-hint{background:#243c48;color:#fff2dd;border-color:#93a8ad}
+@keyframes hint-bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(3px)}}
+#pin-controls[aria-pressed="true"]{background:#f1d6a7!important;color:#233c49!important}
+@media(max-width:768px){#chrome-hint{height:34px}}
+@media(prefers-reduced-motion:reduce){#chrome-hint{animation:none!important}}
