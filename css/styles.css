@@ -1277,93 +1277,6 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.5;
 }
 
-/* --- Quiz UI --- */
-.quiz-container {
-    margin-bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.quiz-question {
-    font-size: 1.4rem;
-    color: var(--primary);
-    margin-bottom: 8px;
-    line-height: 1.3;
-}
-
-.quiz-options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.quiz-option {
-    padding: 16px 20px;
-    text-align: left;
-    background: #fff;
-    border: 1px solid rgba(10, 37, 64, 0.1);
-    border-radius: 12px;
-    font-family: var(--font-ui);
-    font-size: 1rem;
-    color: var(--text-main);
-    cursor: pointer;
-    transition: all 0.2s var(--ease-smooth);
-    position: relative;
-    overflow: hidden;
-}
-
-.quiz-option:hover:not(:disabled) {
-    background: #f8faff;
-    border-color: var(--accent);
-    transition: all 0.5s var(--ease-smooth);
-    transform: translateX(4px);
-}
-
-.quiz-option:disabled {
-    cursor: default;
-    opacity: 0.7;
-}
-
-.quiz-option.correct {
-    background: rgba(62, 207, 142, 0.1) !important;
-    border-color: var(--success) !important;
-    color: #0e5a32 !important;
-    font-weight: 600;
-}
-
-.quiz-option.correct::after {
-    content: '✓';
-    position: absolute;
-    right: 20px; top: 50%;
-    transform: translateY(-50%);
-    color: var(--success);
-    font-weight: bold;
-}
-
-.quiz-option.incorrect {
-    background: rgba(255, 90, 95, 0.1) !important;
-    border-color: var(--danger) !important;
-    color: #c51c24 !important;
-}
-
-.quiz-feedback {
-    min-height: 24px;
-    font-size: 1rem;
-    margin-top: 8px;
-    animation: fadeInUp 0.3s ease-out;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-    20%, 40%, 60%, 80% { transform: translateX(4px); }
-}
-
-.shake {
-    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-}
-
 .confetti-canvas {
     position: fixed;
     top: 0; left: 0;
@@ -1532,15 +1445,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Readable map-first guide. Tile colours are not modified by UI themes. */
 :root{--primary:#233c49;--text:#233c49;--text-light:#405561;--accent:#325764;--accent-light:#497080;--success:#285e43;font-family:Arial,Helvetica,sans-serif}
-html,body{width:100%;height:100%;margin:0;overflow:hidden}#app-shell{position:fixed;inset:120px 0 0;overflow:clip}#map{position:absolute;inset:0;width:auto;height:auto;background:#d9e5e6}#guide-toolbar[hidden]{display:none}#guide-toolbar{position:fixed;top:0;left:0;right:0;height:120px;z-index:1100;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 24px;background:#fff8ec;color:#233c49;border-bottom:1px solid #8c9d9e}#guide-toolbar h1{font:29px Georgia,serif;margin:0 0 6px}#guide-toolbar p{margin:0;font-size:14px}#guide-toolbar label{display:grid;gap:5px;font-size:14px}#guide-toolbar nav{display:flex;flex-wrap:wrap;gap:7px}button,select,textarea{font:14px Arial,sans-serif;min-height:40px}#guide-toolbar button,#guide-toolbar select{border:1px solid #7b9098;border-radius:7px;color:#233c49;background:#fffaf1;padding:8px 12px}#guide-toolbar select{min-width:200px}button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #b2531d!important;outline-offset:3px}#sidebar,#bottom-sheet{background:#fff8ec;color:#233c49;border:1px solid #879b9d;box-shadow:0 10px 40px #18364533;backdrop-filter:none}#sidebar{position:absolute;top:0;bottom:0;left:0;width:440px;max-width:100%;height:auto;transform:translateX(-102%)}#sidebar.active{transform:none}#bottom-sheet{display:none}.ui-active #map{left:440px}.content-header{padding:28px 24px 14px}.content-header h2{font:28px/1.2 Georgia,serif;color:inherit!important;padding-right:28px}.content-header p{color:inherit!important;font-size:16px!important;line-height:1.45}.content-body{padding:12px 24px 24px;overflow:auto;min-height:0}.content-body p,.content-body li,.content-body span{font-size:16px!important;line-height:1.5;color:inherit}.content-body h4{font-size:18px!important;text-transform:none!important;letter-spacing:0!important;color:inherit!important}.content-body [style*="text-transform"]{text-transform:none!important;letter-spacing:0!important;font-size:16px!important;color:inherit!important}.content-body .nav-btn,.quiz-option{font-size:15px!important;min-height:44px;white-space:normal}.nav-btn.primary,.quiz-option.correct{background:#345764!important;color:#fff7e5!important;border:1px solid #345764}.nav-btn.secondary,.quiz-option{background:#fffaf0!important;color:#233c49!important;border:1px solid #879ca1}.nav-btn:disabled{opacity:1!important;background:#dce2de!important;color:#53636a!important}.content-body a{color:#245d70;text-decoration:underline}.progress-dot.active{background:#345764!important}.progress-dot{background:#aab8bc}.map-controls{position:absolute;bottom:45px;right:14px;gap:8px;z-index:800}.map-controls button{background:#fff9ed;color:#233c49!important;box-shadow:0 2px 8px #18344455;border:1px solid #8b9ea2;min-width:44px;min-height:44px}#mute-btn{width:auto;padding:8px 10px;border-radius:7px;font-size:14px}.leaflet-control-attribution{background:#fffaf1!important;color:#233c49!important;font-size:14px!important;padding:5px 8px!important;line-height:1.3}.leaflet-control-attribution a{font-size:14px!important;color:#245d70!important}.custom-tooltip{font-size:15px!important;color:#233c49!important;background:#fffaf0!important}.hero-image-container{overflow:hidden}.hero-image{transform:none!important;filter:none!important}.live-conditions-widget,.fact-card,.cuisine-card,.quiz-container,.climate-section,.tip-item{background:#f0f1e9!important;color:#233c49!important;border-color:#a4b3b3!important}.widget-header{font-size:15px!important;text-transform:none!important;letter-spacing:0!important;color:#233c49!important}.widget-label{font-size:14px!important;color:inherit!important}.widget-value{color:inherit!important}.pulse-dot{display:none}.content-body .wildlife-card,.content-body .wildlife-section{color:inherit!important}.close-btn{width:40px;height:40px;top:13px;right:13px;background:#fff8ec;color:#233c49}.close-btn svg{fill:currentColor}#particle-canvas,#cloud-layer{display:none!important}#loader{pointer-events:none}.pin{opacity:1!important;animation:none!important}.pin-ring{display:none}.dark{--primary:#fff2dd;--text:#fff2dd;--text-light:#eddfc7;--accent:#f6d498;--accent-light:#e9c38a;--success:#9fdbbd}.dark #guide-toolbar,.dark #sidebar,.dark #bottom-sheet{background:#243c48;color:#fff2dd}.dark #guide-toolbar button,.dark #guide-toolbar select,.dark .close-btn,.dark .nav-btn.secondary,.dark .quiz-option{background:#344f5c!important;color:#fff2dd!important;border-color:#93a8ad}.dark .content-body a{color:#bde9f6}.dark .live-conditions-widget,.dark .fact-card,.dark .cuisine-card,.dark .quiz-container,.dark .climate-section,.dark .tip-item{background:#344e59!important;color:#fff2dd!important}.dark .widget-header{color:#fff2dd!important}.dark .nav-btn.primary{background:#f1d6a7!important;color:#243c48!important}.dark .content-body [style*="background:rgba"],.dark .content-body [style*="background: rgba"]{background:#344e59!important;color:#fff2dd!important}.motion-paused *{animation:none!important;transition:none!important}.motion-paused #particle-canvas{display:none!important}.passport-container{background:#fff8ec;color:#233c49}.stamp-name,.stamp-date,.passport-status{font-size:14px!important;text-transform:none!important;letter-spacing:0!important;color:#233c49!important}.passport-stamp{min-height:125px}#lightbox{background:#142c38ee}.widget-body{gap:12px}.widget-label{white-space:normal}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}#app-shell{position:fixed;inset:120px 0 0;overflow:clip}#map{position:absolute;inset:0;width:auto;height:auto;background:#d9e5e6}#guide-toolbar[hidden]{display:none}#guide-toolbar{position:fixed;top:0;left:0;right:0;height:120px;z-index:1100;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 24px;background:#fff8ec;color:#233c49;border-bottom:1px solid #8c9d9e}#guide-toolbar h1{font:29px Georgia,serif;margin:0 0 6px}#guide-toolbar p{margin:0;font-size:14px}#guide-toolbar label{display:grid;gap:5px;font-size:14px}#guide-toolbar nav{display:flex;flex-wrap:wrap;gap:7px}button,select,textarea{font:14px Arial,sans-serif;min-height:40px}#guide-toolbar button,#guide-toolbar select{border:1px solid #7b9098;border-radius:7px;color:#233c49;background:#fffaf1;padding:8px 12px}#guide-toolbar select{min-width:200px}button:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #b2531d!important;outline-offset:3px}#sidebar,#bottom-sheet{background:#fff8ec;color:#233c49;border:1px solid #879b9d;box-shadow:0 10px 40px #18364533;backdrop-filter:none}#sidebar{position:absolute;top:0;bottom:0;left:0;width:440px;max-width:100%;height:auto;transform:translateX(-102%)}#sidebar.active{transform:none}#bottom-sheet{display:none}.ui-active #map{left:440px}.content-header{padding:28px 24px 14px}.content-header h2{font:28px/1.2 Georgia,serif;color:inherit!important;padding-right:28px}.content-header p{color:inherit!important;font-size:16px!important;line-height:1.45}.content-body{padding:12px 24px 24px;overflow:auto;min-height:0}.content-body p,.content-body li,.content-body span{font-size:16px!important;line-height:1.5;color:inherit}.content-body h4{font-size:18px!important;text-transform:none!important;letter-spacing:0!important;color:inherit!important}.content-body [style*="text-transform"]{text-transform:none!important;letter-spacing:0!important;font-size:16px!important;color:inherit!important}.content-body .nav-btn{font-size:15px!important;min-height:44px;white-space:normal}.nav-btn.primary{background:#345764!important;color:#fff7e5!important;border:1px solid #345764}.nav-btn.secondary{background:#fffaf0!important;color:#233c49!important;border:1px solid #879ca1}.nav-btn:disabled{opacity:1!important;background:#dce2de!important;color:#53636a!important}.content-body a{color:#245d70;text-decoration:underline}.progress-dot.active{background:#345764!important}.progress-dot{background:#aab8bc}.map-controls{position:absolute;bottom:45px;right:14px;gap:8px;z-index:800}.map-controls button{background:#fff9ed;color:#233c49!important;box-shadow:0 2px 8px #18344455;border:1px solid #8b9ea2;min-width:44px;min-height:44px}#mute-btn{width:auto;padding:8px 10px;border-radius:7px;font-size:14px}.leaflet-control-attribution{background:#fffaf1!important;color:#233c49!important;font-size:14px!important;padding:5px 8px!important;line-height:1.3}.leaflet-control-attribution a{font-size:14px!important;color:#245d70!important}.custom-tooltip{font-size:15px!important;color:#233c49!important;background:#fffaf0!important}.hero-image-container{overflow:hidden}.hero-image{transform:none!important;filter:none!important}.live-conditions-widget,.fact-card,.cuisine-card,.climate-section,.tip-item{background:#f0f1e9!important;color:#233c49!important;border-color:#a4b3b3!important}.widget-header{font-size:15px!important;text-transform:none!important;letter-spacing:0!important;color:#233c49!important}.widget-label{font-size:14px!important;color:inherit!important}.widget-value{color:inherit!important}.pulse-dot{display:none}.content-body .wildlife-card,.content-body .wildlife-section{color:inherit!important}.close-btn{width:40px;height:40px;top:13px;right:13px;background:#fff8ec;color:#233c49}.close-btn svg{fill:currentColor}#particle-canvas,#cloud-layer{display:none!important}#loader{pointer-events:none}.pin{opacity:1!important;animation:none!important}.pin-ring{display:none}.dark{--primary:#fff2dd;--text:#fff2dd;--text-light:#eddfc7;--accent:#f6d498;--accent-light:#e9c38a;--success:#9fdbbd}.dark #guide-toolbar,.dark #sidebar,.dark #bottom-sheet{background:#243c48;color:#fff2dd}.dark #guide-toolbar button,.dark #guide-toolbar select,.dark .close-btn,.dark .nav-btn.secondary{background:#344f5c!important;color:#fff2dd!important;border-color:#93a8ad}.dark .content-body a{color:#bde9f6}.dark .live-conditions-widget,.dark .fact-card,.dark .cuisine-card,.dark .climate-section,.dark .tip-item{background:#344e59!important;color:#fff2dd!important}.dark .widget-header{color:#fff2dd!important}.dark .nav-btn.primary{background:#f1d6a7!important;color:#243c48!important}.dark .content-body [style*="background:rgba"],.dark .content-body [style*="background: rgba"]{background:#344e59!important;color:#fff2dd!important}.motion-paused *{animation:none!important;transition:none!important}.motion-paused #particle-canvas{display:none!important}.passport-container{background:#fff8ec;color:#233c49}.stamp-name,.stamp-date,.passport-status{font-size:14px!important;text-transform:none!important;letter-spacing:0!important;color:#233c49!important}.passport-stamp{min-height:125px}#lightbox{background:#142c38ee}.widget-body{gap:12px}.widget-label{white-space:normal}
 @media(max-width:768px){#guide-toolbar{height:160px;padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:9px}#guide-toolbar h1{font-size:23px}#guide-toolbar p{font-size:14px;line-height:1.3}#guide-toolbar label{min-width:0}#guide-toolbar select{width:100%;min-width:0;max-width:170px}#guide-toolbar nav{grid-column:1/-1;justify-content:space-between}#guide-toolbar nav button{flex:1;padding:6px 8px}#app-shell{top:160px}#sidebar{display:none}#bottom-sheet{display:flex;position:absolute;left:0;right:0;top:44%;bottom:0;height:auto;max-height:none;transform:translateY(105%);border-radius:14px 14px 0 0;overflow:hidden;flex-direction:column}#bottom-sheet.active{transform:none}.ui-active #map{left:0;bottom:56%}.content-header{padding:20px 17px 5px}.content-header h2{font-size:24px}.content-header p{font-size:15px!important;margin:6px 0}.content-body{padding:10px 17px 20px}.content-body p,.content-body li,.content-body span{font-size:15px!important}.map-controls{bottom:auto;top:12px;right:12px;gap:5px}.map-controls button{width:40px;height:40px;min-height:40px;min-width:40px}#mute-btn{width:75px;min-width:75px;font-size:14px}.leaflet-control-attribution{max-width:calc(100vw - 10px);font-size:14px!important}.nav-buttons{gap:8px;flex-wrap:wrap}.nav-buttons button{padding:10px 12px}.content-body img{max-width:100%}.hero-image-container img{height:150px!important;margin-bottom:14px!important}.passport-container{max-height:90dvh;overflow:auto;margin:5dvh 14px;padding:22px 16px}.passport-grid{grid-template-columns:repeat(2,1fr)}.passport-header h2{font-size:25px}.passport-header p{font-size:15px}.content-header .close-btn{top:5px}.drag-handle{display:none}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:0s!important;transition:none!important}}
 #app-shell{height:auto!important;width:auto!important}#map{height:auto!important;width:auto!important;filter:none!important}.leaflet-tile-pane,.leaflet-tile{filter:none!important}.leaflet-tile{opacity:1!important}#welcome-screen{animation:none!important}#welcome-screen>*{opacity:1!important;transform:none!important;animation:none!important}#begin-button{min-height:48px;animation:none!important}.content-body [style*="opacity:0"],.stagger-in{opacity:1!important;transform:none!important}.content-body{flex:1}.leaflet-control-attribution{display:block!important;visibility:visible!important;opacity:1!important}#sidebar:not(.active),#bottom-sheet:not(.active){visibility:hidden}.content-body img{background:#d8e2e1}.hero-image-container::after{content:'Illustrative landscape photo via Unsplash. Not a verified landmark.';display:block;font-size:14px;line-height:1.45;margin:0 0 16px;color:inherit}#mute-btn{white-space:nowrap!important;min-width:85px!important;width:85px!important;height:42px!important}.ui-active .map-controls{display:none}.widget-item{min-width:0}.leaflet-container{font-family:Arial,Helvetica,sans-serif}
-.leaflet-control-container{display:block!important}#map::after{display:none!important}.content-body div[style*="color:var(--accent)"]{color:inherit!important}.dark .content-body span[style*="background:"]{background:#344e59!important;color:#fff2dd!important}.dark .content-body div[style*="background:rgba"],.dark .content-body div[style*="background: rgba"]{color:#fff2dd!important}.content-body .play-greeting-btn{min-width:40px!important;min-height:40px!important;color:#233c49!important;background:#efe5d1!important}.content-body .quiz-feedback{font-size:15px!important}.content-body img[loading]{min-height:110px}#passport-modal:not(.active),#lightbox:not(.active){visibility:hidden}#passport-modal.active,#lightbox.active{visibility:visible}#sidebar .content-header,#bottom-sheet .content-header{flex:none}#welcome-title{-webkit-text-fill-color:#fff6e4;background:none;font-size:clamp(45px,10vw,78px);filter:none}#welcome-subtitle{color:#fff2dd;font-size:18px;line-height:1.5}#begin-button{background:#f1d6a7;color:#233c49}#welcome-screen::before,#welcome-screen::after{display:none}
-.quiz-feedback span{color:inherit!important}.quiz-question{font-size:20px!important}.passport-stamp{font-family:Arial,sans-serif;border:1px solid #839ba1;background:#fff9ed}.passport-stamp:disabled{opacity:1;color:#53636a}.passport-stamp.earned{color:#233c49}#passport-modal .close-passport{color:#233c49;background:#fff9ed;min-width:44px;min-height:44px}
+.leaflet-control-container{display:block!important}#map::after{display:none!important}.content-body div[style*="color:var(--accent)"]{color:inherit!important}.dark .content-body span[style*="background:"]{background:#344e59!important;color:#fff2dd!important}.dark .content-body div[style*="background:rgba"],.dark .content-body div[style*="background: rgba"]{color:#fff2dd!important}.content-body .play-greeting-btn{min-width:40px!important;min-height:40px!important;color:#233c49!important;background:#efe5d1!important}.content-body img[loading]{min-height:110px}#passport-modal:not(.active),#lightbox:not(.active){visibility:hidden}#passport-modal.active,#lightbox.active{visibility:visible}#sidebar .content-header,#bottom-sheet .content-header{flex:none}#welcome-title{-webkit-text-fill-color:#fff6e4;background:none;font-size:clamp(45px,10vw,78px);filter:none}#welcome-subtitle{color:#fff2dd;font-size:18px;line-height:1.5}#begin-button{background:#f1d6a7;color:#233c49}#welcome-screen::before,#welcome-screen::after{display:none}.passport-stamp{font-family:Arial,sans-serif;border:1px solid #839ba1;background:#fff9ed}.passport-stamp:disabled{opacity:1;color:#53636a}.passport-stamp.earned{color:#233c49}#passport-modal .close-passport{color:#233c49;background:#fff9ed;min-width:44px;min-height:44px}
 .landmark-link{display:block;text-align:left;color:inherit;background:transparent;border:0;text-decoration:underline;font-size:16px;padding:5px 0}.landmark-coords{display:block;font-size:14px!important}.landmark-item{color:inherit!important}.source-note{font-size:14px!important;line-height:1.5!important;padding-top:20px;border-top:1px solid #84999e}.source-note a{font-size:14px!important}.dark .content-body .source-note,.dark .content-body strong{color:#fff2dd!important}#sidebar .content-header p,#bottom-sheet .content-header p{margin:10px 0}#guide-toolbar #mute-btn{width:auto!important;min-width:85px!important}#guide-toolbar #passport-btn{width:auto}.map-controls{display:flex!important;top:12px;bottom:auto}.map-controls button{width:40px;min-width:40px;height:40px;min-height:40px}.leaflet-tooltip{font-size:14px!important}#welcome-screen{padding:24px}#welcome-subtitle{max-width:500px}.dark #passport-modal h2,.dark #passport-modal h3,.dark #passport-modal p{color:#233c49}.dark #passport-modal .nav-btn.primary{color:#fff8ed!important;background:#345764!important}#passport-modal .journal-textarea{font-size:16px}#passport-modal .nav-btn.secondary{font-size:14px!important}.dark #passport-modal .nav-btn.secondary{color:#233c49!important;background:#fff9ed!important}#lightbox-img{max-height:80vh}.lightbox-close{width:48px;height:48px;color:#fff9ed}
 @media(max-width:768px){#guide-toolbar{height:210px}#guide-toolbar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}#guide-toolbar nav button{min-width:0!important;width:auto!important;min-height:40px;padding:7px 5px}#guide-toolbar nav #mute-btn{min-width:0!important;width:auto!important}#app-shell{top:210px}.hero-image-container img{height:125px!important}.content-header{padding:15px 17px 0}.content-header h2{margin:0}.content-body{padding-top:8px}.map-controls{top:8px;right:8px}.content-body p,.content-body li{line-height:1.55!important}.content-header p{max-width:calc(100% - 30px)}}
-.toast,.toast-container,#toast,#toast-container{pointer-events:none!important}.content-body .quiz-option{color:#233c49!important}.dark .content-body .quiz-option{color:#fff2dd!important}.content-body .quiz-option:disabled{opacity:1}.content-body .quiz-option.correct{background:#345764!important;color:#fff7e5!important}.dark .content-body .quiz-option.correct{background:#f1d6a7!important;color:#233c49!important}
+.toast,.toast-container,#toast,#toast-container{pointer-events:none!important}
 #welcome-title{color:#fff6e4}.content-body strong,.fact-card strong{font-size:15px!important;color:inherit!important;text-transform:none!important;letter-spacing:0!important}.landmark-item{background:#f0f1e9!important;border-color:#a4b3b3!important}.dark .landmark-item{background:#344e59!important;color:#fff2dd!important}.toast{background:#fff8ec!important;color:#233c49!important;top:auto;bottom:20px;border-radius:10px;max-width:calc(100vw - 24px);font-size:15px;padding:12px 18px}.map-controls{opacity:1!important;transform:none!important;pointer-events:auto!important}
 .content-header h2{background:none!important;-webkit-background-clip:border-box;-webkit-text-fill-color:currentColor;filter:none!important}
 
@@ -1559,3 +1471,7 @@ body:not(.chrome-on) .map-controls{opacity:0;visibility:hidden;pointer-events:no
 #pin-controls[aria-pressed="true"]{background:#f1d6a7!important;color:#233c49!important}
 @media(max-width:768px){#chrome-hint{height:34px}}
 @media(prefers-reduced-motion:reduce){#chrome-hint{animation:none!important}}
+
+/* The souvenir check stays visible when its drawing animation is paused. */
+.motion-paused .success-icon { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) { .success-icon { stroke-dashoffset: 0; } }
