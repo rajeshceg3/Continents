@@ -1,96 +1,15 @@
-/* Quiet chrome: the map leads, controls visit when called and retire when left.
-   Contract shared across worlds: greet ~2.6s, retire; wake on edge hover,
-   hint tab, keyboard focus, or the pin (persisted). Escape retires. */
-(function () {
-  const PIN_KEY = 'continents-chrome-pin';
-  const TOP_ZONE = 96;
-  const BOTTOM_ZONE = 150;
-  const RETIRE_MS = 2600;
-
-  const toolbar = document.getElementById('guide-toolbar');
-  const hint = document.getElementById('chrome-hint');
-  const pinBtn = document.getElementById('pin-controls');
-  const mapControls = document.querySelector('.map-controls');
-  if (!toolbar || !hint || !pinBtn) return;
-
-  let pinned = false;
-  try { pinned = localStorage.getItem(PIN_KEY) === '1'; } catch (e) {}
-  let focusWithin = false;
-  let retireTimer = null;
-  let started = false;
-
-  function apply() {
-    const on = pinned || wakeState;
-    document.body.classList.toggle('chrome-on', on);
-    hint.hidden = on || !started;
-    pinBtn.setAttribute('aria-pressed', String(pinned));
-  }
-
-  let wakeState = true; // greeting on entry
-
-  function retireSoon() {
-    clearTimeout(retireTimer);
-    retireTimer = setTimeout(() => {
-      if (!focusWithin) { wakeState = false; apply(); }
-    }, RETIRE_MS);
-  }
-
-  function wake() {
-    if (!started) return;
-    wakeState = true;
-    apply();
-    retireSoon();
-  }
-
-  function onPointerMove(e) {
-    if (e.pointerType === 'touch') return;
-    if (e.clientY < TOP_ZONE || e.clientY > window.innerHeight - BOTTOM_ZONE) wake();
-  }
-
-  function onKey(e) {
-    if (e.key === 'Escape') { focusWithin = false; wakeState = false; apply(); }
-  }
-
-  function onFocusIn(e) {
-    if (toolbar.contains(e.target) || (mapControls && mapControls.contains(e.target))) {
-      focusWithin = true;
-      clearTimeout(retireTimer);
-      wakeState = true;
-      apply();
-    }
-  }
-
-  function onFocusOut(e) {
-    if (toolbar.contains(e.relatedTarget) || (mapControls && mapControls.contains(e.relatedTarget))) return;
-    focusWithin = false;
-    retireSoon();
-  }
-
-  pinBtn.addEventListener('click', () => {
-    pinned = !pinned;
-    try { pinned ? localStorage.setItem(PIN_KEY, '1') : localStorage.removeItem(PIN_KEY); } catch (e) {}
-    if (pinned) wakeState = true;
-    apply();
-    if (!pinned) retireSoon();
-  });
-
-  hint.addEventListener('click', wake);
-
-  // Start the greeting once the app enters the map (toolbar unhidden).
-  const observer = new MutationObserver(() => {
-    if (!toolbar.hidden && !started) {
-      started = true;
-      wakeState = true;
-      apply();
-      retireSoon();
-    }
-  });
-  observer.observe(toolbar, { attributes: true, attributeFilter: ['hidden'] });
-
-  document.addEventListener('pointermove', onPointerMove);
-  document.addEventListener('keydown', onKey);
-  document.addEventListener('focusin', onFocusIn);
-  document.addEventListener('focusout', onFocusOut);
-
-  apply();
+// Deliberate Atlas disclosure. No timer, hover or saved Pin.
+(()=>{
+ const panel=document.getElementById('guide-toolbar'),toggle=document.getElementById('atlas-toggle');
+ const close=(focus=true)=>{panel.hidden=true;panel.inert=true;toggle.setAttribute('aria-expanded','false');if(focus)toggle.focus()};
+ const zoom=document.querySelector('.map-controls');document.getElementById('atlas-zoom').appendChild(zoom);
+ toggle.addEventListener('click',()=>{if(!panel.hidden){close();return}document.dispatchEvent(new Event('close-guide'));panel.hidden=false;panel.inert=false;toggle.setAttribute('aria-expanded','true');document.getElementById('atlas-close').focus()});
+ document.getElementById('atlas-close').addEventListener('click',()=>close());
+ document.addEventListener('close-atlas',()=>close(false));
+ document.addEventListener('keydown',e=>{
+  if(e.defaultPrevented||document.querySelector('#passport-modal.active,#lightbox.active'))return;
+  const story=document.querySelector('#sidebar.active,#bottom-sheet.active');const active=!panel.hidden?panel:story;if(!active)return;
+  if(e.key==='Escape'){e.preventDefault();if(active===panel)close();else{document.dispatchEvent(new Event('close-guide'));toggle.focus()}return}
+  if(e.key==='Tab'){const items=[...active.querySelectorAll('button:not(:disabled),a[href],textarea,[tabindex="0"]')].filter(x=>x.getClientRects().length);const first=items[0],last=items.at(-1);if(!first)return;if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}
+ });
 })();

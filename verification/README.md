@@ -14,3 +14,12 @@ Pre-deployment verification.
 Background sources linked in each guide include Britannica continent pages and British Antarctic Survey. OpenStreetMap attribution and copyright link remain visible. Map projection clips Antarctica at the poles, and landmark coordinates are approximate.
 
 A 320px safety-width matrix also passed all 126 states. Contrast capture can be run with `WIDTH=390 node verification/contrast-capture.cjs` and `WIDTH=1440 node verification/contrast-capture.cjs`, followed by `python verification/contrast-measure.py` (Pillow/numpy required). The external map-label raster is excluded from the UI text claim.
+
+## Explicit Atlas controls, November 14, 2026
+
+- Atlas is one explicit disclosure, not timer/hover/Pin. Seven visible continent buttons replace the select.
+- Bounded story/Atlas surfaces and 44px controls work at 320px; map camera, continent content, sound and world effects are unchanged.
+- Normal and reduced-motion functional runs: 320, 390, 1280 and 1440px, each covering 126 states, both themes, quizzes, stamps, journal persistence, zoom/reset and silent start. CI runs both motion settings at 390/1440.
+- Additional real-network touch/keyboard checks cover a 320x668 viewport, all nine Europe steps and reading ends, Atlas focus wrap, Escape/return focus, passport, resize between phone and desktop, and visible attribution.
+- Narrow passport layout and modal pointer/focus boundaries are included. Inactive modals cannot intercept clicks while fading out.
+- Physical iPhone/Safari and live OS-preference changes are not verified. The existing app samples the OS motion preference on load; no motion-policy adoption is included here.

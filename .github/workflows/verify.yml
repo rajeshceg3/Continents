@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         width: [390, 1440]
+        motion: [reduce, no-preference]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -19,5 +20,6 @@ jobs:
       - run: npm test
         env:
           WIDTH: ${{ matrix.width }}
+          MOTION: ${{ matrix.motion }}
           CHROME: /usr/bin/google-chrome
       - run: npm audit --audit-level=high
