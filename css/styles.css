@@ -1471,3 +1471,7 @@ body:not(.chrome-on) .map-controls{opacity:0;visibility:hidden;pointer-events:no
 #pin-controls[aria-pressed="true"]{background:#f1d6a7!important;color:#233c49!important}
 @media(max-width:768px){#chrome-hint{height:34px}}
 @media(prefers-reduced-motion:reduce){#chrome-hint{animation:none!important}}
+
+/* The souvenir check stays visible when its drawing animation is paused. */
+.motion-paused .success-icon { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) { .success-icon { stroke-dashoffset: 0; } }

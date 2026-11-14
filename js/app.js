@@ -1009,9 +1009,6 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         completeExploration: function() {
-            if (this.currentContinent && [0,1,2,3,4,5,6].every(i => this.exploredSteps.has(i))) {
-                markVisited(this.currentContinent.name);
-            }
             closeUI();
         },
 
@@ -1130,6 +1127,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // A stamp remembers the scenes visited, never a right answer.
             if (stepIndex < 7) this.exploredSteps.add(stepIndex);
+            if (stepIndex === 7 && [0,1,2,3,4,5,6].every(i => this.exploredSteps.has(i))) {
+                markVisited(continent.name);
+            }
 
             // Helper to update UI
             const updateUI = (containerId, titleId, descId) => {
