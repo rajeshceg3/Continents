@@ -765,12 +765,12 @@ document.addEventListener('DOMContentLoaded', function () {
     passportBtn.addEventListener('click', () => {
         renderPassport();
         passportModal.classList.add('active');
-        passportModal.setAttribute('aria-hidden', 'false');passportModal.setAttribute('role','dialog');passportModal.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;closePassportBtn.focus();
+        passportModal.setAttribute('aria-hidden', 'false');passportModal.setAttribute('role','dialog');passportModal.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;document.getElementById('atlas-toggle').inert=true;closePassportBtn.focus();
     });
 
     closePassportBtn.addEventListener('click', () => {
         passportModal.classList.remove('active');
-        passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;passportBtn.focus();
+        passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=document.getElementById('guide-toolbar').hidden;document.getElementById('atlas-toggle').inert=false;passportBtn.focus();
         closeJournal(); // Reset view
     });
 
@@ -781,7 +781,7 @@ document.addEventListener('DOMContentLoaded', function () {
     passportModal.addEventListener('click', (e) => {
         if (e.target === passportModal) {
             passportModal.classList.remove('active');
-            passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;passportBtn.focus();
+            passportModal.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=document.getElementById('guide-toolbar').hidden;document.getElementById('atlas-toggle').inert=false;passportBtn.focus();
         }
     });
 
@@ -790,15 +790,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
 
+    let lightboxReturnFocus;
     function openLightbox(src) {
+        lightboxReturnFocus=document.activeElement===document.body?document.querySelector('#sidebar.active .close-btn,#bottom-sheet.active .close-btn'):document.activeElement;
         lightboxImg.src = src;
         lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');lightbox.setAttribute('role','dialog');lightbox.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;lightboxClose.focus();
+        lightbox.setAttribute('aria-hidden', 'false');lightbox.setAttribute('role','dialog');lightbox.setAttribute('aria-modal','true');document.getElementById('app-shell').inert=true;document.getElementById('guide-toolbar').inert=true;document.getElementById('atlas-toggle').inert=true;lightboxClose.focus();
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=false;document.getElementById('continent-picker').focus();
+        lightbox.setAttribute('aria-hidden', 'true');document.getElementById('app-shell').inert=false;document.getElementById('guide-toolbar').inert=document.getElementById('guide-toolbar').hidden;document.getElementById('atlas-toggle').inert=false;if(lightboxReturnFocus?.isConnected)lightboxReturnFocus.focus();
         const currentSrc = lightboxImg.src;
         setTimeout(() => {
             if (lightboxImg.src === currentSrc) {
@@ -807,7 +809,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 400); // clear after animation only if it hasn't changed
     }
 
-    document.addEventListener('keydown',e=>{const modal=passportModal.classList.contains('active')?passportModal:lightbox.classList.contains('active')?lightbox:null;if(!modal)return;if(e.key==='Escape'){if(modal===passportModal)closePassportBtn.click();else closeLightbox()}if(e.key==='Tab'){const nodes=[...modal.querySelectorAll('button:not(:disabled),[tabindex="0"],textarea')].filter(e=>e.getBoundingClientRect().height>0);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});lightboxClose.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')closeLightbox()});
+    document.addEventListener('keydown',e=>{const modal=passportModal.classList.contains('active')?passportModal:lightbox.classList.contains('active')?lightbox:null;if(!modal)return;if(e.key==='Escape'){e.preventDefault();if(modal===passportModal)closePassportBtn.click();else closeLightbox()}if(e.key==='Tab'){const nodes=[...modal.querySelectorAll('button:not(:disabled),[tabindex="0"],textarea')].filter(e=>e.getBoundingClientRect().height>0);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});lightboxClose.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')closeLightbox()});
     lightbox.addEventListener('click', closeLightbox);
     lightboxClose.addEventListener('click', closeLightbox);
 
@@ -824,6 +826,7 @@ document.addEventListener('DOMContentLoaded', function () {
          bottomSheet.classList.remove('active');
          sidebar.inert=bottomSheet.inert=true;sidebar.setAttribute('aria-hidden','true');bottomSheet.setAttribute('aria-hidden','true');
          document.body.classList.remove('ui-active');
+         document.getElementById('atlas-toggle').focus({preventScroll:true});
 
          // Restore default theme colors
          document.documentElement.style.setProperty('--accent', '#635BFF');
@@ -834,6 +837,8 @@ document.addEventListener('DOMContentLoaded', function () {
          document.getElementById('continent-picker').value='';
          if(map){map.invalidateSize();map.setView([20,0],2,{animate:false})}
     };
+
+    document.addEventListener('close-guide',()=>{if(document.body.classList.contains('ui-active'))closeUI()});
 
     const ExplorationManager = {
         currentStep: 0,
@@ -1046,6 +1051,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         openUI: function(continent) {
+             document.dispatchEvent(new Event('close-atlas'));
              AudioEngine.playClick();
              AudioEngine.playAmbient(continent.name);
              document.getElementById('continent-picker').value=continent.name;
@@ -1094,6 +1100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                  sidebar.classList.remove('active');
              }
              document.body.classList.add('ui-active');
+             requestAnimationFrame(()=>{const panel=isDesktop?sidebar:bottomSheet;panel.querySelector('.close-btn').focus({preventScroll:true});});
              sidebar.inert=!isDesktop;bottomSheet.inert=isDesktop;sidebar.setAttribute('aria-hidden',''+!isDesktop);bottomSheet.setAttribute('aria-hidden',''+isDesktop);
              map.stop();map.invalidateSize({pan:false});map.setView(continent.coords,continent.zoom-.5,{animate:false});
         },
@@ -1435,15 +1442,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 }
 
-                // Trigger a slight fade-in for content
-                if(motion)container.animate([
-                    { opacity: 0, transform: 'translateY(10px)' },
-                    { opacity: 1, transform: 'translateY(0)' }
-                ], {
-                    duration: 400,
-                    easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
-                });
-
                 // Update Map State
 
             };
@@ -1461,12 +1459,11 @@ document.addEventListener('DOMContentLoaded', function () {
     window.ExplorationManager = ExplorationManager;
     window.AudioEngine = AudioEngine;
     window.guideContinents=continents;
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(passportModal.classList.contains('active'))closePassportBtn.click();else if(lightbox.classList.contains('active'))closeLightbox();else closeUI()}});
     window.openLightbox = openLightbox;
 
 
     beginButton.addEventListener('click', function() {
-        welcomeScreen.style.display='none';document.getElementById('app-shell').inert=false;document.getElementById('app-shell').removeAttribute('aria-hidden');document.getElementById('guide-toolbar').hidden=false;initializeMap();return;
+        welcomeScreen.style.display='none';document.getElementById('app-shell').inert=false;document.getElementById('app-shell').removeAttribute('aria-hidden');document.getElementById('atlas-toggle').hidden=false;initializeMap();return;
 
     });
 
@@ -1540,9 +1537,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, {passive: true});
 
 
-        const picker=document.getElementById('continent-picker');
-        continents.forEach(c=>{const o=document.createElement('option');o.value=c.name;o.textContent=c.name;picker.appendChild(o)});
-        picker.addEventListener('change',()=>{const c=continents.find(c=>c.name===picker.value);if(c)ExplorationManager.startExploration(c);else closeUI()});
+        continents.forEach(c=>{const button=document.createElement('button');button.type='button';button.textContent=c.name;button.dataset.continent=c.name;button.addEventListener('click',()=>ExplorationManager.startExploration(c));document.getElementById('continent-choices').appendChild(button)});
         document.getElementById('reset-map').onclick=()=>{map.stop();closeUI()};
         document.getElementById('theme-toggle').onclick=e=>{document.body.classList.toggle('dark');e.target.textContent=document.body.classList.contains('dark')?'Light UI':'Dark UI'};
         document.getElementById('motion-toggle').textContent=motion?'Pause motion':'Play motion';

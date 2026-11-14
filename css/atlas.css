@@ -1,0 +1,32 @@
+[hidden]{display:none!important}
+#atlas-toggle{position:fixed;top:14px;left:14px;z-index:1200;min-height:44px;display:flex;gap:28px;align-items:center;padding:10px 17px;background:#fff8ec;color:#233c49;border:1px solid #71868d;border-radius:4px;font:600 15px Georgia,serif;box-shadow:3px 3px 0 #233c4926}
+#app-shell,body:not(.chrome-on) #app-shell{inset:0;transition:none}
+#guide-toolbar,body:not(.chrome-on) #guide-toolbar:not([hidden]){position:fixed;top:72px;left:14px;right:auto;width:360px;max-width:calc(100% - 28px);height:auto;max-height:calc(100dvh - 112px);box-sizing:border-box;padding:0 16px 16px;display:block;overflow:auto;visibility:visible;pointer-events:auto;transform:none;transition:none;border:1px solid #71868d;border-radius:5px;box-shadow:5px 6px 0 #233c491c}
+.atlas-heading{position:sticky;top:0;background:inherit;z-index:2;display:flex;gap:8px;justify-content:space-between;align-items:center;margin:0 -16px;padding:12px 12px 12px 16px;border-bottom:1px solid #a3afb0}
+#guide-toolbar h1{font-size:23px;margin:0 0 5px}#guide-toolbar h2{font:600 14px Arial,sans-serif;margin:18px 0 10px}#guide-toolbar p{font-size:14px}
+#atlas-close{min-width:44px;min-height:44px;font-size:24px!important;flex:none}
+#continent-choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}#continent-choices button:last-child{grid-column:1/-1}#guide-toolbar button{min-height:44px;white-space:normal;font-size:15px}
+#guide-toolbar nav{display:grid;grid-template-columns:1fr 1fr;gap:8px}#guide-toolbar nav button{min-width:0!important;width:auto!important}
+#atlas-zoom .map-controls,body:not(.chrome-on) #atlas-zoom .map-controls{position:static;display:flex!important;flex-direction:row;visibility:visible;opacity:1;pointer-events:auto;transform:none;margin-top:12px;gap:8px}#atlas-zoom .map-controls button{width:44px;height:44px;min-width:44px;min-height:44px}
+#sidebar{top:72px;left:14px;bottom:40px;width:440px;max-width:calc(100% - 28px);border-radius:5px;transition:none}
+.ui-active #map{left:0;bottom:0}.close-btn{min-width:44px;min-height:44px;z-index:5}#sidebar .content-header,#bottom-sheet .content-header{padding-right:64px}.content-header p{max-width:none}#bottom-sheet{transition:none}
+#passport-modal{z-index:1500}#lightbox{z-index:1600}
+@media(max-width:768px){#bottom-sheet{top:72px;left:14px;right:14px;bottom:40px;border-radius:5px;max-height:none}.ui-active #map{bottom:0}.content-header h2{font-size:25px}.content-body .play-greeting-btn{min-width:44px!important;min-height:44px!important}}
+/* The reading surface appears ready to read, without delayed fades. */
+.content-header h2,.content-header p,.content-body{opacity:1!important;transform:none!important;transition:none!important}
+#sidebar .content-header h2,#bottom-sheet .content-header h2{margin-top:0;margin-bottom:8px}
+#sidebar .content-header p,#bottom-sheet .content-header p{line-height:1.45}
+/* Keep focused choices clear of the Atlas heading on short screens. */
+#guide-toolbar{scroll-padding-top:100px}
+#continent-choices button{scroll-margin-top:100px}
+/* The passport is a bounded reading surface, including narrow phones. */
+#passport-modal{box-sizing:border-box;padding:14px}
+.passport-container{box-sizing:border-box;min-width:0;max-height:calc(100dvh - 28px);margin:0}
+.passport-header{padding-right:38px;text-align:left}
+.passport-header h2{overflow-wrap:anywhere}
+.passport-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.passport-stamp{min-width:0;min-height:0;box-sizing:border-box;transform:none!important}
+.stamp-name{overflow-wrap:anywhere}.stamp-inner{min-width:0}
+@media(min-width:769px){.passport-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+#passport-modal:not(.active),#lightbox:not(.active){pointer-events:none}
+#atlas-zoom button{transition:none;transform:none}
