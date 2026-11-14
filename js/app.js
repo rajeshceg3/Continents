@@ -36,11 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Tipping (15-20%) is customary in restaurants in the US and Canada.",
                 "Weather varies wildly; pack layers if traveling north to south."
             ],
-            quiz: {
-                question: "What is North America's rank by land area?",
-                options: ["First", "Second", "Third", "Seventh"],
-                answer: 2 // Canada
-            },
             landmarks: [
                 { name: "Grand Canyon", coords: [36.0544, -112.1401] },
                 { name: "Niagara Falls", coords: [43.0962, -79.0377] },
@@ -81,11 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Carry cash, as smaller vendors may not accept cards.",
                 "Be aware of altitude sickness when visiting the Andes."
             ],
-            quiz: {
-                question: "Which country is home to the Galapagos Islands?",
-                options: ["Peru", "Brazil", "Ecuador", "Chile"],
-                answer: 2 // Ecuador
-            },
             landmarks: [
                 { name: "Machu Picchu", coords: [-13.1631, -72.5450] },
                 { name: "Christ the Redeemer", coords: [-22.9519, -43.2105] },
@@ -126,11 +116,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Book major museums in advance to skip lines.",
                 "Many businesses close on Sundays in parts of Europe."
             ],
-            quiz: {
-                question: "What is the smallest country in the world?",
-                options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
-                answer: 1 // Vatican City
-            },
             landmarks: [
                 { name: "Eiffel Tower", coords: [48.8584, 2.2945] },
                 { name: "Colosseum", coords: [41.8902, 12.4922] },
@@ -171,11 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Consult a doctor for vaccinations and malaria prophylaxis.",
                 "Respect local customs and dress codes."
             ],
-            quiz: {
-                question: "Which is the longest river in Africa?",
-                options: ["Congo River", "Niger River", "Nile River", "Zambezi River"],
-                answer: 2 // Nile
-            },
             landmarks: [
                 { name: "Pyramids of Giza", coords: [29.9792, 31.1342] },
                 { name: "Victoria Falls", coords: [-17.9243, 25.8572] },
@@ -216,11 +196,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Carry toilet paper and hand sanitizer.",
                 "Be prepared to haggle in markets."
             ],
-            quiz: {
-                question: "Which is the highest mountain on Earth?",
-                options: ["K2", "Kangchenjunga", "Mount Everest", "Lhotse"],
-                answer: 2 // Mount Everest
-            },
             landmarks: [
                 { name: "Great Wall of China", coords: [40.4319, 116.5704] },
                 { name: "Taj Mahal", coords: [27.1751, 78.0421] },
@@ -261,11 +236,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Swim between the red and yellow flags at beaches.",
                 "Distances are vast; plan accordingly if driving."
             ],
-            quiz: {
-                question: "What is the capital of Australia?",
-                options: ["Sydney", "Melbourne", "Canberra", "Perth"],
-                answer: 2 // Canberra
-            },
             landmarks: [
                 { name: "Sydney Opera House", coords: [-33.8568, 151.2153] },
                 { name: "Uluru", coords: [-25.3444, 131.0369] },
@@ -306,11 +276,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 "Invest in high-quality thermal layers.",
                 "Be prepared for rough seas when crossing the Drake Passage."
             ],
-            quiz: {
-                question: "Which animal is NOT found in Antarctica?",
-                options: ["Penguin", "Seal", "Polar Bear", "Whale"],
-                answer: 2 // Polar Bear
-            },
             landmarks: [
                 { name: "Mount Vinson", coords: [-78.5254, -85.6171] },
                 { name: "McMurdo Station", coords: [-77.8463, 166.6681] },
@@ -609,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Global Tactile Hover Events
     document.addEventListener('mouseover', (e) => {
-        if (e.target.closest('button, .landmark-item, .quiz-option, .cuisine-card, .continent-marker .pin')) {
+        if (e.target.closest('button, .landmark-item, .cuisine-card, .continent-marker .pin')) {
             AudioEngine.playHover();
         }
     });
@@ -906,9 +871,9 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('[id=live-temp]').forEach(e=>e.textContent=`${this.liveConditions.icon||''} ${this.liveConditions.temp||'Unavailable'}`);
             document.querySelectorAll('[id=live-time]').forEach(e=>e.textContent=this.liveConditions.time||'Unavailable');
         },
-        totalSteps: 9, // Updated: Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Quiz, Completion
+        totalSteps: 8, // Intro, Climate, Wildlife, Culture, Landmarks, Tips, Facts, Souvenir
         currentContinent: null,
-        quizAnswered: false,
+        exploredSteps: new Set(),
         landmarkMarkers: [],
 
         resetMapState: function() {
@@ -931,7 +896,7 @@ document.addEventListener('DOMContentLoaded', function () {
         startExploration: function(continent) {
             this.currentContinent = continent;
             this.currentStep = 0;
-            this.quizAnswered = false;
+            this.exploredSteps = new Set();
             this.renderStep(this.currentStep);
             this.openUI(continent);
         },
@@ -1044,7 +1009,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         completeExploration: function() {
-            if (this.currentContinent) {
+            if (this.currentContinent && [0,1,2,3,4,5,6].every(i => this.exploredSteps.has(i))) {
                 markVisited(this.currentContinent.name);
             }
             closeUI();
@@ -1160,43 +1125,11 @@ document.addEventListener('DOMContentLoaded', function () {
             animate();
         },
 
-        handleQuizOption: function(index, btnElement) {
-            if (this.quizAnswered) return;
-
-            const correctIndex = this.currentContinent.quiz.answer;
-            const quizPanel=btnElement.closest('.content-body');
-            const feedbackEl = quizPanel.querySelector('#quiz-feedback');
-            const nextBtn = quizPanel.querySelector('#quiz-next-btn');
-
-            if (index === correctIndex) {
-                AudioEngine.playSuccess();
-                // Correct
-                btnElement.classList.add('correct');
-                feedbackEl.innerHTML = '<span style="color:var(--success); font-weight:bold;">Correct!</span> Well done.';
-                nextBtn.disabled = false;
-                this.quizAnswered = true;
-
-                // Disable other buttons
-                document.querySelectorAll('.quiz-option').forEach(btn => {
-                   if (btn !== btnElement) btn.disabled = true;
-                });
-            } else {
-                AudioEngine.playError();
-                // Incorrect
-                btnElement.classList.add('shake');
-                btnElement.classList.add('incorrect');
-                setTimeout(() => btnElement.classList.remove('shake'), 500);
-                feedbackEl.innerHTML = '<span style="color:var(--danger); font-weight:bold;">Not quite.</span> Try again!';
-            }
-        },
-
         renderStep: function(stepIndex) {
             const continent = this.currentContinent;
 
-            // Reset quiz state if entering quiz step to allow interaction
-            if (stepIndex === 7) {
-                this.quizAnswered = false;
-            }
+            // A stamp remembers the scenes visited, never a right answer.
+            if (stepIndex < 7) this.exploredSteps.add(stepIndex);
 
             // Helper to update UI
             const updateUI = (containerId, titleId, descId) => {
@@ -1369,37 +1302,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                         <div class="nav-buttons">
                             <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Knowledge Check</button>
+                            <button class="nav-btn primary" onclick="ExplorationManager.nextStep()">Collect Passport Stamp</button>
                         </div>
                     `;
                 }
-                // STEP 7: QUIZ (New)
+                // STEP 7: SOUVENIR
                 else if (stepIndex === 7) {
-                    stepTitle = "Knowledge Check";
-                    stepDesc = "Test what you've learned.";
-
-                    const optionsHTML = continent.quiz.options.map((opt, i) => `
-                        <button class="quiz-option" onclick="ExplorationManager.handleQuizOption(${i}, this)">
-                            ${sanitizeHTML(opt)}
-                        </button>
-                    `).join('');
-
-                    contentHTML = `
-                        <div class="quiz-container">
-                            <h3 class="quiz-question">${sanitizeHTML(continent.quiz.question)}</h3>
-                            <div class="quiz-options">${optionsHTML}</div>
-                            <div id="quiz-feedback" class="quiz-feedback"></div>
-                        </div>
-                        <div class="nav-buttons">
-                            <button class="nav-btn secondary" onclick="ExplorationManager.prevStep()">Back</button>
-                            <button id="quiz-next-btn" class="nav-btn primary" disabled onclick="ExplorationManager.nextStep()">Claim Stamp</button>
-                        </div>
-                    `;
-                }
-                // STEP 8: COMPLETION
-                else if (stepIndex === 8) {
                     stepTitle = "Journey Complete!";
-                    stepDesc = "You have completed the guide to " + continent.name + ".";
+                    stepDesc = "A souvenir of your journey through " + continent.name + ".";
                     if(containerId==='sheet-content')this.triggerConfetti();
                     contentHTML = `
                         <div class="completion-view" style="text-align:center; padding: 40px 0;">
@@ -1407,7 +1317,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <svg viewBox="0 0 24 24" width="80" height="80" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="success-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                             </div>
                             <h3 style="margin-bottom:10px;">Passport Stamp Collected!</h3>
-                            <p style="color:var(--text-light);">You are one step closer to exploring the whole world.</p>
+                            <p style="color:var(--text-light);">A little reminder of the landscapes, wildlife and places you explored.</p>
                         </div>
                         <div class="nav-buttons center" style="display:flex; justify-content:center;">
                             <button class="nav-btn primary success" onclick="ExplorationManager.completeExploration()">
